@@ -1,0 +1,154 @@
+.hero-accordeon {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero-accordeon-card {
+  background: #f1efef;
+  border-radius: 15px 0 0 15px;
+  padding: 25px 30px;
+}
+.hero-accordeon-card:last-child {
+  border-radius: 15px 0 15px 15px;
+}
+
+.hero-accordeon-card-top {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.hero-accordeon-card-title {
+  max-width: 195px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.hero-accordeon-card-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0%;
+}
+
+/* Animated content — grid trick for unknown height */
+.hero-accordeon-card-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.4s ease,
+    opacity 0.3s ease;
+}
+
+.hero-accordeon-card-content.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.hero-accordeon-card-content-inner {
+  overflow: hidden;
+}
+
+.hero-accordeon-card-content-body {
+  padding-top: 50px;
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.hero-accordeon-card-content-left {
+  max-width: 200px;
+}
+
+.hero-accordeon-card-content-left-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  vertical-align: middle;
+}
+
+.hero-accordeon-card-content-left-text {
+  margin-top: 18px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.hero-accordeon-card-content-right {
+  max-width: 100%;
+  width: 100%;
+}
+
+.hero-accordeon-card-content-right-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.hero-accordeon-card-content-right-cards {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-accordeon-card-content-right-card {
+  max-width: 180px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  border: 0.75px solid #6e6e6e;
+  border-radius: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 4px 0;
+}
+
+.hero-accordeon-icon {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hero-accordeon-icon::before,
+.hero-accordeon-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  background: #000;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* вертикальна палка */
+.hero-accordeon-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* при відкритті робимо мінус */
+.hero-accordeon-icon.active::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 0;
+}
+
+.flex {
+  display: flex;
+}

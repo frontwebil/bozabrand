@@ -39,6 +39,10 @@ export function Footer() {
             </div>
           </div>
         </div>
+        <div className="footer-all-rights">
+          <p>©2026 BOZABRAND</p>
+          <p>ALL right reserved</p>
+        </div>
       </footer>
     </div>
   );

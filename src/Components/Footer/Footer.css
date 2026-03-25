@@ -1,5 +1,5 @@
 .footer {
-  padding-bottom: 100px;
+  padding-bottom: 40px;
 }
 .container {
 }
@@ -30,6 +30,23 @@
   vertical-align: middle;
   padding-bottom: 24px;
 }
+
+.footer-all-rights {
+  padding-top: 24px;
+  border-top: 1px solid #232323;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-all-rights p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #3a3838;
+}
+
 .footer-top-right-brief {
   max-width: 150px;
   background: #000000;
@@ -63,6 +80,7 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 30px;
 }
 .footer-undertop-left {
   display: flex;

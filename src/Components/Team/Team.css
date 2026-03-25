@@ -78,8 +78,9 @@
 }
 
 .team-card-top {
-  padding: 60px 0 45px;
+  padding: 30px 0 25px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #ffffff;
   gap: 20px;
@@ -94,7 +95,7 @@
 }
 
 .team-card-top-position {
-  max-width: 115px;
+  max-width: 125px;
   font-weight: 400;
   font-size: 14.49px;
   line-height: 14.47px;
@@ -122,6 +123,7 @@
 }
 
 .team-card-bottom-description {
+  font-weight: 300;
   font-size: 14px;
   line-height: 14px;
   max-width: 260px;
@@ -129,6 +131,7 @@
 }
 
 .team-card-bottom-description span {
-  font-weight: 700;
+  text-transform: uppercase;
+  font-weight: 400;
   line-height: 30px;
 }

@@ -58,7 +58,7 @@ const teamMembers = [
     id: 4,
     image: "/Team/4.png",
     name: "Аліна маленко",
-    position: "Бренд-дизайнерка, ілюстраторка",
+    position: "Бренд-дизайнер, ілюстраторка",
     departmentImage: "/Team/department/sensor3.gif",
     departmentAlt: "Poglyad",
     description: (

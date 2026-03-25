@@ -122,6 +122,7 @@
 }
 
 .team-card-bottom-description {
+  font-size: 14px;
   max-width: 260px;
   width: 100%;
 }

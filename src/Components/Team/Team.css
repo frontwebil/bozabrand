@@ -73,12 +73,12 @@
 
 .team-img img {
   width: 100%;
-  height: auto;
+  height: 335px;
   display: block;
 }
 
 .team-card-top {
-  padding: 30px 0 25px;
+  padding: 30px 0 10px;
   display: flex;
   align-items: start;
   justify-content: space-between;
@@ -97,10 +97,18 @@
 
 .team-card-top-position {
   max-width: 125px;
+
   font-weight: 400;
   font-size: 14.49px;
   line-height: 14.47px;
   color: #d1d4d1;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* рівно 3 рядки */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  height: calc(14.47px * 3); /* фікс висоти */
 }
 
 .team-card-bottom {

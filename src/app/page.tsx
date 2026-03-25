@@ -10,6 +10,10 @@ export default function Home() {
       <HeroSection />
       <RunningLine />
       <BestProducts />
+            <div className="" style={{
+        background:"linear-gradient(180deg, #18038C 0%, #090136 100%)",
+        height:"270px"
+      }}></div>
     </>
   );
 }

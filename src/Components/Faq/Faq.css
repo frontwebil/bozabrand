@@ -1,0 +1,189 @@
+@font-face {
+  font-family: "PP Neue World";
+  src:
+    url("/Team/fonts/PPNeueWorld-CondensedRegular.woff2") format("woff2"),
+    url("/Team/fonts/PPNeueWorld-CondensedRegular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.faq {
+  margin: 120px 0;
+}
+
+.faq-top {
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #232323;
+  margin-bottom: 15px;
+}
+
+.faq-top-title {
+  font-family: "PP Neue World";
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.faq-accordeon {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.faq-accordeon-item {
+  width: 100%;
+  max-width: 1000px;
+  padding: 30px 0 30px;
+  border-bottom: 1px solid #232323;
+}
+
+.faq-accordeon-item-top {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.faq-accordeon-item-top-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.faq-accordeon-item-top-left p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  min-width: 55px;
+}
+
+.faq-accordeon-item-top-left h2 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+}
+
+.faq-accordeon-item-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.4s ease,
+    opacity 0.3s ease;
+}
+
+.faq-accordeon-item-content.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.faq-accordeon-item-content-inner {
+  overflow: hidden;
+}
+
+.faq-accordeon-item-content-body {
+  padding-top: 24px;
+  padding-left: 75px;
+  max-width: 860px;
+}
+
+.faq-accordeon-item-content-body p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #000;
+}
+
+.faq-accordeon-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.faq-accordeon-icon::before,
+.faq-accordeon-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 1px;
+  background: #000;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.faq-accordeon-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-accordeon-icon.active::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 0;
+}
+
+/* @media (max-width: 1024px) {
+  .faq-top-title {
+    font-size: 56px;
+  }
+
+  .faq-accordeon-item-top-left h2 {
+    font-size: 21px;
+    line-height: 28px;
+  }
+
+  .faq-accordeon-item-content-body {
+    padding-left: 75px;
+  }
+} */
+
+/* @media (max-width: 768px) {
+  .faq {
+    margin: 80px 0;
+  }
+
+  .faq-top-title {
+    font-size: 42px;
+  }
+
+  .faq-accordeon-item-top-left {
+    gap: 12px;
+  }
+
+  .faq-accordeon-item-top-left p {
+    min-width: 42px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .faq-accordeon-item-top-left h2 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .faq-accordeon-item-content-body {
+    padding-top: 18px;
+    padding-left: 54px;
+  }
+
+  .faq-accordeon-item-content-body p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+} */

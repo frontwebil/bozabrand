@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import Image from "next/image";
 import "./Team.css";
+import Link from "next/link";
 
 const teamMembers = [
   {
@@ -145,6 +147,10 @@ export default function Team() {
             ))}
           </div>
         </div>
+
+        <Link href={"/"} className="team-button">
+          ПОЗНАЙОМИТИСЬ ЗІ СПІЛЬНотОЮ НЕПОВЕРХНЕВИХ
+        </Link>
       </div>
     </section>
   );

@@ -80,7 +80,10 @@ export function HeroAccordeon() {
         return (
           <div
             key={item.title}
-            className={`hero-accordeon-card${isOpen ? " active" : ""}`}
+            className={`hero-accordeon-card
+    ${isOpen ? " active" : ""}
+    ${index === accordionItems.length - 1 && openIndex !== 0 ? " rounded-last" : ""}
+  `}
           >
             <div
               className="hero-accordeon-card-top"

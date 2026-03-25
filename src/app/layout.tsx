@@ -13,7 +13,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "BOZABRAND",
-  description: "",
+  description:
+    "Ми занурюємось на глибину 11 тисяч метрів, щоб віднайти серце твого бренду. Стратегія, дизайн і сайти, що відчуваються.",
 };
 
 export default function RootLayout({

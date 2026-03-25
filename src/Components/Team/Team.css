@@ -123,10 +123,12 @@
 
 .team-card-bottom-description {
   font-size: 14px;
+  line-height: 14px;
   max-width: 260px;
   width: 100%;
 }
 
 .team-card-bottom-description span {
   font-weight: 700;
+  line-height: 30px;
 }

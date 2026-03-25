@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   background: hsla(0, 0%, 100%, 1);
-  padding: 25px 0;
+  padding: 20px 0;
   z-index: 10;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }

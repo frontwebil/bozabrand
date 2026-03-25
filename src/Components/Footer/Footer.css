@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: end;
-  border-bottom: 1px solid #232323
+  border-bottom: 1px solid #232323;
 }
 .footer-top-left-logo {
   max-width: 450px;

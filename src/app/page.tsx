@@ -1,4 +1,5 @@
 import { Faq } from "@/Components/Faq/Faq";
+import { Footer } from "@/Components/Footer/Footer";
 import { Header } from "@/Components/Header/Header";
 import { HeroSection } from "@/Components/Hero/Hero";
 import { RunningLine } from "@/Components/RunningLine/RunningLine";
@@ -16,7 +17,8 @@ export default function Home() {
       <div className="sandwich"></div>
       <Team />
       <VideoInfoGraph />
-      <Faq/>
+      <Faq />
+      <Footer />
     </>
   );
 }

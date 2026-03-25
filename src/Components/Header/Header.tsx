@@ -21,7 +21,7 @@ export function Header() {
               ПРОЕКТИ
             </Link>
             <Link href={"/"} className="header-nav-link">
-              НЕПОВЕРхНЕВІ
+              НЕПОВЕРХНЕВІ
             </Link>
             <Link href={"/"} className="header-nav-link">
               ПРО БРЕНД

@@ -26,24 +26,26 @@ export function RunningLine() {
   ];
 
   return (
-    <div className="container">
-      <div className="running-line-blocks">
-        <div className="running-line-block border-t border-l border-zinc-700"></div>
-        <div className="running-line-block border-t border-r border-zinc-700"></div>
-      </div>
-      <div className="running-line">
-        <div className="running-line-inner">
-          {items.map((item, index) => (
-            <span key={index} className="running-line-item">
-              {item}
-            </span>
-          ))}
+    <section className="running-line-section">
+      <div className="container">
+        <div className="running-line-blocks">
+          <div className="running-line-block border-t border-l border-zinc-700"></div>
+          <div className="running-line-block border-t border-r border-zinc-700"></div>
+        </div>
+        <div className="running-line">
+          <div className="running-line-inner">
+            {items.map((item, index) => (
+              <span key={index} className="running-line-item">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="running-line-blocks">
+          <div className="running-line-block border-b border-l border-zinc-700"></div>
+          <div className="running-line-block border-b border-r border-zinc-700"></div>
         </div>
       </div>
-      <div className="running-line-blocks">
-        <div className="running-line-block border-b border-l border-zinc-700"></div>
-        <div className="running-line-block border-b border-r border-zinc-700"></div>
-      </div>
-    </div>
+    </section>
   );
 }

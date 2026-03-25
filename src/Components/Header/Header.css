@@ -22,7 +22,7 @@
 .header-right {
   max-width: 100%;
   width: 100%;
-  gap: 20px;
+  gap: 35px;
   display: flex;
   align-items: center;
   justify-content: end;
@@ -31,7 +31,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  gap: 35px;
 }
 .header-nav-link {
   font-weight: 400;
@@ -46,11 +46,11 @@
 }
 
 .header-right-buttons {
-  max-width: 400px;
+  max-width: 380px;
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -64,7 +64,7 @@
   font-size: 14px;
   line-height: 100%;
   letter-spacing: 0.5px;
-  padding: 15px 0;
+  padding: 14px 0;
   border-radius: 40px;
   transition: all ease-out 0.3s;
 }

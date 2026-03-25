@@ -1,6 +1,7 @@
 import { Header } from "@/Components/Header/Header";
 import { HeroSection } from "@/Components/Hero/Hero";
 import { RunningLine } from "@/Components/RunningLine/RunningLine";
+import Team from "@/Components/Team/Team";
 import { BestProducts } from "@/Components/TopProducts/Best";
 
 export default function Home() {
@@ -10,10 +11,8 @@ export default function Home() {
       <HeroSection />
       <RunningLine />
       <BestProducts />
-            <div className="" style={{
-        background:"linear-gradient(180deg, #18038C 0%, #090136 100%)",
-        height:"270px"
-      }}></div>
+      <div className="sandwich"></div>
+      <Team />
     </>
   );
 }

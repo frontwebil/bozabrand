@@ -26,6 +26,7 @@
   width: 100%;
   font-weight: 500;
   font-size: 20px;
+  line-height: 23px;
   text-transform: uppercase;
 }
 
@@ -60,6 +61,7 @@
   display: flex;
   gap: 15px;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .hero-accordeon-card-content-left {
@@ -129,7 +131,7 @@
   top: 50%;
   left: 50%;
   width: 18px;
-  height: 2px;
+  height: 1px;
   background: #000;
   border-radius: 999px;
   transform: translate(-50%, -50%);

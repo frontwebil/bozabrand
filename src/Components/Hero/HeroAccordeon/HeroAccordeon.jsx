@@ -65,7 +65,7 @@ const accordionItems = [
 
 export function HeroAccordeon() {
   const [openIndex, setOpenIndex] = useState(0);
-
+  // border-radius: 15px 0 0px 15px;
   const handleOpen = (index) => {
     // Якщо карточка вже відкрита — нічого не робимо (не закриваємо)
     if (index === openIndex) return;

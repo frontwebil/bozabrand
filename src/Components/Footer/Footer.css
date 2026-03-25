@@ -56,3 +56,41 @@
   line-height: 20px;
   border-bottom: 1px solid #000;
 }
+
+.footer-undertop {
+  padding-top: 8px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-undertop-left {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.footer-phone-call {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+}
+
+.footer-social-link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  border-bottom: 1px solid black;
+}
+
+.footer-undertop-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer-undertop-right p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}

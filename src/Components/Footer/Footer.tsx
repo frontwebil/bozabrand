@@ -1,5 +1,6 @@
 import Image from "next/image";
 import "./Footer.css";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -28,10 +29,13 @@ export function Footer() {
         <div className="footer-undertop">
           <div className="footer-undertop">
             <div className="footer-undertop-left">
-              
+              <Link href={"tel:+380666899857"} className="footer-phone-call">+38 (066) 689 98 57</Link>
+              <Link href={"/"} className="footer-social-link">TELEGRAM</Link>
+              <Link href={"/"} className="footer-social-link">WHATSAPP</Link>
             </div>
             <div className="footer-undertop-right">
-            
+              <p>ПН-СБ</p>
+              <p>8:00 - 22:00</p>
             </div>
           </div>
         </div>

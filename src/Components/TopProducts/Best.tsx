@@ -35,7 +35,9 @@ export function BestProducts() {
     },
   ];
   return (
-    <section className="best-products">
+    <section className="best-products"               style={{
+                backgroundImage: `url(/Best/bg.png)`,
+              }}>
       <div className="container">
         <div className="best-products-top">
           <h2>ТОП ПРОЄКТИ</h2>

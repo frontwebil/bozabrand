@@ -8,7 +8,7 @@ export function HeroSection() {
         <HeroAccordeon />
         <div className="hero-video-container">
           <video autoPlay muted loop playsInline className="hero-video">
-            <source src="/Hero/hero.webm" type="video/webm" />
+            <source src="/Hero/hero.webm" type="video/webm"/>
           </video>
         </div>
       </div>

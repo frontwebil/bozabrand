@@ -42,7 +42,7 @@ const teamMembers = [
   },
   {
     id: 3,
-    image: "/Team/3.png",
+    image: "/Team/3.1.png",
     name: "Аксен Іванков",
     position: "Арт-директор, бренд-дизайнер",
     departmentImage: "/Team/department/sensor3.gif",
@@ -59,7 +59,7 @@ const teamMembers = [
   },
   {
     id: 4,
-    image: "/Team/4.png",
+    image: "/Team/4.1.png",
     name: "Аліна маленко",
     position: "Бренд-дизайнер, ілюстраторка",
     departmentImage: "/Team/department/sensor3.gif",
@@ -75,7 +75,7 @@ const teamMembers = [
   },
   {
     id: 5,
-    image: "/Team/5.png",
+    image: "/Team/5.1.png",
     name: "Ярослав Грінько",
     position: "Бренд-дизайнер",
     departmentImage: "/Team/department/sensor3.gif",
@@ -88,6 +88,78 @@ const teamMembers = [
         так довго, що вона врешті здається і йде на компроміс. Ярослав постійно
         вчиться - курси, статті, нові інструменти, тренди, - він усе пізнає, усе
         тестує, усе покращує.
+      </>
+    ),
+  },
+  {
+    id: 6,
+    image: "/Team/6.1.png",
+    name: "Таня Біла",
+    position: "Веб-розробка / Бренд-дизайнерка",
+    departmentImage: "/Team/department/sensor3.gif",
+    departmentAlt: "Poglyad",
+    description: (
+      <>
+        <span>ВІДДІЛ  ПОГЛЯДУ</span>
+        <br />
+        Суперсила Тані - з величезного обʼєму інфо про бізнес клієнта, а також
+        аналітики ринку, вибрати головну родзинку і зробити з нею символ, що
+        дуже просто передасть усе те складне. А ще Таня створює сайти, що
+        вантажаться швидше, ніж ви встигаєте згадати пароль. Структура, UX,
+        магія - це все до Тані.
+      </>
+    ),
+  },
+  {
+    id: 7,
+    image: "/Team/7.1.png",
+    name: "Марина",
+    position: "Фотографиня",
+    departmentImage: "/Team/department/sensor3.gif",
+    departmentAlt: "Poglyad",
+    description: (
+      <>
+        <span>ВІДДІЛ  ПОГЛЯДУ</span>
+        <br />
+        Марина вміє ловити не просто кадр, вона ловить людину. Її очі бачать
+        глибину, яку інші не помічають: емоцію, що сховалась у погляді,
+        тремтливий настрій, унікальний жест. А коли йдеться про зйомку компанії,
+        вона передає історію бізнесу через ледь вловимі рухи, деталі, світло,
+        атмосферу. Це не просто фото. Це “відчуй, хто ми”.
+      </>
+    ),
+  },
+  {
+    id: 8,
+    image: "/Team/8.1.png",
+    name: "Оля Трегуб",
+    position: "Копірайтерка",
+    departmentImage: "/Team/department/sensor2.gif",
+    departmentAlt: "Poglyad",
+    description: (
+      <>
+        <span style={{ textTransform: "uppercase" }}>
+          Відділ регулювання звуку
+        </span>
+        <br />
+        Генерує ідеї швидше, ніж ми встигаємо записувати. У неї всередині або
+        маленький всесвіт, або великий портал. Ми досі уточнюємо.
+      </>
+    ),
+  },
+  {
+    id: 9,
+    image: "/Team/9.1.png",
+    name: "Ангеліна",
+    position: "Ілюстраторка",
+    departmentImage: "/Team/department/sensor3.gif",
+    departmentAlt: "Poglyad",
+    description: (
+      <>
+        <span>ВІДДІЛ  ПОГЛЯДУ</span>
+        <br />
+        Створює стилі і справжні картини від руки, а ще персонажів і світи, які
+        хочеться обіймати. Навіть якщо це дракон з поганим настроєм.
       </>
     ),
   },
@@ -130,7 +202,9 @@ export default function Team() {
   const width = useWindowWidth();
 
   const duplicatedMembers =
-    width && width >= 500 ? [...teamMembers, ...teamMembers] : [...teamMembers];
+    width && width >= 500
+      ? [...teamMembers, ...teamMembers]
+      : [...teamMembers].slice(0, 5);
 
   return (
     <section className="team">

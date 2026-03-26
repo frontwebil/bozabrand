@@ -53,7 +53,7 @@
   display: flex;
   gap: 70px;
   width: max-content;
-  animation: team-scroll 20s linear infinite;
+  animation: team-scroll 35s linear infinite;
   /* animation-play-state: paused; */
 }
 
@@ -227,6 +227,12 @@
 }
 
 @media (max-width: 500px) {
+  .team-img img{
+    height: auto;
+  }
+  .team-card-top{
+    padding: 15px 0 25px;
+  }
   .team-slider {
     display: flex;
     justify-content: center;

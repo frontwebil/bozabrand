@@ -191,6 +191,12 @@
   }
 }
 
+@media (max-width: 1000px) {
+  .header {
+    backdrop-filter: none;
+    background: hsla(0, 0%, 100%, 1);
+  }
+}
 @media (max-width: 760px) {
   .header-right {
     max-width: 50px;

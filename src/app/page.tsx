@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Header />
       <HeroSection />
-      {/* <RunningLine /> */}
+      <RunningLine />
       <BestProducts />
       <div className="sandwich"></div>
       <Team />

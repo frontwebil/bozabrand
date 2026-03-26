@@ -176,6 +176,9 @@
 }
 
 @media (max-width: 1100px) {
+  .best-products {
+    padding-top: 80px;
+  }
   .best-products-card-bottom-item {
     padding: 4px 8px;
     font-size: 10px;
@@ -209,6 +212,9 @@
     width: 100%;
     height: 400px;
     max-width: 100%;
+  }
+  .best-products {
+    padding-top: 80px;
   }
 }
 
@@ -276,7 +282,7 @@
     margin-bottom: 10px;
     margin-left: auto;
   }
-  .best-products-button{
+  .best-products-button {
     max-width: 320px;
   }
 }

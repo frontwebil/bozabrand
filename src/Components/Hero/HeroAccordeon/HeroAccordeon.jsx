@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import "./HeroAccordeon.css";
+import { useWindowWidth } from "../../../../hooks/useWindowWidth";
 
 const accordionItems = [
   {
@@ -71,6 +72,7 @@ export function HeroAccordeon() {
     if (index === openIndex) return;
     setOpenIndex(index);
   };
+  const width = useWindowWidth();
 
   return (
     <div className="hero-accordeon">
@@ -91,7 +93,9 @@ export function HeroAccordeon() {
             >
               <h2 className="hero-accordeon-card-title">{item.title}</h2>
               <div className="flex">
-                <p className="hero-accordeon-card-text">{item.text}</p>
+                {width >= 920 && (
+                  <p className="hero-accordeon-card-text">{item.text}</p>
+                )}
                 <button
                   type="button"
                   className={`hero-accordeon-icon${isOpen ? " active" : ""}`}
@@ -132,6 +136,9 @@ export function HeroAccordeon() {
                       ))}
                     </div>
                   </div>
+                  {width < 920 && (
+                    <p className="hero-accordeon-card-text">{item.text}</p>
+                  )}
                 </div>
               </div>
             </div>

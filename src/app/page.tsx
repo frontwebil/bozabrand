@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      {/* <HeroSection /> */}
+      <HeroSection />
       {/* <RunningLine /> */}
       <BestProducts />
       <div className="sandwich"></div>

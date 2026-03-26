@@ -2,6 +2,7 @@
   max-width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 6px;
 }
 
@@ -9,9 +10,6 @@
   background: #f1efef;
   border-radius: 15px 0 0 15px;
   padding: 25px 30px;
-}
-.hero-accordeon-card.rounded-last {
-  border-radius: 15px 0 15px 15px;
 }
 
 .hero-accordeon-card-top {
@@ -73,6 +71,7 @@
   font-size: 18px;
   line-height: 22px;
   vertical-align: middle;
+  text-transform: uppercase;
 }
 
 .hero-accordeon-card-content-left-text {
@@ -91,6 +90,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 20px;
+  text-transform: uppercase;
 }
 
 .hero-accordeon-card-content-right-cards {
@@ -153,4 +153,82 @@
 
 .flex {
   display: flex;
+}
+
+@media (max-width: 1110px) {
+  .hero-accordeon-card-text {
+    font-size: 13px;
+    line-height: 13px;
+  }
+  .hero-accordeon-icon:before,
+  .hero-accordeon-icon:after {
+    width: 16px;
+  }
+  .hero-accordeon-card-content-body {
+    flex-direction: column-reverse;
+    align-items: start;
+  }
+  .hero-accordeon-card-content-left {
+    max-width: 100%;
+  }
+  .hero-accordeon-card-content-body {
+    gap: 30px;
+    padding-top: 30px;
+  }
+  .hero-accordeon-card-content-right-cards,
+  .hero-accordeon-card-content-left-text {
+    margin-top: 12px;
+  }
+  .hero-accordeon-card-content-right-card {
+    max-width: 170px;
+  }
+  .hero-accordeon-card-content-right-cards {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 920px) {
+  .hero-accordeon-card-title {
+    max-width: 100%;
+  }
+  .hero-accordeon {
+    max-width: 55%;
+  }
+}
+
+@media (max-width: 800px) {
+  .hero-accordeon-card {
+    padding: 30px 10px 30px 25px;
+  }
+  .hero-accordeon-card-content-right-card {
+    font-size: 11px;
+  }
+  .hero-accordeon-card-content-right-cards {
+    gap: 8px 5px;
+  }
+}
+
+@media (max-width: 740px) {
+  .hero .container {
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+
+  .hero {
+    height: auto;
+    margin-top: 72px;
+  }
+
+  .hero-video-container {
+    max-width: 100%;
+    height: 500px;
+  }
+  .hero-accordeon {
+    max-width: 100%;
+    margin-top: -10px;
+  }
+  .hero-accordeon-card {
+    padding: 32px 22px;
+    border-radius: 15px 15px 0 0;
+  }
 }

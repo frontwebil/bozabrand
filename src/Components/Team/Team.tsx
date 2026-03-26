@@ -4,6 +4,7 @@
 import Image from "next/image";
 import "./Team.css";
 import Link from "next/link";
+import { useWindowWidth } from "../../../hooks/useWindowWidth";
 
 const teamMembers = [
   {
@@ -126,7 +127,10 @@ function TeamCard({ member }: { member: any }) {
 }
 
 export default function Team() {
-  const duplicatedMembers = [...teamMembers, ...teamMembers];
+  const width = useWindowWidth();
+
+  const duplicatedMembers =
+    width && width >= 500 ? [...teamMembers, ...teamMembers] : [...teamMembers];
 
   return (
     <section className="team">

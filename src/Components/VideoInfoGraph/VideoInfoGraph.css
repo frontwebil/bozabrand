@@ -37,3 +37,42 @@
   text-transform: uppercase;
   color: #000000;
 }
+
+@media (max-width: 1024px) {
+  .video-info-graph .container {
+    padding: 0;
+  }
+  .video-info-graph {
+    margin-top: 90px;
+  }
+}
+
+@media (max-width: 720px) {
+  .video-info-graph {
+    margin-top: 50px;
+  }
+  .video-info-graph-cards {
+    padding: 57px 24px;
+  }
+  .video-info-graph-card-top {
+    flex-direction: column-reverse;
+    gap: 20px;
+    padding-bottom: 38px;
+  }
+  .video-info-graph-cards {
+    gap: 75px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-info-graph-card-top h2 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .video-info-graph-card-top {
+    flex-direction: column-reverse;
+    gap: 10px;
+    padding-bottom: 24px;
+  }
+}

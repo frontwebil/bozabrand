@@ -35,13 +35,16 @@ export function BestProducts() {
     },
   ];
   return (
-    <section className="best-products"               style={{
-                backgroundImage: `url(/Best/bg.png)`,
-              }}>
+    <section
+      className="best-products"
+      style={{
+        backgroundImage: `url(/Best/bg.png)`,
+      }}
+    >
       <div className="container">
         <div className="best-products-top">
           <h2>ТОП ПРОЄКТИ</h2>
-          <Link href={"/"}>ПЕРЕГЛЯНУТИ УСІ</Link>
+          <Link href={"/cases"}>ПЕРЕГЛЯНУТИ УСІ</Link>
         </div>
         <div className="best-products-cards">
           {projects.map((project, i) => (
@@ -66,6 +69,9 @@ export function BestProducts() {
             </div>
           ))}
         </div>
+        <Link href={"/cases"} className="best-products-button">
+          ПЕРЕГЛЯНУТИ УСІ
+        </Link>
         <div className="best-products-team-text">
           <div className="best-products-team-text-top">
             <h2>команда неповерхневих</h2>
@@ -84,7 +90,11 @@ export function BestProducts() {
               </div>
             </div>
           </div>
-          <h2>яка створює проникливі бренди блакитної планети</h2>
+          <h2>
+            яка створює проникливі{" "}
+            <span className="mobile-right-placement">бренди</span> блакитної{" "}
+            <span className="mobile-right-placement">планети</span>{" "}
+          </h2>
         </div>
       </div>
     </section>

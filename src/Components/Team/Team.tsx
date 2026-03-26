@@ -59,7 +59,7 @@ const teamMembers = [
   },
   {
     id: 4,
-    image: "/Team/4.1.png",
+    image: "/Team/4webp.webp",
     name: "Аліна маленко",
     position: "Бренд-дизайнер, ілюстраторка",
     departmentImage: "/Team/department/sensor3.gif",
@@ -75,7 +75,7 @@ const teamMembers = [
   },
   {
     id: 5,
-    image: "/Team/5.1.png",
+    image: "/Team/5webp.webp",
     name: "Ярослав Грінько",
     position: "Бренд-дизайнер",
     departmentImage: "/Team/department/sensor3.gif",
@@ -93,7 +93,7 @@ const teamMembers = [
   },
   {
     id: 6,
-    image: "/Team/6.1.png",
+    image: "/Team/6webp.webp",
     name: "Таня Біла",
     position: "Веб-розробка / Бренд-дизайнерка",
     departmentImage: "/Team/department/sensor3.gif",
@@ -131,7 +131,7 @@ const teamMembers = [
   },
   {
     id: 8,
-    image: "/Team/8.1.png",
+    image: "/Team/8.webp",
     name: "Оля Трегуб",
     position: "Копірайтерка",
     departmentImage: "/Team/department/sensor2.gif",

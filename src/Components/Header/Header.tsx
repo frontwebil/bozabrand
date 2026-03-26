@@ -31,7 +31,7 @@ export function Header() {
         </Link>
         <div className="header-right">
           <nav className="header-nav">
-            <Link href={"/"} className="header-nav-link">
+            <Link href={"/cases"} className="header-nav-link">
               ПРОЕКТИ
             </Link>
             <Link href={"/"} className="header-nav-link">
@@ -74,7 +74,69 @@ export function Header() {
           top: `${headerHeight}px`,
           height: `calc(100vh - ${headerHeight}px)`,
         }}
-      ></div>
+      >
+        <div className="header-menu-content">
+          <nav className="header-nav-mobile">
+            <Link
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              href={"/cases"}
+              className="header-nav-link"
+            >
+              ПРОЕКТИ
+            </Link>
+            <Link
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              href={"/"}
+              className="header-nav-link"
+            >
+              НЕПОВЕРХНЕВІ
+            </Link>
+            <Link
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              href={"/"}
+              className="header-nav-link"
+            >
+              ПРО БРЕНД
+            </Link>
+            <Link
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              href={"/"}
+              className="header-nav-link"
+            >
+              ПРАЙС&METОД
+            </Link>
+          </nav>
+          <div className="header-right-buttons-mobile">
+            <Link
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              href={"tel:+380666899857"}
+              className="header-cta-button"
+            >
+              ПОДЗВОНИТИ
+            </Link>
+            <Link
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              target="_blank"
+              href={"https://forms.gle/CeaeWGDsjqcDKhTr6"}
+              className="header-cta-button"
+            >
+              ЗАПОВНИТИ БРИФ
+            </Link>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }

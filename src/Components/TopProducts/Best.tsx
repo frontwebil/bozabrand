@@ -74,7 +74,7 @@ export function BestProducts() {
         </Link>
         <div className="best-products-team-text">
           <div className="best-products-team-text-top">
-            <h2>команда неповерхневих</h2>
+            <h2>команда&nbsp;&nbsp; неповерхневих </h2>
             <div className="best-products-team-text-top-box">
               <div className="best-products-team-line-blocks">
                 <div className="best-products-team-line-block border-t border-l border-white"></div>
@@ -92,7 +92,7 @@ export function BestProducts() {
           </div>
           <h2>
             яка створює проникливі{" "}
-            <span className="mobile-right-placement">бренди</span> блакитної{" "}
+            <span className="mobile-right-placement">бренди</span> блакитної&nbsp;&nbsp;{" "}
             <span className="mobile-right-placement">планети</span>{" "}
           </h2>
         </div>

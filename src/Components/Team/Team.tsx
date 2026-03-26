@@ -131,7 +131,7 @@ const teamMembers = [
   },
   {
     id: 8,
-    image: "/Team/8.webp",
+    image: "/Team/8webp.webp",
     name: "Оля Трегуб",
     position: "Копірайтерка",
     departmentImage: "/Team/department/sensor2.gif",

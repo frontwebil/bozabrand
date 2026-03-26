@@ -3,34 +3,13 @@
 import "./Projects.css";
 
 const projects = [
-  {
-    id: 1,
-    image: "/Projects/1.jpg",
-    subtitle: "Інжиніринг",
-    title: "Strong & Young",
-    services: ["Ідея бренду", "Стратегія комунікації", "Айдентика"],
+    {
+    image: "/Projects/7.jpg",
+    subtitle: "FMCG",
+    title: "Шаничі",
+    services: ["Стратегія комунікації", "Рекламні ролики", " Motion дизайн"],
   },
-  {
-    id: 2,
-    image: "/Projects/2.jpg",
-    subtitle: "Краса",
-    title: "Vsesvit",
-    services: [
-      "Стратегія бренду",
-      "Айдентика",
-      "Слоган",
-      "стратегія сторінки іnstagram",
-    ],
-  },
-  {
-    id: 3,
-    image: "/Projects/3.jpg",
-    subtitle: "Благодійність",
-    title: "NEDL",
-    services: ["Ребрендінг", "Неймінг", "Айдентика"],
-  },
-  {
-    id: 4,
+    {
     image: "/Projects/4.jpg",
     subtitle: "Краса",
     title: "Майстерня Рефрешу",
@@ -43,7 +22,30 @@ const projects = [
     ],
   },
   {
-    id: 5,
+    image: "/Projects/1.jpg",
+    subtitle: "Інжиніринг",
+    title: "Strong & Young",
+    services: ["Ідея бренду", "Стратегія комунікації", "Айдентика"],
+  },
+  {
+    image: "/Projects/2.jpg",
+    subtitle: "Краса",
+    title: "Vsesvit",
+    services: [
+      "Стратегія бренду",
+      "Айдентика",
+      "Слоган",
+      "стратегія сторінки іnstagram",
+    ],
+  },
+  {
+    image: "/Projects/3.jpg",
+    subtitle: "Благодійність",
+    title: "NEDL",
+    services: ["Ребрендінг", "Неймінг", "Айдентика"],
+  },
+
+  {
     image: "/Projects/5.jpg",
     subtitle: "Косметологія",
     title: "Ostrishko Family",
@@ -57,7 +59,6 @@ const projects = [
     ],
   },
   {
-    id: 6,
     image: "/Projects/6.jpg",
     subtitle: "Інжиніринг",
     title: "Techinn",
@@ -68,15 +69,8 @@ const projects = [
       "Виставкові комунікації",
     ],
   },
+
   {
-    id: 7,
-    image: "/Projects/7.jpg",
-    subtitle: "FMCG",
-    title: "Шаничі",
-    services: ["Стратегія комунікації", "Рекламні ролики", " Motion дизайн"],
-  },
-  {
-    id: 8,
     image: "/Projects/8.jpg",
     subtitle: "Машинобудування",
     title: "Hylen",
@@ -96,10 +90,10 @@ export function Projects() {
     <section className="projects">
       <div className="container">
         <div className="projects-container">
-          {projects.map((project) => (
+          {projects.map((project, i) => (
             <div
               className="project-card"
-              key={project.id}
+              key={i}
               style={{ backgroundImage: `url(${project.image})` }}
             >
               <h3 className="project-card-subtitle">{project.subtitle}</h3>

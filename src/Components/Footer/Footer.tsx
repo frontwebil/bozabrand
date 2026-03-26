@@ -25,11 +25,15 @@ export function Footer() {
                 І щоб ми могли краще підготуватися до розмови, допоможіть нам
                 відчути ваш запит, заповнивши цю вступну форму
               </p>
-              <div className="footer-top-right-brief">
+              <Link
+                href={"https://forms.gle/CeaeWGDsjqcDKhTr6"}
+                target="_blank"
+                className="footer-top-right-brief"
+              >
                 <div className="footer-top-right-brief-circle">
-                  <p>BRIEF</p>
+                  <p>БРИФ</p>
                 </div>
-              </div>
+              </Link>
             </div>
           )}
         </div>
@@ -38,10 +42,18 @@ export function Footer() {
             <Link href={"tel:+380666899857"} className="footer-phone-call">
               +38 (066) 689 98 57
             </Link>
-            <Link href={"/"} className="footer-social-link">
+            <Link
+              href={"https://t.me/IrynaBoza"}
+              className="footer-social-link"
+              target="_blank"
+            >
               TELEGRAM
             </Link>
-            <Link href={"/"} className="footer-social-link">
+            <Link
+              href={"https://msng.link/o?380666899857=wa"}
+              className="footer-social-link"
+              target="_blank"
+            >
               WHATSAPP
             </Link>
           </div>
@@ -56,11 +68,15 @@ export function Footer() {
               І щоб ми могли краще підготуватися до розмови, допоможіть нам
               відчути ваш запит, заповнивши цю вступну форму
             </p>
-            <div className="footer-top-right-brief">
+            <Link
+              href={"https://forms.gle/CeaeWGDsjqcDKhTr6"}
+              target="_blank"
+              className="footer-top-right-brief"
+            >
               <div className="footer-top-right-brief-circle">
-                <p>BRIEF</p>
+                <p>БРИФ</p>
               </div>
-            </div>
+            </Link>
           </div>
         )}
 
@@ -76,8 +92,8 @@ export function Footer() {
           </div>
           <div className="footer-content-right">
             <div className="footer-content-right-column">
-              <Link href={"/"} className="footer-content-nav-link">
-                ПРОЕКТИ
+              <Link href={"/cases"} className="footer-content-nav-link">
+                ПРОЄКТИ
               </Link>
               <Link href={"/"} className="footer-content-nav-link">
                 НЕПОВЕРХНЕВІ
@@ -92,12 +108,14 @@ export function Footer() {
             <div className="footer-content-right-column">
               <Link
                 href={"https://www.instagram.com/bozabrand/"}
+                target="_blank"
                 className="footer-social-link"
               >
                 INSTAGRAM
               </Link>
               <Link
                 href={"https://www.linkedin.com/company/bozabrand"}
+                target="_blank"
                 className="footer-social-link"
               >
                 LINKEDIN
@@ -106,6 +124,7 @@ export function Footer() {
                 href={
                   "https://www.facebook.com/share/16kXMLmhF8/?mibextid=wwXIfr"
                 }
+                target="_blank"
                 className="footer-social-link"
               >
                 FACEBOOK
@@ -117,14 +136,14 @@ export function Footer() {
                 target="_blank"
                 className="footer-social-link"
               >
-                FILL IN THE BRIEF
+                ЗАПОВНИТИ БРИФ
               </Link>
             </div>
           </div>
         </div>
         <div className="footer-all-rights">
           <p>©2026 BOZABRAND</p>
-          <p>ALL right reserved</p>
+          <p>ALL rights reserved</p>
         </div>
       </footer>
     </div>

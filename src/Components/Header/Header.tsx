@@ -32,16 +32,16 @@ export function Header() {
         <div className="header-right">
           <nav className="header-nav">
             <Link href={"/cases"} className="header-nav-link">
-              ПРОЕКТИ
+              ПРОЄКТИ
+            </Link>
+            <Link href={"/"} className="header-nav-link">
+              ПРАЙС&METОД
             </Link>
             <Link href={"/"} className="header-nav-link">
               НЕПОВЕРХНЕВІ
             </Link>
             <Link href={"/"} className="header-nav-link">
               ПРО БРЕНД
-            </Link>
-            <Link href={"/"} className="header-nav-link">
-              ПРАЙС&METОД
             </Link>
           </nav>
           <div className="header-right-buttons">
@@ -84,7 +84,16 @@ export function Header() {
               href={"/cases"}
               className="header-nav-link"
             >
-              ПРОЕКТИ
+              ПРОЄКТИ
+            </Link>
+            <Link
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              href={"/"}
+              className="header-nav-link"
+            >
+              ПРАЙС&METОД
             </Link>
             <Link
               onClick={() => {
@@ -103,15 +112,6 @@ export function Header() {
               className="header-nav-link"
             >
               ПРО БРЕНД
-            </Link>
-            <Link
-              onClick={() => {
-                setIsOpen(false);
-              }}
-              href={"/"}
-              className="header-nav-link"
-            >
-              ПРАЙС&METОД
             </Link>
           </nav>
           <div className="header-right-buttons-mobile">

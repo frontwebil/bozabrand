@@ -34,6 +34,7 @@
   padding: 22px 0;
 }
 .project-card-text {
+  max-width: 440px;
   padding-top: 10px;
   font-family: Wix Madefor Text;
   font-weight: 500;
@@ -42,4 +43,24 @@
   text-transform: uppercase;
   display: flex;
   gap: 20px;
+}
+
+.project-card-text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 10px;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.project-card-text-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.project-card-text-separator {
+  flex-shrink: 0;
 }

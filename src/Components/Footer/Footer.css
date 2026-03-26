@@ -47,6 +47,7 @@
   line-height: 24px;
   letter-spacing: 0%;
   color: #3a3838;
+  text-transform: uppercase;
 }
 
 .footer-top-right-brief {
@@ -91,7 +92,7 @@
 }
 .footer-phone-call {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 100%;
 }
 
@@ -130,7 +131,6 @@
 }
 
 .footer-content-left p {
-  font-family: Inter;
   font-weight: 400;
   font-size: 14px;
   line-height: 22.93px;
@@ -153,7 +153,6 @@
 }
 
 .footer-content-nav-link {
-  font-family: Inter;
   font-weight: 400;
   font-style: Regular;
   font-size: 16.2px;
@@ -265,11 +264,11 @@
     flex-direction: row;
     gap: 10px;
     display: flex;
-   justify-content: space-between; 
-   max-width: 300px;
-   margin: 0 auto;
+    justify-content: space-between;
+    max-width: 300px;
+    margin: 0 auto;
   }
-  .footer-all-rights{
+  .footer-all-rights {
     border-top: none;
     padding-top: 18px;
   }

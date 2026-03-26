@@ -1,0 +1,41 @@
+.our-drivers {
+  background: #000000;
+  color: #ffffff;
+}
+.our-drivers-container {
+  padding: 130px 0 250px;
+  overflow: hidden;
+  margin: 60px 0;
+}
+.our-drivers-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Wix Madefor Text;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 36px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+.our-drivers-carousel {
+  margin-top: 170px;
+  width: 100%;
+  display: flex;
+  gap: 70px;
+  animation: scroll 50s linear infinite;
+  width: max-content;
+}
+.our-drivers-carousel-card {
+  width: 300px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 15px));
+  }
+}

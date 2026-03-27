@@ -226,7 +226,7 @@ export default function Team() {
           </div>
         </div>
 
-        <Link href={"/"} className="team-button">
+        <Link href={"/team"} className="team-button">
           ПОЗНАЙОМИТИСЬ ЗІ СПІЛЬНотОЮ НЕПОВЕРХНЕВИХ
         </Link>
       </div>

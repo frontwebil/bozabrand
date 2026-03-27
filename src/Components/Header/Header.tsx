@@ -37,7 +37,7 @@ export function Header() {
             <Link href={"/"} className="header-nav-link">
               ПРАЙС&METОД
             </Link>
-            <Link href={"/"} className="header-nav-link">
+            <Link href={"/team"} className="header-nav-link">
               НЕПОВЕРХНЕВІ
             </Link>
             <Link href={"/"} className="header-nav-link">
@@ -99,7 +99,7 @@ export function Header() {
               onClick={() => {
                 setIsOpen(false);
               }}
-              href={"/"}
+              href={"/team"}
               className="header-nav-link"
             >
               НЕПОВЕРХНЕВІ

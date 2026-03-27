@@ -1,0 +1,87 @@
+.people-photos {
+  color: #fff;
+  margin-top: 80px;
+  background: #000;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.people-photos__stage {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: calc(45vw - 80px);
+  overflow: hidden;
+}
+
+.people-photos__item {
+  height: auto;
+  position: absolute;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  will-change: transform, left, top;
+}
+
+.people-photos__item:active {
+  cursor: grabbing;
+}
+
+.people-photos__item img {
+  width: 100%;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.people-photos__button {
+  width: 100%;
+  padding: 1.3vw;
+  border: 1px solid #ffffff;
+  border-radius: 999px;
+  background: #000;
+  color: #ffffff;
+  font-size: 1vw;
+  line-height: 1.1;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.people-photos__button:hover {
+  border: 1px solid #000;
+}
+
+.people-photos__button:active {
+  transform: scale(0.98);
+}
+
+.people-photos-people-text {
+  width: 100%;
+  text-align: right;
+  font-size: 18px;
+  padding-bottom: 35px;
+}
+.people-photos-people-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 15px;
+  padding-bottom: 35px;
+}
+.people-photos-people-row-item {
+  font-family: Wix Madefor Text;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+}

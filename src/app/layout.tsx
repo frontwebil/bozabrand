@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Nunito_Sans, Wix_Madefor_Text } from "next/font/google";
+import { Inter, Mulish, Nunito_Sans, Wix_Madefor_Text } from "next/font/google";
 import "./globals.css";
 import "./reset.css";
 import { ScrollToTop } from "@/Components/Layout/ScrollToTop";
@@ -13,6 +13,10 @@ const inter = Inter({
 });
 
 const madefor = Wix_Madefor_Text({
+  subsets: ["latin"],
+});
+
+const mulish = Mulish({
   subsets: ["latin"],
 });
 
@@ -30,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${nunito.className} ${inter.className} ${madefor.className} h-full antialiased`}
+      className={`${nunito.className} ${inter.className} ${madefor.className} ${mulish.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <ScrollToTop />

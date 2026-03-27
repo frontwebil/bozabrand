@@ -13,9 +13,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #000;
-  padding: 150px 0 120px;
+  padding: 150px 0 150px;
   color: #fff;
   margin-bottom: 120px;
+  position: relative;
 }
 .container {
 }
@@ -33,12 +34,29 @@
   text-transform: uppercase;
 }
 .team-section-grid {
+  position: relative;
   display: grid;
   gap: 50px 20px;
   grid-template-columns: repeat(4, 1fr);
 }
 
-.team-card {
+.team-section-grid-bottom-text {
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 3%;
+  text-align: justify;
+  vertical-align: middle;
+  text-transform: uppercase;
+  max-width: 420px;
+  width: 100%;
+}
+
+.team-card-page {
   max-width: 370px;
   flex-shrink: 0;
 }
@@ -176,5 +194,52 @@
 
   .team-card-bottom-description {
     max-width: 100%;
+  }
+}
+
+.bottom-scale {
+  width: 100%;
+  overflow: hidden;
+  padding: 18px 0 14px;
+  position: absolute;
+  bottom: 0;
+}
+
+.bottom-scale-track {
+  display: flex;
+  width: max-content;
+}
+
+.bottom-scale-item {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 5px;
+  min-width: 40px;
+  justify-content: center;
+}
+
+.bottom-scale-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  display: block;
+}
+
+.bottom-scale-number {
+  font-family: Mulish;
+  font-weight: 200;
+  font-style: ExtraLight;
+  font-size: 10px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+@keyframes bottomScaleMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }

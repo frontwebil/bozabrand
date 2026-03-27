@@ -118,9 +118,9 @@ const teamMembers = [
         <br />
         Марина вміє ловити не просто кадр, вона ловить людину. Її очі бачать
         глибину, яку інші не помічають: емоцію, що сховалась у погляді,
-        тремтливий настрій, унікальний жест. <br /> А коли йдеться про зйомку компанії,
-        вона передає історію бізнесу через ледь вловимі рухи, деталі, світло,
-        атмосферу. Це не просто фото. Це “відчуй, хто ми”.
+        тремтливий настрій, унікальний жест. <br /> А коли йдеться про зйомку
+        компанії, вона передає історію бізнесу через ледь вловимі рухи, деталі,
+        світло, атмосферу. Це не просто фото. Це “відчуй, хто ми”.
       </>
     ),
   },
@@ -161,13 +161,14 @@ const teamMembers = [
 ];
 
 export function TeamSection() {
+  const numbers = Array.from({ length: 80 }, (_, i) => (i + 1) * 100);
   return (
     <section className="team-section">
       <div className="container">
         <div className="team-section-title">неповерхневі</div>
         <div className="team-section-grid">
           {teamMembers.map((member, i) => (
-            <div className="team-card" key={i}>
+            <div className="team-card-page" key={i}>
               <div className="team-img">
                 <Image
                   src={member.image}
@@ -196,6 +197,29 @@ export function TeamSection() {
                   {member.description}
                 </p>
               </div>
+            </div>
+          ))}
+          <div className="team-section-grid-bottom-text">
+            <span
+              style={{
+                display: "inline-block",
+                textAlign: "right",
+                width: "100%",
+              }}
+            >
+              Ми саме ті екстрасенсори,{" "}
+            </span>{" "}
+            <br /> які здатні дихати, бачити, чути і відчувати на глибині 11
+            тисяч метрів. Ми занурюємось туди, щоб віднайти серце твого бренду.
+          </div>
+        </div>
+      </div>
+      <div className="bottom-scale">
+        <div className="bottom-scale-track">
+          {[...numbers, ...numbers].map((num, index) => (
+            <div className="bottom-scale-item" key={index}>
+              <span className="bottom-scale-dot"></span>
+              <span className="bottom-scale-number">{num}</span>
             </div>
           ))}
         </div>

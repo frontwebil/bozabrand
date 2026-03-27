@@ -1,0 +1,65 @@
+.running-line-blocks {
+  display: flex;
+  justify-content: space-between;
+}
+.running-line-block {
+  width: 15px;
+  height: 15px;
+}
+.running-line-overflow {
+  padding: 15px 3px;
+  font-weight: 300;
+  font-size: 18.24px;
+  line-height: 21.91px;
+  letter-spacing: 5%;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+.running-line {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.running-line-inner {
+  display: flex;
+  width: max-content;
+  animation: runningLine 25s linear infinite;
+}
+
+.running-line-item {
+  margin-right: 40px;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* розділювач */
+.running-line-item::after {
+  content: "\\\\";
+  margin-left: 40px;
+  color: #71717a;
+}
+
+@keyframes runningLine {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.running-line-section{
+  margin-top: 80px;
+}
+
+@media (max-width: 1100px) {
+.running-line-item{
+  font-size: 15px;
+}
+}

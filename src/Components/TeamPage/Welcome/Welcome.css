@@ -1,0 +1,70 @@
+.welcome {
+  background-image: url("/Welcome/bg.gif");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #000;
+  color: #fff;
+  padding: 140px 0 100px;
+}
+.welcome .container {
+  margin: 0 auto;
+  max-width: 690px;
+  padding: 0 20px;
+  width: 100%;
+}
+.welcome-subTitle {
+  text-align: center;
+  font-family: Nunito Sans;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 10px;
+  letter-spacing: 9px;
+  text-transform: uppercase;
+  padding-bottom: 50px;
+}
+.welcome-title {
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 56px;
+  text-transform: uppercase;
+}
+
+/* .first {
+} */
+.welcome-title-text {
+  padding-top: 5px;
+  width: 100%;
+  text-align: right;
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 24px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+.welcome-team-text {
+  padding: 60px 0 75px;
+}
+.welcome-team-text p {
+  padding-top: 20px;
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0%;
+  text-align: justify;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+.welcome-team-under-text h3 {
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 40px;
+  line-height: 56px;
+  letter-spacing: 10%;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: right;
+}

@@ -1,7 +1,7 @@
-import { Footer } from "@/Components/Footer/Footer";
-import { Header } from "@/Components/Header/Header";
-import { OurDrivers } from "@/Components/OurDrivers/OurDrivers";
-import { Projects } from "@/Components/Projects/Projects";
+import { Footer } from "@/Components/Layout/Footer/Footer";
+import { Header } from "@/Components/Layout/Header/Header";
+import { OurDrivers } from "@/Components/ProjectsPage/OurDrivers/OurDrivers";
+import { Projects } from "@/Components/ProjectsPage/Projects/Projects";
 
 export default function Cases() {
   return (

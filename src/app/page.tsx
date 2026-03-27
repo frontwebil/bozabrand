@@ -1,11 +1,11 @@
-import { Faq } from "@/Components/Faq/Faq";
-import { Footer } from "@/Components/Footer/Footer";
-import { Header } from "@/Components/Header/Header";
-import { HeroSection } from "@/Components/Hero/Hero";
-import { RunningLine } from "@/Components/RunningLine/RunningLine";
-import Team from "@/Components/Team/Team";
-import { BestProducts } from "@/Components/TopProducts/Best";
-import { VideoInfoGraph } from "@/Components/VideoInfoGraph/VideoInfoGraph";
+import { Faq } from "@/Components/MainPage/Faq/Faq";
+import { Footer } from "@/Components/Layout/Footer/Footer";
+import { Header } from "@/Components/Layout/Header/Header";
+import { RunningLine } from "@/Components/MainPage/RunningLine/RunningLine";
+import { BestProducts } from "@/Components/MainPage/TopProducts/Best";
+import { VideoInfoGraph } from "@/Components/MainPage/VideoInfoGraph/VideoInfoGraph";
+import { HeroSection } from "@/Components/MainPage/Hero/Hero";
+import Team from "@/Components/MainPage/Team/Team";
 
 export default function Home() {
   return (

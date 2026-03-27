@@ -1,0 +1,288 @@
+.best-products {
+  padding-top: 120px;
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  position: relative; /* ВАЖЛИВО */
+}
+
+/* 🔥 ОЦЕ ГОЛОВНЕ */
+.best-products::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 220px; /* грайся 150–300px */
+
+  background: linear-gradient(to bottom, #e0dede 0%, transparent 100%);
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* .container {
+} */
+.best-products-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.best-products-top h2 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 35px;
+  text-transform: uppercase;
+}
+
+.best-products-top a {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  vertical-align: middle;
+  border-bottom: 1px solid black;
+}
+
+.best-products-cards {
+  display: flex;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  gap: 25px;
+}
+.best-products-card {
+  height: 445px;
+  color: #ffffff;
+  max-width: 33.333%;
+  width: 100%;
+  padding: 36px 22px 22px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.best-products-card-top p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 11px;
+  text-transform: capitalize;
+}
+.best-products-card-top h3 {
+  padding-top: 10px;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 18px;
+  letter-spacing: 0%;
+}
+.best-products-card-bottom {
+  display: flex;
+  gap: 10px 6px;
+  flex-wrap: wrap;
+}
+.best-products-card-bottom-item {
+  padding: 5px 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: uppercase;
+  text-align: center;
+  background: #8a8a8a4d;
+  border: 1px solid #ffffff;
+  border-radius: 18px;
+}
+
+.best-products-team-text {
+  max-width: 1180px;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 64px;
+  padding: 170px 0 50px;
+}
+.best-products-team-text-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.best-products-team-text h2 {
+  font-weight: 200;
+  font-size: 54px;
+  line-height: 54px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-align: justify;
+  text-transform: uppercase;
+}
+
+.best-products-team-text-top-box {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+  max-width: 360px;
+  width: 100%;
+}
+
+.best-products-team-text-top-comands {
+  font-weight: 200;
+  font-size: 16px;
+  text-align: justify;
+  text-align-last: justify;
+  padding: 0 6px;
+  max-width: 360px;
+  width: 100%;
+}
+
+.best-products-team-line-blocks {
+  display: flex;
+  justify-content: space-between;
+}
+.best-products-team-line-block {
+  width: 5px;
+  height: 5px;
+}
+
+.best-products-button {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .best-products-team-text h2 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}
+@media (max-width: 1024px) {
+  .best-products-team-text-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .best-products-team-text-top-box {
+    margin-left: auto;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .best-products {
+    padding-top: 80px;
+  }
+  .best-products-card-bottom-item {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  .best-products-card-bottom {
+    flex-wrap: wrap;
+    gap: 8px 6px;
+    display: flex;
+  }
+  .best-products-card {
+    height: 350px;
+  }
+  .best-products-cards {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 740px) {
+  .best-products-card {
+    height: 300px;
+  }
+  .best-products-card {
+    padding: 36px 20px 20px;
+  }
+}
+@media (max-width: 700px) {
+  .best-products-cards {
+    flex-direction: column;
+  }
+  .best-products-card {
+    width: 100%;
+    height: 400px;
+    max-width: 100%;
+  }
+  .best-products {
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 550px) {
+  .best-products-team-text-top-box {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: auto;
+  }
+  .mobile-right-placement {
+    display: block;
+    text-align: right;
+  }
+}
+
+@media (max-width: 440px) {
+  .best-products-button {
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: #ffffff;
+    color: #2e1bd1;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 70px;
+    width: 100%;
+    margin: 50px auto 50px;
+    padding: 14px 0;
+    font-family: Inter;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: block;
+    max-width: 350px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .best-products .container {
+    padding: 0;
+  }
+  .best-products-top a {
+    display: none;
+  }
+  .best-products-top h2 {
+    padding: 0 20px 30px;
+  }
+  .best-products-cards {
+    margin-top: 0;
+  }
+  .best-products-team-text {
+    margin-top: 80px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 390px) {
+  .best-products-team-text-top-comands {
+    font-size: 14px;
+  }
+  .best-products-team-text h2 {
+    font-size: 36px;
+    line-height: 38px;
+  }
+  .best-products-team-text-top-box {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: auto;
+  }
+  .best-products-button {
+    max-width: 320px;
+  }
+}

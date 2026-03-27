@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Nunito_Sans, Wix_Madefor_Text } from "next/font/google";
 import "./globals.css";
 import "./reset.css";
+import { ScrollToTop } from "@/Components/Layout/ScrollToTop";
 
 const nunito = Nunito_Sans({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
       className={`${nunito.className} ${inter.className} ${madefor.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <ScrollToTop />
         <main>{children}</main>
       </body>
     </html>

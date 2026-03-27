@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import "./TeamSection.css";
+import { useWindowWidth } from "../../../../hooks/useWindowWidth";
 
 const teamMembers = [
   {
@@ -162,10 +164,17 @@ const teamMembers = [
 
 export function TeamSection() {
   const numbers = Array.from({ length: 80 }, (_, i) => (i + 1) * 100);
+  const width = useWindowWidth();
   return (
     <section className="team-section">
       <div className="container">
         <div className="team-section-title">неповерхневі</div>
+        {width && width < 600 && (
+          <div className="team-section-grid-bottom-text">
+            Ми саме ті екстрасенсори, які здатні дихати, бачити, чути і відчувати на глибині 11
+            тисяч метрів. Ми занурюємось туди, щоб віднайти серце твого бренду.
+          </div>
+        )}
         <div className="team-section-grid">
           {teamMembers.map((member, i) => (
             <div className="team-card-page" key={i}>
@@ -199,19 +208,22 @@ export function TeamSection() {
               </div>
             </div>
           ))}
-          <div className="team-section-grid-bottom-text">
-            <span
-              style={{
-                display: "inline-block",
-                textAlign: "right",
-                width: "100%",
-              }}
-            >
-              Ми саме ті екстрасенсори,{" "}
-            </span>{" "}
-            <br /> які здатні дихати, бачити, чути і відчувати на глибині 11
-            тисяч метрів. Ми занурюємось туди, щоб віднайти серце твого бренду.
-          </div>
+          {width && width >= 600 && (
+            <div className="team-section-grid-bottom-text">
+              <span
+                style={{
+                  display: "inline-block",
+                  textAlign: "right",
+                  width: "100%",
+                }}
+              >
+                Ми саме ті екстрасенсори,{" "}
+              </span>{" "}
+              <br /> які здатні дихати, бачити, чути і відчувати на глибині 11
+              тисяч метрів. Ми занурюємось туди, щоб віднайти серце твого
+              бренду.
+            </div>
+          )}
         </div>
       </div>
       <div className="bottom-scale">

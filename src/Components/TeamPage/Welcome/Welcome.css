@@ -23,16 +23,8 @@
   text-transform: uppercase;
   padding-bottom: 50px;
 }
-.welcome-title {
-  font-family: Nunito Sans;
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 56px;
-  text-transform: uppercase;
-}
 
-/* .first {
-} */
+
 .welcome-title-text {
   padding-top: 5px;
   width: 100%;
@@ -91,7 +83,7 @@
   font-family: Nunito Sans;
   font-weight: 400;
   font-size: 48px;
-  line-height: 56px;
+  line-height: 50px;
   text-transform: uppercase;
 }
 

@@ -94,3 +94,39 @@
 .people-photos__item.is-button {
   z-index: 10;
 }
+
+@media (max-width: 1200px) {
+  .people-photos__stage {
+    height: calc(55vw - 80px);
+  }
+}
+
+@media (max-width: 820px) {
+  .people-photos__stage {
+    height: calc(75vw - 80px);
+  }
+}
+
+@media (max-width: 760px) {
+  .people-photos {
+    margin-top: 72px;
+  }
+  .people-photos__button{
+    font-size: 1.4vw;
+  }
+  .people-photos-people-row-item{
+    font-size: 16px;
+  }
+  .people-photos-people-row{
+    gap: 5px 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .people-photos-people-text{
+    padding-bottom: 10px;
+  }
+  .people-photos__stage {
+    height: calc(90vw - 80px);
+  }
+}

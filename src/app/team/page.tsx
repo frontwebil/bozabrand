@@ -7,7 +7,7 @@ import { Welcome } from "@/Components/TeamPage/Welcome/Welcome";
 export default function page() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <SwapSections />
       <Welcome />
       <TeamSection />

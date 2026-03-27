@@ -18,7 +18,7 @@
   font-family: Nunito Sans;
   font-weight: 700;
   font-size: 12px;
-  line-height: 10px;
+  line-height: 16px;
   letter-spacing: 9px;
   text-transform: uppercase;
   padding-bottom: 50px;
@@ -67,4 +67,205 @@
   text-transform: uppercase;
   width: 100%;
   text-align: right;
+}
+
+.welcome {
+  background-image: url("/Welcome/bg.gif");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #000;
+  color: #fff;
+  padding: 140px 0 100px;
+}
+
+.welcome .container {
+  margin: 0 auto;
+  max-width: 690px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.welcome-subTitle {
+  text-align: center;
+  font-family: Nunito Sans;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 9px;
+  text-transform: uppercase;
+  padding-bottom: 50px;
+}
+
+.welcome-title {
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 56px;
+  text-transform: uppercase;
+}
+
+.welcome-title-text {
+  padding-top: 5px;
+  width: 100%;
+  text-align: right;
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 24px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+.welcome-team-text {
+  padding: 60px 0 75px;
+}
+
+.welcome-team-text p {
+  padding-top: 20px;
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0%;
+  text-align: justify;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+.welcome-team-under-text h3 {
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 40px;
+  line-height: 56px;
+  letter-spacing: 10%;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: right;
+}
+
+
+@media (max-width: 991px) {
+  .welcome {
+    padding: 110px 0 80px;
+  }
+
+  .welcome .container {
+    padding: 0 24px;
+  }
+
+  .welcome-subTitle {
+    font-size: 11px;
+    line-height: 15px;
+    letter-spacing: 6px;
+    padding-bottom: 35px;
+  }
+
+  .welcome-title {
+    font-size: 38px;
+    line-height: 46px;
+  }
+
+  .welcome-title-text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .welcome-team-text {
+    padding: 45px 0 55px;
+  }
+
+  .welcome-team-text p {
+    font-size: 20px;
+    line-height: 28px;
+    padding-top: 16px;
+  }
+
+  .welcome-team-under-text h3 {
+    font-size: 32px;
+    line-height: 42px;
+    letter-spacing: 6%;
+  }
+}
+
+@media (max-width: 767px) {
+  .welcome {
+    padding: 90px 0 60px;
+    background-position: center center;
+  }
+
+  .welcome .container {
+    padding: 0 16px;
+  }
+
+  .welcome-subTitle {
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 4px;
+    padding-bottom: 24px;
+  }
+
+  .welcome-title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .welcome-title-text {
+    padding-top: 10px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .welcome-team-text {
+    padding: 35px 0 40px;
+  }
+
+  .welcome-team-text p {
+    font-size: 16px;
+    line-height: 24px;
+    padding-top: 14px;
+    text-align: left;
+  }
+
+  .welcome-team-under-text h3 {
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 4%;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .welcome-team-text{
+    padding: 20px 0 30px;
+  }
+  .welcome {
+    padding: 80px 0 50px;
+  }
+
+  .welcome-subTitle {
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 3px;
+  }
+
+  .welcome-title {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .welcome-title-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .welcome-team-text p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .welcome-team-under-text h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
 }

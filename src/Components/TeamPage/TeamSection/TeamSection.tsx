@@ -169,7 +169,7 @@ export function TeamSection() {
         <div className="team-section-grid">
           {teamMembers.map((member, i) => (
             <div className="team-card-page" key={i}>
-              <div className="team-img">
+              <div className="team-img-page">
                 <Image
                   src={member.image}
                   width={1000}

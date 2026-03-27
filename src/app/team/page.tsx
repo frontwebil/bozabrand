@@ -8,7 +8,7 @@ export default function page() {
   return (
     <>
       {/* <Header /> */}
-      {/* <SwapSections /> */}
+      <SwapSections />
       <Welcome />
       <TeamSection />
       <Footer />

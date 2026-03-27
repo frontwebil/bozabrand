@@ -98,7 +98,7 @@ const photos = [
     rotate: -4,
     width: "15vw",
   },
-];
+] as const;
 
 const directions = [
   "Графічні дизайнери",
@@ -118,12 +118,12 @@ const directions = [
 ];
 
 export function SwapSections() {
-  const stageRef = useRef(null);
+  const stageRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!stageRef.current) return;
 
-    const cards = gsap.utils.toArray(".people-photos__item");
+    const cards = gsap.utils.toArray<HTMLElement>(".people-photos__item");
 
     const draggables = Draggable.create(cards, {
       bounds: stageRef.current,
@@ -164,7 +164,7 @@ export function SwapSections() {
             }}
           >
             {photo.type === "image" ? (
-              <img src={photo.src} alt="" draggable="false" />
+              <img src={photo.src} alt="" draggable={false} />
             ) : (
               <button type="button" className="people-photos__button">
                 {photo.text}
@@ -173,6 +173,7 @@ export function SwapSections() {
           </div>
         ))}
       </div>
+
       <div className="container">
         <div className="people-photos-people-text">(ЛЮДИ)</div>
         <div className="people-photos-people-row">
@@ -180,7 +181,7 @@ export function SwapSections() {
             <p
               key={i}
               className="people-photos-people-row-item"
-              style={{ color: i % 2 != 0 ? "#888888" : "#fff" }}
+              style={{ color: i % 2 !== 0 ? "#888888" : "#fff" }}
             >
               {direct}
             </p>

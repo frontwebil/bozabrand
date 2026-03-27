@@ -64,3 +64,34 @@
 .project-card-text-separator {
   flex-shrink: 0;
 }
+@media (max-width: 760px) {
+  .projects .container {
+    padding: 0;
+  }
+  .projects {
+    margin-top: 72px;
+  }
+}
+
+@media (max-width: 500px) {
+  .project-card-subtitle {
+    font-size: 16px;
+    line-height: 100%;
+  }
+  .project-card-title {
+    padding: 15px 0 10px;
+    font-size: 50px;
+    line-height: 100%;
+  }
+  .project-card-text {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .project-card {
+    height: 430px;
+    padding: 0 20px;
+  }
+  .projects-container {
+    gap: 20px;
+  }
+}

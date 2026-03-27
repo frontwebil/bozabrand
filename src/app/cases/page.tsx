@@ -8,6 +8,7 @@ export default function Cases() {
     <>
       <Header />
       <Projects />
+      <div className="sandwich-cases"></div>
       <OurDrivers />
       <Footer />
     </>

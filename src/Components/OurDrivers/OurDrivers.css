@@ -5,7 +5,7 @@
 .our-drivers-container {
   padding: 130px 0 250px;
   overflow: hidden;
-  margin: 60px 0;
+  margin: 0px 0 60px;
 }
 .our-drivers-title {
   display: flex;
@@ -37,5 +37,18 @@
   }
   to {
     transform: translateX(calc(-50% - 15px));
+  }
+}
+
+@media (max-width: 500px) {
+  .our-drivers-container {
+    padding: 30px 0 140px;
+    margin: 0 0 30px;
+  }
+  .our-drivers-carousel-card {
+    width: 240px;
+  }
+  .our-drivers-carousel{
+    margin-top: 120px;
   }
 }

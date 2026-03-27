@@ -111,19 +111,23 @@
   .people-photos {
     margin-top: 72px;
   }
-  .people-photos__button{
+  .people-photos__button {
     font-size: 1.4vw;
   }
-  .people-photos-people-row-item{
+  .people-photos-people-row-item {
     font-size: 16px;
   }
-  .people-photos-people-row{
+  .people-photos-people-row {
     gap: 5px 10px;
+    justify-content: space-between;
+  }
+  .people-photos__item.is-button {
+    width: 60px !important;
   }
 }
 
 @media (max-width: 500px) {
-  .people-photos-people-text{
+  .people-photos-people-text {
     padding-bottom: 10px;
   }
   .people-photos__stage {

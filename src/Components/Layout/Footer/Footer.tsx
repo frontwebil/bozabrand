@@ -98,7 +98,7 @@ export function Footer() {
               <Link href={"/team"} className="footer-content-nav-link">
                 НЕПОВЕРХНЕВІ
               </Link>
-              <Link href={"/"} className="footer-content-nav-link">
+              <Link href={"/about"} className="footer-content-nav-link">
                 ПРО БРЕНД
               </Link>
               <Link href={"/"} className="footer-content-nav-link">

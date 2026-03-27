@@ -71,6 +71,7 @@
 }
 .people-photos-people-row {
   display: flex;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
   gap: 5px 15px;
   padding-bottom: 70px;
@@ -119,7 +120,7 @@
   }
   .people-photos-people-row {
     gap: 5px 10px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
   .people-photos__item.is-button {
     width: 60px !important;
@@ -132,5 +133,8 @@
   }
   .people-photos__stage {
     height: calc(90vw - 80px);
+  }
+  .people-photos-people-row-item{
+    font-size: 14px;
   }
 }

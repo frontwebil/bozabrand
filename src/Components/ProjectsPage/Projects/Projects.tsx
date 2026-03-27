@@ -94,7 +94,7 @@ export function Projects() {
             <div
               className="project-card"
               key={i}
-              style={{ backgroundImage: `url(${project.image})` }}
+              style={{ backgroundImage: `url(${project.image})` , backgroundPosition: `${i == 0 && "left center"}` }}
             >
               <h3 className="project-card-subtitle">{project.subtitle}</h3>
               <h2 className="project-card-title">{project.title}</h2>

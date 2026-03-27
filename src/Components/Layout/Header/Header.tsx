@@ -40,7 +40,7 @@ export function Header() {
             <Link href={"/team"} className="header-nav-link">
               НЕПОВЕРХНЕВІ
             </Link>
-            <Link href={"/"} className="header-nav-link">
+            <Link href={"/about"} className="header-nav-link">
               ПРО БРЕНД
             </Link>
           </nav>
@@ -108,7 +108,7 @@ export function Header() {
               onClick={() => {
                 setIsOpen(false);
               }}
-              href={"/"}
+              href={"/about"}
               className="header-nav-link"
             >
               ПРО БРЕНД

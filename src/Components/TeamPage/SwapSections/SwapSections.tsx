@@ -11,12 +11,14 @@ const photos = [
   {
     id: 1,
     type: "image",
-    src: "/Swap/Cube6 - Transparent 1.png",
+    src: "/Swap/percent.png",
     left: "10%",
-    top: "50%",
+    top: "55%",
     rotate: -8,
-    width: "20vw",
+    width: "16vw",
   },
+  // left: 30%;
+  // top: 65%;
   {
     id: 2,
     type: "button",
@@ -30,8 +32,8 @@ const photos = [
     id: 3,
     type: "button",
     text: "UNDERDOGS",
-    left: "35%",
-    top: "60%",
+    left: "40%",
+    top: "55%",
     rotate: -5,
     width: "12vw",
   },
@@ -60,23 +62,23 @@ const photos = [
     left: "90%",
     top: "0%",
     rotate: 5,
-    width: "20vw",
+    width: "15vw",
   },
   {
     id: 7,
     type: "image",
     src: "/Swap/Rectangle 48 1.png",
-    left: "30%",
-    top: "15%",
+    left: "53%",
+    top: "72%",
     rotate: 4,
-    width: "25vw",
+    width: "20vw",
   },
   {
     id: 8,
     type: "image",
     src: "/Swap/Rectangle 48-2 1.png",
-    left: "50%",
-    top: "2%",
+    left: "30%",
+    top: "60%",
     rotate: -6,
     width: "20vw",
   },
@@ -93,8 +95,17 @@ const photos = [
     id: 10,
     type: "image",
     src: "/Swap/chrome8 1.png",
-    left: "55%",
-    top: "52%",
+    left: "40%",
+    top: "15%",
+    rotate: -4,
+    width: "15vw",
+  },
+  {
+    id: 11,
+    type: "image",
+    src: "/Swap/spiral.png",
+    left: "65%",
+    top: "5%",
     rotate: -4,
     width: "15vw",
   },
@@ -157,6 +168,7 @@ export function SwapSections() {
               photo.type === "button" ? "is-button" : ""
             }`}
             style={{
+              zIndex: photo.type === "button" ? "123412" : "",
               left: photo.left,
               top: photo.top,
               transform: `rotate(${photo.rotate}deg)`,
@@ -183,7 +195,7 @@ export function SwapSections() {
               className="people-photos-people-row-item"
               style={{ color: i % 2 !== 0 ? "#888888" : "#fff" }}
             >
-              {direct}
+              \\ {direct}
             </p>
           ))}
         </div>

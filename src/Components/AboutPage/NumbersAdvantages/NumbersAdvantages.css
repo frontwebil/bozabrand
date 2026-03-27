@@ -1,0 +1,76 @@
+.numbers-advantages {
+  padding-top: 120px;
+  margin-bottom: 100px;
+}
+.container {
+}
+.numbers-advantges-top {
+  font-family: Nunito Sans;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -2%;
+  text-transform: uppercase;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #000000;
+}
+.numbers-advantages-number {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #515151;
+  display: flex;
+  gap: 40px;
+  align-items: stretch;
+  justify-content: end;
+}
+
+.numbers-advantages-number.f {
+  padding-right: 15vh;
+}
+
+.numbers-advantages-number.s {
+  padding-right: 35vh;
+}
+
+.numbers-advantages-number.t {
+  padding-right: 50vh;
+}
+
+.numbers-advantages-number h2 {
+  font-family: Inter;
+  font-weight: 200;
+  font-size: 190px;
+  line-height: 80%;
+  letter-spacing: -2%;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+.numbers-advantages-number-circles {
+  padding-top: 15px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: auto;
+  gap: 15px;
+}
+.numbers-advantages-number-circles-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.numbers-advantages-number-circles-row-circle {
+  width: 6px;
+  height: 6px;
+  background-color: #19038c;
+  border-radius: 100%;
+}
+
+.numbers-advantages-number-circles p {
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 100%;
+  letter-spacing: -2%;
+  vertical-align: middle;
+  text-transform: lowercase;
+}

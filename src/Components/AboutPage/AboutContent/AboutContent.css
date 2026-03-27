@@ -1,0 +1,164 @@
+@font-face {
+  font-family: "PP Neue World";
+  src:
+    url("/Team/fonts/PPNeueWorld-CondensedRegular.woff2") format("woff2"),
+    url("/Team/fonts/PPNeueWorld-CondensedRegular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.about-content {
+  padding-top: 83px;
+  position: relative;
+}
+.about-content .container {
+  display: flex;
+}
+.container {
+}
+.about-content-left-video {
+  position: sticky;
+  top: 83px;
+  left: 0;
+  max-width: 50%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.about-content-left-video {
+  height: calc(100vh - 83px);
+}
+
+.about-content-left-video video {
+  object-fit: cover;
+  height: calc(100vh - 83px);
+}
+
+.about-content-video-logo {
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.about-content-video-logo img {
+  width: 100%;
+}
+.about-content-right-text {
+  max-width: 50%;
+  width: 100%;
+  background-color: #fdfbfb;
+  padding: 66px 25px 150px;
+}
+
+.about-content-right-text-subtitle {
+  font-family: Wix Madefor Text;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+.about-content-right-title {
+  font-family: PP Neue World;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 80%;
+  max-width: 503px;
+  padding-top: 20px;
+  padding-bottom: 85px;
+}
+
+.about-content-right-text-block {
+  max-width: 500px;
+}
+
+.about-content-right-text-block p {
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+.about-content-right-text-circle {
+  margin-top: 150px;
+  max-width: 100%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid black;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-content-right-text-circle-container-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  padding: 9%;
+  width: 100%;
+}
+
+.about-content-right-text-circle-container-text p {
+  font-family: Wix Madefor Text;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 50%;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+.about-content-right-text-circle-container-text h2 {
+  font-family: PP Neue World;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 80%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.about-content-right-importants {
+  margin-top: 100px;
+}
+.about-content-right-importants-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.about-content-right-important-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.about-content-right-important-card-circle {
+  display: flex;
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 100%;
+  margin-top: 16px;
+}
+.about-content-right-important-card-text {
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: uppercase;
+
+  padding: 10px 18px;
+  border: 1px solid #6e6e6e;
+
+  border-radius: 20px;
+}

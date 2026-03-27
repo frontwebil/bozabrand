@@ -1,0 +1,35 @@
+.for-client {
+  background: #d9d9d9;
+}
+.for-client .container {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.for-client-left-text {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.for-client-left-text p {
+  font-family: Wix Madefor Text;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+.for-client-left-text h2 {
+  font-family: PP Neue World;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 80%;
+  letter-spacing: 0%;
+}
+.for-client-right-img {
+  max-width: 50%;
+}

@@ -21,9 +21,8 @@
 .container {
 }
 .team-section-title {
-  border-top: 1px solid #8c8c8c;
-  padding-top: 60px;
-  padding-bottom: 100px;
+  border-top: 1px solid rgba(122, 122, 122, 0.5);
+  padding: 60px 0;
   text-align: center;
   width: 100%;
   font-family: Wix Madefor Text;
@@ -66,7 +65,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.70);
   gap: 10px;
   /* min-height: 145px; */
 }
@@ -125,6 +124,7 @@
 }
 
 .team-card-bottom-description {
+  color: #d1d4d1;
   font-weight: 300;
   font-size: 14px;
   line-height: 14px;
@@ -179,7 +179,7 @@
   }
 
   .team-card-top {
-    padding: 15px 0 25px;
+    padding: 35px 0 25px;
   }
 
   .team-card-bottom {
@@ -249,8 +249,7 @@
     bottom: -80px;
   }
   .team-section-title {
-    padding-top: 40px;
-    padding-bottom: 70px;
+    padding: 60px 0;
   }
 }
 

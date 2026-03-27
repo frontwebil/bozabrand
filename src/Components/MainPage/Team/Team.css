@@ -137,6 +137,7 @@
 }
 
 .team-card-bottom-description {
+  color: #d1d4d1;
   font-weight: 300;
   font-size: 14px;
   line-height: 14px;
@@ -227,10 +228,10 @@
 }
 
 @media (max-width: 500px) {
-  .team-img img{
+  .team-img img {
     height: auto;
   }
-  .team-card-top{
+  .team-card-top {
     padding: 15px 0 25px;
   }
   .team-slider {

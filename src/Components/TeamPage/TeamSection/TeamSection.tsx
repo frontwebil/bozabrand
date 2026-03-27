@@ -56,7 +56,7 @@ const teamMembers = [
   },
   {
     id: 4,
-    image: "/Team/4webp.webp",
+    image: "/Team/4.1.png",
     name: "Аліна маленко",
     position: "Бренд-дизайнер, ілюстраторка",
     departmentImage: "/Team/department/sensor3.gif",
@@ -72,7 +72,7 @@ const teamMembers = [
   },
   {
     id: 5,
-    image: "/Team/5webp.webp",
+    image: "/Team/5.1.png",
     name: "Ярослав Грінько",
     position: "Бренд-дизайнер",
     departmentImage: "/Team/department/sensor3.gif",
@@ -90,7 +90,7 @@ const teamMembers = [
   },
   {
     id: 6,
-    image: "/Team/6webp.webp",
+    image: "/Team/6.1.png",
     name: "Таня Біла",
     position: "Веб-розробка / Бренд-дизайнерка",
     departmentImage: "/Team/department/sensor3.gif",
@@ -120,15 +120,15 @@ const teamMembers = [
         <br />
         Марина вміє ловити не просто кадр, вона ловить людину. Її очі бачать
         глибину, яку інші не помічають: емоцію, що сховалась у погляді,
-        тремтливий настрій, унікальний жест. <br /> А коли йдеться про зйомку
-        компанії, вона передає історію бізнесу через ледь вловимі рухи, деталі,
-        світло, атмосферу. Це не просто фото. Це “відчуй, хто ми”.
+        тремтливий настрій, унікальний жест. А коли йдеться про зйомку компанії,
+        вона передає історію бізнесу через ледь вловимі рухи, деталі, світло,
+        атмосферу. Це не просто фото. Це “відчуй, хто ми”.
       </>
     ),
   },
   {
     id: 8,
-    image: "/Team/8webp.webp",
+    image: "/Team/8.1.png",
     name: "Оля Трегуб",
     position: "Копірайтерка",
     departmentImage: "/Team/department/sensor2.gif",
@@ -171,8 +171,9 @@ export function TeamSection() {
         <div className="team-section-title">неповерхневі</div>
         {width && width < 600 && (
           <div className="team-section-grid-bottom-text">
-            Ми саме ті екстрасенсори, які здатні дихати, бачити, чути і відчувати на глибині 11
-            тисяч метрів. Ми занурюємось туди, щоб віднайти серце твого бренду.
+            Ми саме ті екстрасенсори, які здатні дихати, бачити, чути і
+            відчувати на глибині 11 тисяч метрів. Ми занурюємось туди, щоб
+            віднайти серце твого бренду.
           </div>
         )}
         <div className="team-section-grid">

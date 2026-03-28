@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./NumbersAdvantages.css";
 
 export function NumbersAdvantages() {
@@ -13,6 +14,13 @@ export function NumbersAdvantages() {
         <div className="numbers-advantages-number f">
           <h2>13</h2>
           <div className="numbers-advantages-number-circles">
+            <Image
+              className="numbers-advantages-number-circles-img"
+              src={"/About/NumbersStars/13.svg"}
+              width={100}
+              height={50}
+              alt="13 років експертизи у маркетингу"
+            />
             <p className="numbers-advantages-number-circles-text">
               років{" "}
               <span style={{ color: "#412AB9" }}>
@@ -24,12 +32,13 @@ export function NumbersAdvantages() {
         <div className="numbers-advantages-number s">
           <h2>3</h2>
           <div className="numbers-advantages-number-circles">
-            <div className="numbers-advantages-number-circles-row">
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-            </div>
-
+            <Image
+              className="numbers-advantages-number-circles-img-small"
+              src={"/About/NumbersStars/3.svg"}
+              width={100}
+              height={50}
+              alt="3 роки злагодженої командної роботи"
+            />
             <p className="numbers-advantages-number-circles-text">
               Роки{" "}
               <span style={{ color: "#412AB9" }}>
@@ -41,26 +50,13 @@ export function NumbersAdvantages() {
         <div className="numbers-advantages-number t">
           <h2>14</h2>
           <div className="numbers-advantages-number-circles">
-            <div className="numbers-advantages-number-circles-row">
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-            </div>
-            <div className="numbers-advantages-number-circles-row">
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-            </div>
-            <div className="numbers-advantages-number-circles-row">
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-            </div>
+            <Image
+              className="numbers-advantages-number-circles-img"
+              src={"/About/NumbersStars/14.svg"}
+              width={100}
+              height={50}
+              alt="14 років створених нових брендів"
+            />
             <p className="numbers-advantages-number-circles-text">
               <span style={{ color: "#412AB9" }}>створених нових</span> <br />
               брендів

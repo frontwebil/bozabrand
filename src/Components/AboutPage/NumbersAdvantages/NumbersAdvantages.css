@@ -1,6 +1,7 @@
 .numbers-advantages {
   padding-top: 120px;
   margin-bottom: 100px;
+  overflow: hidden;
 }
 .container {
 }
@@ -19,21 +20,22 @@
   padding-bottom: 25px;
   border-bottom: 1px solid #515151;
   display: flex;
+  width: 100%;
   gap: 40px;
   align-items: stretch;
   justify-content: end;
 }
 
 .numbers-advantages-number.f {
-  padding-right: 15vh;
+  padding-right: 10%;
 }
 
 .numbers-advantages-number.s {
-  padding-right: 35vh;
+  padding-right: 25%;
 }
 
 .numbers-advantages-number.t {
-  padding-right: 50vh;
+  padding-right: 40%;
 }
 
 .numbers-advantages-number h2 {
@@ -45,6 +47,24 @@
   vertical-align: middle;
   text-transform: uppercase;
 }
+.numbers-advantages-number-circles {
+  padding-top: 15px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: auto;
+  gap: 15px;
+}
+
+.numbers-advantages-number-circles-img {
+  max-width: 100px;
+  width: 100%;
+}
+.numbers-advantages-number-circles-img-small {
+  max-width: 51px;
+  width: 100%;
+}
 
 .numbers-advantages-number-circles p {
   font-weight: 400;
@@ -53,4 +73,46 @@
   letter-spacing: -2%;
   vertical-align: middle;
   text-transform: lowercase;
+}
+
+@media (max-width: 900px) {
+  .numbers-advantages-number h2 {
+    font-weight: 200;
+    font-size: 134px;
+    line-height: 160px;
+    letter-spacing: -2%;
+  }
+  .numbers-advantages-number-circles {
+    padding-top: 35px;
+    padding-bottom: 22px;
+  }
+  .numbers-advantges-top {
+    font-size: 20px;
+    line-height: 23px;
+  }
+  .numbers-advantages-number {
+    padding: 18px 0;
+  }
+  .numbers-advantages-number-circles p {
+    font-size: 19px;
+    line-height: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .numbers-advantages-number.s,
+  .numbers-advantages-number.f,
+  .numbers-advantages-number.t {
+    padding-right: 0;
+  }
+  .numbers-advantages-number {
+    justify-content: right;
+  }
+  .numbers-advantages-number h2 {
+    min-width: 126px;
+    text-align: right;
+  }
+  .numbers-advantages-number {
+    gap: 25px;
+  }
 }

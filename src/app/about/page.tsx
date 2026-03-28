@@ -10,7 +10,7 @@ export default function page() {
       <Header />
       <AboutContent />
       <ForClient />
-      <NumbersAdvantages />
+      {/* <NumbersAdvantages /> */}
       <Footer />
     </div>
   );

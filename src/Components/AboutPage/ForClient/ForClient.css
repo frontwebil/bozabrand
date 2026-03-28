@@ -32,4 +32,59 @@
 }
 .for-client-right-img {
   max-width: 50%;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .for-client-right-img {
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 900px) {
+  .for-client-left-text h2 {
+    font-family: PP Neue World;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 80%;
+    letter-spacing: 0%;
+  }
+  .for-client .container {
+    padding: 50px 20px 50px;
+  }
+  .for-client-left-text {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 760px) {
+  .for-client .container {
+    flex-direction: column-reverse;
+  }
+  .for-client-left-text {
+    max-width: 600px;
+  }
+  .for-client-right-img {
+    max-width: 600px;
+  }
+  .for-client .container {
+    padding: 50px 20px 95px;
+  }
+
+  .for-client-left-text p {
+    font-size: 8px;
+    line-height: 14px;
+  }
 }

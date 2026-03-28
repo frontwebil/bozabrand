@@ -13,25 +13,6 @@ export function NumbersAdvantages() {
         <div className="numbers-advantages-number f">
           <h2>13</h2>
           <div className="numbers-advantages-number-circles">
-            <div className="numbers-advantages-number-circles-row">
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-            </div>
-            <div className="numbers-advantages-number-circles-row">
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-            </div>
-            <div className="numbers-advantages-number-circles-row">
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-              <div className="numbers-advantages-number-circles-row-circle"></div>
-            </div>
             <p className="numbers-advantages-number-circles-text">
               років{" "}
               <span style={{ color: "#412AB9" }}>

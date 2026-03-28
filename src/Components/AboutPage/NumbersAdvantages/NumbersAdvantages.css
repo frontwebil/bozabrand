@@ -45,26 +45,6 @@
   vertical-align: middle;
   text-transform: uppercase;
 }
-.numbers-advantages-number-circles {
-  padding-top: 15px;
-  padding-bottom: 5px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: auto;
-  gap: 15px;
-}
-.numbers-advantages-number-circles-row {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-.numbers-advantages-number-circles-row-circle {
-  width: 6px;
-  height: 6px;
-  background-color: #19038c;
-  border-radius: 100%;
-}
 
 .numbers-advantages-number-circles p {
   font-weight: 400;

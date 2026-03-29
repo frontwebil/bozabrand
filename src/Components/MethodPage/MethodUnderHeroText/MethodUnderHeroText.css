@@ -1,0 +1,19 @@
+.MethodUnderHeroText {
+  margin-top: 30px;
+}
+.MethodUnderHeroText .container {
+  display: flex;
+  justify-content: end;
+}
+.MethodUnderHeroText-text {
+  max-width: 745px;
+
+  width: 100%;
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 100%;
+  text-align: justify;
+  vertical-align: bottom;
+  text-transform: uppercase;
+}

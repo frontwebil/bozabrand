@@ -1,17 +1,17 @@
 .numbers-advantages {
   padding-top: 120px;
   margin-bottom: 100px;
-  overflow: hidden; /* <- це блокує translateX анімацію! замінити на: */
+  overflow: hidden;
   overflow-x: clip; /* дозволяє IntersectionObserver працювати коректно */
 }
 
 /* Slide-in animation */
 .numbers-advantages-number {
-  transform: translateX(-150%);
+  transform: translateX(-100%);
   opacity: 0;
   transition:
     transform 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    opacity 1.2s ease;
+    opacity 1.6s ease;
 }
 
 .numbers-advantages-number.visible {
@@ -141,21 +141,3 @@
   }
 }
 
-.numbers-advantages-number {
-  transform: translateX(-120%);
-  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.numbers-advantages-number.visible {
-  transform: translateX(0);
-}
-
-.numbers-advantages-number.f {
-  transition-delay: 0s;
-}
-.numbers-advantages-number.s {
-  transition-delay: 0.15s;
-}
-.numbers-advantages-number.t {
-  transition-delay: 0.3s;
-}

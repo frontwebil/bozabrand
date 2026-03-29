@@ -5,7 +5,7 @@ export function MethodHero() {
     <section className="MethodHero">
       <div className="MethodHero-container">
         <video autoPlay muted loop playsInline className="MethodHero-video">
-          <source src="/Method/cycle.webm" type="video/webm" />
+          <source src="/Method/cycle-video.webm" type="video/webm" />
         </video>
         <div className="MethodHero-video-text">
           BOZABRAND - це команда неповерхневих, яка створює проникливі бренди

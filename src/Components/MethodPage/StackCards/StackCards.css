@@ -28,10 +28,10 @@
 .stack-cards-text-block {
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
   /* box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.08); */
-  height: 650px;
+  height: 645px;
   background: rgba(254, 251, 251, 1);
 
-  margin-bottom: 6px;
+  margin-bottom: 12px;
   border-radius: 15px 0 0 15px;
 
   position: sticky;

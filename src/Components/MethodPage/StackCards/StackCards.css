@@ -9,6 +9,9 @@
   line-height: 100%;
   text-transform: uppercase;
   margin-bottom: 40px;
+
+  position: sticky;
+  top: 135px;
 }
 .stack-cards {
   display: flex;
@@ -20,7 +23,7 @@
   display: flex;
   width: 100%;
   position: sticky;
-  top: 125px;
+  top: 205px;
 }
 .stack-cards-text-block {
   max-width: 100%;

@@ -1,5 +1,6 @@
 .for-client {
   background: #d9d9d9;
+  overflow: hidden;
 }
 .for-client .container {
   padding: 80px 20px;

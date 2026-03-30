@@ -101,7 +101,7 @@ export function Footer() {
               <Link href={"/about"} className="footer-content-nav-link">
                 ПРО БРЕНД
               </Link>
-              <Link href={"/"} className="footer-content-nav-link">
+              <Link href={"/method"} className="footer-content-nav-link">
                 ПРАЙС&METОД
               </Link>
             </div>

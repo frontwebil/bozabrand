@@ -34,7 +34,7 @@ export function Header() {
             <Link href={"/cases"} className="header-nav-link">
               ПРОЄКТИ
             </Link>
-            <Link href={"/"} className="header-nav-link">
+            <Link href={"/method"} className="header-nav-link">
               ПРАЙС&METОД
             </Link>
             <Link href={"/team"} className="header-nav-link">
@@ -90,7 +90,7 @@ export function Header() {
               onClick={() => {
                 setIsOpen(false);
               }}
-              href={"/"}
+              href={"/method"}
               className="header-nav-link"
             >
               ПРАЙС&METОД

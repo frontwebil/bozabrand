@@ -202,6 +202,16 @@ const textCards = [
   },
 ];
 
+const FULL_SCALE = Array.from({ length: 101 }, (_, i) => 1000 + i * 100);
+
+const generateScale = (index: number) => {
+  const itemsPerCard = 17;
+  const start = index * itemsPerCard;
+  const end = start + itemsPerCard;
+
+  return FULL_SCALE.slice(start, end);
+};
+
 export function StackCards() {
   return (
     <section className="stack-cards-section">
@@ -211,9 +221,9 @@ export function StackCards() {
         </h2>
 
         <div className="stack-cards">
-          <div className="stack-cards-text-blocks">
-            {textCards.map((card, i) => (
-              <div className="stack-cards-text-block" key={i}>
+          {textCards.map((card, i) => (
+            <div className="stack-card" key={i}>
+              <div className="stack-cards-text-block">
                 <h2>{card.title}</h2>
 
                 <div className="stack-cards-text-block-content">
@@ -233,25 +243,30 @@ export function StackCards() {
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-
-          <div className="stack-cards-img-blocks">
-            {ImgCards.map((img, i) => (
               <div
                 className="stack-cards-img-block"
-                style={{ backgroundImage: `url(${img.bgImage})` }}
+                style={{ backgroundImage: `url(${ImgCards[i].bgImage})` }}
                 key={i}
               >
+                <div className="bottom-scale left">
+                  <div className="bottom-scale-track">
+                    {generateScale(i).map((num, index) => (
+                      <div className="bottom-scale-item" key={index}>
+                        <span className="bottom-scale-dot"></span>
+                        <span className="bottom-scale-number">- {num}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
                 <Image
-                  src={img.image}
+                  src={ImgCards[i].image}
                   width={500}
                   height={500}
                   alt={`card-${i + 1}`}
                 />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -21,10 +21,11 @@ const cards = [
 ];
 
 export function Tactic() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = containerRef.current;
+    if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -33,7 +34,7 @@ export function Tactic() {
         }
       },
       {
-        threshold: 0.2,
+        threshold: 0.5,
       },
     );
 

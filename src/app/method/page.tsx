@@ -5,6 +5,8 @@ import { Become } from "@/Components/MethodPage/Become/Become";
 import { MethodHero } from "@/Components/MethodPage/MethodHero/MethodHero";
 import { MethodUnderHeroText } from "@/Components/MethodPage/MethodUnderHeroText/MethodUnderHeroText";
 import { StackCards } from "@/Components/MethodPage/StackCards/StackCards";
+import { Strategy } from "@/Components/MethodPage/Strategy/Strategy";
+import { Tactic } from "@/Components/MethodPage/Tactic/Tactic";
 
 export default function Method() {
   return (
@@ -14,6 +16,8 @@ export default function Method() {
       <MethodUnderHeroText />
       <StackCards />
       <Become />
+      <Strategy />
+      <Tactic />
       <Faq />
       <Footer />
     </div>

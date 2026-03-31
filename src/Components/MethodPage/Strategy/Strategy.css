@@ -1,0 +1,159 @@
+.strategy {
+  margin-top: 50px;
+  padding: 90px 0 130px;
+}
+
+.strategy-title {
+  font-family: PP Neue World;
+  font-weight: 400;
+  font-size: 122px;
+  line-height: 100%;
+  letter-spacing: -4.88px;
+  text-transform: capitalize;
+  text-align: center;
+
+  position: sticky;
+  top: 50vh;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.strategy-cards {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+.strategy-card {
+  position: sticky;
+  top: 150px;
+  background: #f2f2f2;
+  max-width: 520px;
+  width: 100%;
+  padding: 20px 20px 40px;
+  border-radius: 15px;
+}
+.strategy-card-title {
+  font-family: Wix Madefor Text;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+.strategy-card-description {
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  padding-bottom: 30px;
+}
+.strategy-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.strategy-card-row img {
+  border-radius: 10px;
+  max-width: 199px;
+}
+
+.strategy-card-left-text h3 {
+  font-family: Wix Madefor Text;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.strategy-card-left-text {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.strategy-card-left-text-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 10px;
+}
+
+.strategy-card-left-text-list li {
+  position: relative;
+  padding-left: 18px;
+
+  font-family: Wix Madefor Text;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.strategy-card-left-text-list li::before {
+  content: "•";
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+}
+
+.strategy-card-price {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.strategy-card-price h3 {
+  font-family: Nunito Sans;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.strategy-card-price p {
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.strategy-card-column {
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.strategy-card-price-button {
+  background: #f2f2f27a;
+  text-align: center;
+  max-width: 199px;
+  width: 100%;
+  border: 1px solid #6e6e6e;
+  padding: 14px 0;
+
+  font-family: Wix Madefor Text;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  text-transform: uppercase;
+
+  border-radius: 50px;
+
+  transition: all 0.3s ease;
+}
+
+.strategy-card-price-button:hover {
+  color: #fff;
+  background-color: #6e6e6e;
+}

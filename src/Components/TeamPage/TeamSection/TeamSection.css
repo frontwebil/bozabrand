@@ -65,7 +65,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.70);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
   gap: 10px;
   /* min-height: 145px; */
 }
@@ -86,8 +86,12 @@
   max-width: 100%;
 }
 
+.team-img-page img {
+  max-height: 302px;
+}
+
 .team-card-top-position {
-  max-width: 100px;
+  max-width: 150px;
   font-weight: 400;
   font-size: 14.49px;
   line-height: 14.47px;
@@ -135,7 +139,8 @@
 .team-card-bottom-description span {
   text-transform: uppercase;
   font-weight: 400;
-  line-height: 30px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 1024px) {
@@ -188,53 +193,6 @@
 
   .team-card-bottom-description {
     max-width: 100%;
-  }
-}
-
-.bottom-scale {
-  width: 100%;
-  overflow: hidden;
-  padding: 18px 0 14px;
-  position: absolute;
-  bottom: 0;
-}
-
-.bottom-scale-track {
-  display: flex;
-  width: max-content;
-}
-
-.bottom-scale-item {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 5px;
-  min-width: 40px;
-  justify-content: center;
-}
-
-.bottom-scale-dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #d9d9d9;
-  display: block;
-}
-
-.bottom-scale-number {
-  font-family: Mulish;
-  font-weight: 200;
-  font-style: ExtraLight;
-  font-size: 10px;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
-@keyframes bottomScaleMove {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
   }
 }
 

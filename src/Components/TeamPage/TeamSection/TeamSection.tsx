@@ -7,7 +7,7 @@ const teamMembers = [
   {
     id: 1,
     image: "/Team/1.png",
-    name: "іра бозаджиева",
+    name: "ірина",
     position: "Бренд-лідерка, стратегиня",
     departmentImage: "/Team/department/sensor4.gif",
     departmentAlt: "Rivnovaga",
@@ -24,7 +24,7 @@ const teamMembers = [
   {
     id: 2,
     image: "/Team/2.png",
-    name: "яна романченко",
+    name: "яна ",
     position: "Проджект-менеджерка",
     departmentImage: "/Team/department/sensor6.gif",
     departmentAlt: "Dotyk",
@@ -40,7 +40,7 @@ const teamMembers = [
   {
     id: 3,
     image: "/Team/3.1.png",
-    name: "Аксен Іванков",
+    name: "Аксен ",
     position: "Арт-директор, бренд-дизайнер",
     departmentImage: "/Team/department/sensor3.gif",
     departmentAlt: "Poglyad",
@@ -57,7 +57,7 @@ const teamMembers = [
   {
     id: 4,
     image: "/Team/4.1.png",
-    name: "Аліна маленко",
+    name: "Аліна ",
     position: "Бренд-дизайнер, ілюстраторка",
     departmentImage: "/Team/department/sensor3.gif",
     departmentAlt: "Poglyad",
@@ -73,7 +73,7 @@ const teamMembers = [
   {
     id: 5,
     image: "/Team/5.1.png",
-    name: "Ярослав Грінько",
+    name: "Ярослав ",
     position: "Бренд-дизайнер",
     departmentImage: "/Team/department/sensor3.gif",
     departmentAlt: "Poglyad",
@@ -91,7 +91,7 @@ const teamMembers = [
   {
     id: 6,
     image: "/Team/6.1.png",
-    name: "Таня Біла",
+    name: "Тетяна ",
     position: "Веб-розробка / Бренд-дизайнерка",
     departmentImage: "/Team/department/sensor3.gif",
     departmentAlt: "Poglyad",
@@ -129,7 +129,7 @@ const teamMembers = [
   {
     id: 8,
     image: "/Team/8.1.png",
-    name: "Оля Трегуб",
+    name: "Ольга ",
     position: "Копірайтерка",
     departmentImage: "/Team/department/sensor2.gif",
     departmentAlt: "Poglyad",
@@ -163,7 +163,6 @@ const teamMembers = [
 ];
 
 export function TeamSection() {
-  const numbers = Array.from({ length: 80 }, (_, i) => (i + 1) * 100);
   const width = useWindowWidth();
   return (
     <section className="team-section">
@@ -225,16 +224,6 @@ export function TeamSection() {
               бренду.
             </div>
           )}
-        </div>
-      </div>
-      <div className="bottom-scale">
-        <div className="bottom-scale-track">
-          {[...numbers, ...numbers].map((num, index) => (
-            <div className="bottom-scale-item" key={index}>
-              <span className="bottom-scale-dot"></span>
-              <span className="bottom-scale-number">{num}</span>
-            </div>
-          ))}
         </div>
       </div>
     </section>

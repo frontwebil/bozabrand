@@ -13,7 +13,7 @@ export function Become() {
           className="become-globe-bg"
         />
         <h2 className="become-title">
-          СТАТИ &nbsp;&nbsp; <span>ЛАВМАРКОМ</span>
+          Стати &nbsp;&nbsp; <span>Лавмарком</span>
         </h2>
         <div className="become-content">
           <div className="become-img">

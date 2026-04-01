@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import "./StackCards.css";
+import { useWindowWidth } from "../../../../hooks/useWindowWidth";
 
 const ImgCards = [
   {
@@ -213,6 +216,7 @@ const generateScale = (index: number) => {
 };
 
 export function StackCards() {
+  const width = useWindowWidth();
   return (
     <section className="stack-cards-section">
       <div className="container">
@@ -221,52 +225,107 @@ export function StackCards() {
         </h2>
 
         <div className="stack-cards">
-          {textCards.map((card, i) => (
-            <div className="stack-card" key={i}>
-              <div className="stack-cards-text-block">
-                <h2>{card.title}</h2>
+          {width && width >= 700 ? (
+            textCards.map((card, i) => (
+              <div className="stack-card" key={i}>
+                <div className="stack-cards-text-block">
+                  <h2>{card.title}</h2>
 
-                <div className="stack-cards-text-block-content">
-                  {card.sections.map((section, index) => (
-                    <div
-                      className="stack-cards-text-block-content-card"
-                      key={index}
-                    >
-                      <h3>{section.title}</h3>
+                  <div className="stack-cards-text-block-content">
+                    {card.sections.map((section, index) => (
+                      <div
+                        className="stack-cards-text-block-content-card"
+                        key={index}
+                      >
+                        <h3>{section.title}</h3>
 
-                      <ul className="stack-cards-text-block-content-card-list">
-                        {section.list.map((item, itemIndex) => (
-                          <li key={itemIndex}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div
-                className="stack-cards-img-block"
-                style={{ backgroundImage: `url(${ImgCards[i].bgImage})` }}
-                key={i}
-              >
-                <div className="bottom-scale left">
-                  <div className="bottom-scale-track">
-                    {generateScale(i).map((num, index) => (
-                      <div className="bottom-scale-item" key={index}>
-                        <span className="bottom-scale-dot"></span>
-                        <span className="bottom-scale-number">- {num}</span>
+                        <ul className="stack-cards-text-block-content-card-list">
+                          {section.list.map((item, itemIndex) => (
+                            <li key={itemIndex}>{item}</li>
+                          ))}
+                        </ul>
                       </div>
                     ))}
                   </div>
                 </div>
-                <Image
-                  src={ImgCards[i].image}
-                  width={500}
-                  height={500}
-                  alt={`card-${i + 1}`}
-                />
+                <div
+                  className="stack-cards-img-block"
+                  style={{ backgroundImage: `url(${ImgCards[i].bgImage})` }}
+                  key={i}
+                >
+                  <div className="bottom-scale left">
+                    <div className="bottom-scale-track">
+                      {generateScale(i).map((num, index) => (
+                        <div className="bottom-scale-item" key={index}>
+                          <span className="bottom-scale-dot"></span>
+                          <span className="bottom-scale-number">- {num}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <Image
+                    src={ImgCards[i].image}
+                    width={500}
+                    height={500}
+                    alt={`card-${i + 1}`}
+                  />
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="stack-mobile">
+              <div className="stack-mobile-text-blocks">
+                {textCards.map((card, i) => (
+                  <div className="stack-cards-text-block" key={i}>
+                    <h2>{card.title}</h2>
+
+                    <div className="stack-cards-text-block-content">
+                      {card.sections.map((section, index) => (
+                        <div
+                          className="stack-cards-text-block-content-card"
+                          key={index}
+                        >
+                          <h3>{section.title}</h3>
+
+                          <ul className="stack-cards-text-block-content-card-list">
+                            {section.list.map((item, itemIndex) => (
+                              <li key={itemIndex}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="stack-mobile-imgs">
+                {ImgCards.map((el, i) => (
+                  <div
+                    className="stack-cards-img-block"
+                    style={{ backgroundImage: `url(${el.bgImage})` }}
+                    key={i}
+                  >
+                    <div className="bottom-scale left">
+                      <div className="bottom-scale-track">
+                        {generateScale(i).map((num, index) => (
+                          <div className="bottom-scale-item" key={index}>
+                            <span className="bottom-scale-dot"></span>
+                            <span className="bottom-scale-number">- {num}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <Image
+                      src={el.image}
+                      width={500}
+                      height={500}
+                      alt={`card-${i + 1}`}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </section>

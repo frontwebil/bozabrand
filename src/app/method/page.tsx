@@ -12,13 +12,13 @@ export default function Method() {
   return (
     <div style={{ background: "#e6e6e6" }}>
       <Header />
-      <MethodHero />
-      <MethodUnderHeroText />
+      {/* <MethodHero /> */}
+      {/* <MethodUnderHeroText /> */}
       <StackCards />
-      <Become />
+      {/* <Become />
       <Strategy />
       <Tactic />
-      <Faq />
+      <Faq /> */}
       <Footer />
     </div>
   );

@@ -21,8 +21,9 @@
   width: 100%;
 }
 .stack-card {
-  height: 600px;
-
+  height: 70vh;
+  min-height: 600px;
+  max-block-size: 800px;
   display: flex;
   width: 100%;
   position: sticky;
@@ -35,7 +36,7 @@
   background: rgba(254, 251, 251, 1);
   margin-bottom: 12px;
   border-radius: 24px 0 0 24px;
-  padding: 54px 40px;
+  padding: 28px 40px 54px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -124,4 +125,117 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
+}
+
+@media (max-width: 1100px) {
+  .stack-cards-img-block {
+    max-width: 40%;
+  }
+  .stack-cards-text-block-content-card-list li {
+    font-size: 14px;
+  }
+  .stack-cards-text-block-content-card h3 {
+    font-size: 16px;
+  }
+  .stack-cards-text-block-content-card {
+    gap: 10px;
+  }
+  .stack-cards-text-block {
+    padding: 28px 30px 54px;
+  }
+  .stack-cards-text-block-content-card:last-child {
+    padding: 20px 0 10px;
+  }
+  .stack-cards-text-block-content-card {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .bottom-scale.left .bottom-scale-track {
+    font-size: 12px;
+  }
+  .stack-cards-text-block {
+    padding: 28px 20px 54px;
+  }
+}
+
+@media (max-width: 700px) {
+  .bottom-scale.left {
+    padding: 5px 10px;
+  }
+  .stack-cards-title {
+    padding: 0 0 0 20px;
+    max-width: 350px;
+    width: 100%;
+    margin-bottom: -40px;
+    font-size: 20px;
+  }
+  .stack-cards-section .container {
+    padding: 0;
+  }
+  .stack-mobile {
+    position: relative;
+    padding-top: 40vh;
+  }
+  .stack-mobile-imgs {
+    position: absolute;
+    top: 72px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .stack-cards-img-block {
+    height: 60vh;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+
+  .stack-cards-img-block img {
+    max-width: 30%;
+    margin-left: 0;
+  }
+
+  .stack-cards-text-block {
+    justify-content: flex-start;
+    gap: 35px;
+    height: 65vh;
+    box-shadow: 0px -4px 10px 0px #0000001a;
+    position: sticky;
+    top: calc(35vh);
+    border-radius: 24px 24px 0 0;
+  }
+
+  .stack-mobile-text-blocks {
+    position: relative;
+    z-index: 5;
+    margin-top: -36px;
+  }
+
+  .stack-cards-text-block h2 {
+    max-width: 100%;
+  }
+  .stack-cards-text-block-content-card {
+    border: none;
+    flex-direction: column;
+  }
+
+  .stack-cards-text-block-content-card h3 {
+    max-width: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0%;
+  }
+  .stack-cards-text-block-content-card-list li {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 13px;
+    margin-left: 15px;
+  }
+  .stack-cards-text-block-content-card:first-child {
+    padding-top: 0;
+  }
 }

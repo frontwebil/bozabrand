@@ -50,3 +50,40 @@
   transform: translateY(0);
 }
 
+@media (max-width: 1000px) {
+  .tactic-title {
+    font-size: 56px;
+    line-height: 56px;
+    letter-spacing: -2px;
+    margin-bottom: 40px;
+  }
+
+  .tactic-cards {
+    gap: 5px;
+    max-width: 100%;
+  }
+
+  .tactic-card {
+    font-size: 12px;
+    line-height: 18px;
+    padding: 6px 10px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tactic-title {
+    font-size: 42px;
+    line-height: 44px;
+    letter-spacing: -1.5px;
+  }
+
+  .tactic-card {
+    font-size: 11px;
+    line-height: 16px;
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 400px) {
+}

@@ -1,4 +1,6 @@
 .MethodUnderHeroText {
+  position: relative;
+  z-index: 5;
   margin-top: 30px;
 }
 .MethodUnderHeroText .container {

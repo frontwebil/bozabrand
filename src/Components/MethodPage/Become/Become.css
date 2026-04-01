@@ -39,8 +39,13 @@
 .become-img {
   max-width: 130px;
 }
+
+.become-text-icons {
+  max-width: 400px;
+}
+
 .become-text {
-  max-width: 520px;
+  max-width: 600px;
   width: 100%;
   font-family: Nunito Sans;
   font-weight: 400;
@@ -68,4 +73,133 @@
 
 .become-undersection-content span {
   color: #989595;
+}
+
+@media (max-width: 1100px) {
+  .become .container {
+    padding: 200px 20px 50px;
+    position: relative;
+  }
+}
+@media (max-width: 845px) {
+  .become-title {
+    font-size: 110px;
+  }
+  .become-content {
+    padding-top: 140px;
+  }
+  .become-undersection-content {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 800px) {
+  .become-globe-bg {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .become-title {
+    font-size: 90px;
+  }
+
+  .become-globe-bg {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 660px) {
+  .become-content {
+    position: relative;
+  }
+  .become-img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    max-width: 100px;
+  }
+  .become-text-icons {
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  .become-text-icons {
+    max-width: 300px;
+    padding-top: 25px;
+  }
+  .become-img {
+    max-width: 75px;
+  }
+  .become-text {
+    font-size: 16px;
+  }
+  .become-title {
+    font-size: 75px;
+  }
+  .become-globe-bg {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .become .container {
+    padding: 120px 20px 50px;
+    position: relative;
+  }
+}
+
+@media (max-width: 460px) {
+  .become-undersection-content {
+    font-size: 16px;
+    padding-top: 60px;
+  }
+  .become-globe-bg {
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .become-title {
+    font-size: 55px;
+    letter-spacing: -2.03px;
+  }
+  .become-content {
+    padding-top: 70px;
+  }
+  .become-text-icons {
+    max-width: 250px;
+    padding-top: 25px;
+  }
+  .become-img {
+    max-width: 60px;
+  }
+}
+
+@media (max-width: 390px) {
+  .become-globe-bg {
+    position: absolute;
+    top: 9%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .become-title {
+    letter-spacing: -2.03px;
+    font-size: 50px;
+  }
+  .become-text-icons {
+    max-width: 200px;
+    padding-top: 10px;
+  }
+  .become-img {
+    max-width: 50px;
+  }
+  .become-text {
+    gap: 15px;
+  }
 }

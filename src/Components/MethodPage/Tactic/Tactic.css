@@ -79,6 +79,7 @@
 @media (max-width: 480px) {
   .tactic {
     margin-top: 0px;
+    margin-bottom: 120px;
   }
   .tactic-title {
     font-size: 42px;

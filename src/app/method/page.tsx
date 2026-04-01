@@ -15,10 +15,10 @@ export default function Method() {
       {/* <MethodHero /> */}
       {/* <MethodUnderHeroText /> */}
       <StackCards />
-      {/* <Become />
+      <Become />
       <Strategy />
       <Tactic />
-      <Faq /> */}
+      <Faq />
       <Footer />
     </div>
   );

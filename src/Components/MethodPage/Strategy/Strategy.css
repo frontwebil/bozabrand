@@ -223,6 +223,9 @@
   .strategy-card {
     top: 205px;
   }
+  .strategy-card-price h3{
+    text-wrap: nowrap;
+  }
 }
 @media (max-width: 480px) {
   .strategy-card-left-text-list {

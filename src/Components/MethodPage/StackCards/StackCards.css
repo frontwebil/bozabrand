@@ -183,6 +183,8 @@
   .stack-mobile {
     position: relative;
     padding-top: 40vh;
+    max-width: 100%;
+    width: 100%;
   }
   .stack-mobile-imgs {
     position: absolute;

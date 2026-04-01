@@ -236,7 +236,11 @@
     line-height: 13px;
     margin-left: 15px;
   }
+  .stack-cards-text-block-content-card {
+    padding: 15px 0;
+  }
   .stack-cards-text-block-content-card:first-child {
     padding-top: 0;
+    padding-bottom: 0;
   }
 }

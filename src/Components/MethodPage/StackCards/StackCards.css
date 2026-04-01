@@ -149,6 +149,9 @@
   .stack-cards-text-block-content-card {
     padding: 20px 0;
   }
+    .stack-cards-section{
+    margin-top: 100px;
+  }
 }
 
 @media (max-width: 800px) {
@@ -165,7 +168,7 @@
     padding: 5px 10px;
   }
   .stack-cards-title {
-    padding: 0 0 0 20px;
+    padding: 0 20px 0 20px;
     max-width: 350px;
     width: 100%;
     margin-bottom: -40px;
@@ -247,4 +250,5 @@
     padding-top: 0;
     padding-bottom: 0;
   }
+
 }

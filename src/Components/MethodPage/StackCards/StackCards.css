@@ -175,8 +175,6 @@
     padding: 0;
   }
   .stack-mobile {
-    position: relative;
-    z-index: 100;
     padding-top: 40vh;
   }
   .stack-mobile-imgs {
@@ -195,6 +193,9 @@
   }
 
   .stack-cards-img-block img {
+    position: sticky;
+    top: 22%;
+    transform: translateY(-50%);
     max-width: 100%;
     margin-left: 0;
   }

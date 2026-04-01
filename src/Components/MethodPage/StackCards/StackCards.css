@@ -176,6 +176,7 @@
   }
   .stack-mobile {
     position: relative;
+    z-index: 100;
     padding-top: 40vh;
   }
   .stack-mobile-imgs {

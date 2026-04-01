@@ -190,7 +190,7 @@
     width: 100%;
     max-width: 100%;
     border-radius: 0;
-    margin-bottom: 0;
+    margin-bottom: -1px;
   }
 
   .stack-cards-img-block img {

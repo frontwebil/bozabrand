@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from "next/navigation";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -7,6 +8,8 @@ import { useWindowWidth } from "../../../../hooks/useWindowWidth";
 import { useEffect, useRef, useState } from "react";
 
 export function Header() {
+  const pathname = usePathname();
+  const isActive = (path: string) => pathname === path;
   const width = useWindowWidth();
   const ref = useRef<HTMLDivElement | null>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -31,16 +34,31 @@ export function Header() {
         </Link>
         <div className="header-right">
           <nav className="header-nav">
-            <Link href={"/cases"} className="header-nav-link">
+            <Link
+              href={"/cases"}
+              className={`header-nav-link ${isActive("/cases") ? "active" : ""}`}
+            >
               ПРОЄКТИ
             </Link>
-            <Link href={"/method"} className="header-nav-link">
+
+            <Link
+              href={"/method"}
+              className={`header-nav-link ${isActive("/method") ? "active" : ""}`}
+            >
               ПРАЙС&METОД
             </Link>
-            <Link href={"/team"} className="header-nav-link">
+
+            <Link
+              href={"/team"}
+              className={`header-nav-link ${isActive("/team") ? "active" : ""}`}
+            >
               НЕПОВЕРХНЕВІ
             </Link>
-            <Link href={"/about"} className="header-nav-link">
+
+            <Link
+              href={"/about"}
+              className={`header-nav-link ${isActive("/about") ? "active" : ""}`}
+            >
               ПРО БРЕНД
             </Link>
           </nav>
@@ -78,38 +96,33 @@ export function Header() {
         <div className="header-menu-content">
           <nav className="header-nav-mobile">
             <Link
-              onClick={() => {
-                setIsOpen(false);
-              }}
+              onClick={() => setIsOpen(false)}
               href={"/cases"}
-              className="header-nav-link"
+              className={`header-nav-link ${isActive("/cases") ? "active" : ""}`}
             >
               ПРОЄКТИ
             </Link>
+
             <Link
-              onClick={() => {
-                setIsOpen(false);
-              }}
+              onClick={() => setIsOpen(false)}
               href={"/method"}
-              className="header-nav-link"
+              className={`header-nav-link ${isActive("/method") ? "active" : ""}`}
             >
               ПРАЙС&METОД
             </Link>
+
             <Link
-              onClick={() => {
-                setIsOpen(false);
-              }}
+              onClick={() => setIsOpen(false)}
               href={"/team"}
-              className="header-nav-link"
+              className={`header-nav-link ${isActive("/team") ? "active" : ""}`}
             >
               НЕПОВЕРХНЕВІ
             </Link>
+
             <Link
-              onClick={() => {
-                setIsOpen(false);
-              }}
+              onClick={() => setIsOpen(false)}
               href={"/about"}
-              className="header-nav-link"
+              className={`header-nav-link ${isActive("/about") ? "active" : ""}`}
             >
               ПРО БРЕНД
             </Link>

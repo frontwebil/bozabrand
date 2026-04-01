@@ -54,6 +54,10 @@
   transition: 0.3s ease all;
 }
 
+.header-nav-link.active {
+  color: #5919c1;
+}
+
 .header-nav-link:hover {
   color: #5919c1;
 }

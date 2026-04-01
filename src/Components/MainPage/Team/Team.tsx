@@ -43,7 +43,7 @@ const teamMembers = [
   {
     id: 3,
     image: "/Team/3.1.png",
-    name: "Аксен",
+    name: "Аксьон",
     position: "Арт-директор, бренд-дизайнер",
     departmentImage: "/Team/department/sensor3.gif",
     departmentAlt: "Poglyad",

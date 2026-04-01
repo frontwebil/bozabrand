@@ -19,11 +19,16 @@ export function Header() {
     if (ref.current) {
       setHeaderHeight(ref.current.offsetHeight);
     }
-  }, [width]); // щоб при ресайзі теж оновлювалось
+  }, [width]);
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <header className="header" ref={ref}>
       <div className="container">
-        <Link href={"/"} className="header-logo">
+        <Link href={"/"} className="header-logo" onClick={() => scrollToTop()}>
           <Image
             src={"/logo.svg"}
             width={260}

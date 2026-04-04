@@ -12,6 +12,17 @@
   padding: 25px 30px;
 }
 
+.hero-accordeon-card-section-title {
+  font-family: Wix Madefor Text;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  text-transform: uppercase;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #a5a5a5;
+}
+
 .hero-accordeon-card-top {
   cursor: pointer;
   display: flex;

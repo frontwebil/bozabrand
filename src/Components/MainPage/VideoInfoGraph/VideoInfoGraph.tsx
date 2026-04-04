@@ -3,6 +3,9 @@ import "./VideoInfoGraph.css";
 export function VideoInfoGraph() {
   return (
     <section className="video-info-graph">
+      <div className="container video-info-border-bottom">
+        <h3 className="video-info-graph-title">Топ - 3 причини обрати BOZABRAND</h3>
+      </div>
       <div className="container">
         <div className="video-info-graph-cards">
           <div className="video-info-graph-card">
@@ -16,7 +19,9 @@ export function VideoInfoGraph() {
           </div>
           <div className="video-info-graph-card">
             <div className="video-info-graph-card-top">
-              <h2>Встановлюємо чіткі бізнес-цілі, управляємо та аналізуємо KPI</h2>
+              <h2>
+                Встановлюємо чіткі бізнес-цілі, управляємо та аналізуємо KPI
+              </h2>
               <h2>[02]</h2>
             </div>
             <video autoPlay muted loop playsInline>
@@ -25,7 +30,10 @@ export function VideoInfoGraph() {
           </div>
           <div className="video-info-graph-card">
             <div className="video-info-graph-card-top">
-              <h2>Вирощуємо усвідомлену лояльну аудиторію, створюючи фан-клуб бренду</h2>
+              <h2>
+                Вирощуємо усвідомлену лояльну аудиторію, створюючи фан-клуб
+                бренду
+              </h2>
               <h2>[03]</h2>
             </div>
             <video autoPlay muted loop playsInline>

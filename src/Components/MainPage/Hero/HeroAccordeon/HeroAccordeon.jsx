@@ -87,6 +87,7 @@ export function HeroAccordeon() {
     ${index === accordionItems.length - 1 && openIndex !== 0 ? " rounded-last" : ""}
   `}
           >
+            {index === 0 && <h3 className="hero-accordeon-card-section-title">пакетні послуги</h3>}
             <div
               className="hero-accordeon-card-top"
               onClick={() => handleOpen(index)}

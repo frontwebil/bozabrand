@@ -40,6 +40,7 @@
   text-transform: uppercase;
   padding-bottom: 28px;
   position: relative;
+  margin-bottom: 40px;
 }
 
 .video-info-border-bottom {
@@ -102,6 +103,7 @@
   .video-info-graph-title {
     font-size: 64px;
     line-height: 68px;
+    margin-bottom: 30px;
   }
 }
 
@@ -119,5 +121,6 @@
   .video-info-graph-title {
     font-size: 36px;
     line-height: 36px;
+    margin-bottom: 10px;
   }
 }

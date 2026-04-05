@@ -2,6 +2,7 @@
 
 import { Case } from "@/generated/prisma/browser";
 import "./Projects.css";
+import Link from "next/link";
 
 export function Projects({ cases }: { cases: Case[] }) {
   return (
@@ -9,7 +10,8 @@ export function Projects({ cases }: { cases: Case[] }) {
       <div className="container">
         <div className="projects-container">
           {cases.map((project, i) => (
-            <div
+            <Link
+              href={`/cases/${project.slug}`}
               className="project-card"
               key={i}
               style={{
@@ -32,7 +34,7 @@ export function Projects({ cases }: { cases: Case[] }) {
                   </span>
                 ))}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

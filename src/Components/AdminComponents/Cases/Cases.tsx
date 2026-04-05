@@ -52,13 +52,13 @@ export function Cases({ cases }: { cases: Case[] }) {
           </div>
         </div>
 
-        <div className="cases-admin-toolbar">
+        {/* <div className="cases-admin-toolbar">
           <input
             type="text"
             placeholder="Пошук кейсу..."
             className="cases-admin-search"
           />
-        </div>
+        </div> */}
 
         <div className="cases-admin-grid">
           {cases.map((item) => (
@@ -101,7 +101,7 @@ export function Cases({ cases }: { cases: Case[] }) {
                       Редагувати
                     </Link>
                     <Link
-                      href={`/admin/cases/${item.slug}`}
+                      href={`/admin-boza/cases/constructor/${item.id}`}
                       className="cases-admin-card-btn edit"
                     >
                       Конструктор сторінки

@@ -158,7 +158,8 @@
 .add-case-submit-wrap {
   margin-top: 28px;
   display: flex;
-  justify-content: flex-start;
+  gap: 20px;
+  justify-content: stretch;
 }
 
 .add-case-submit {
@@ -271,4 +272,18 @@
   display: block;
   width: 100%;
   height: auto;
+}
+
+.add-case-delete {
+  background: #ff3b3b;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-case-delete:hover {
+  background: #d92c2c;
 }

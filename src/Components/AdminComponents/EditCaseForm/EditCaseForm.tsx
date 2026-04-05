@@ -51,6 +51,30 @@ export function EditCaseForm({ caseItem }: { caseItem: Case }) {
     }
   };
 
+  const handleDelete = async () => {
+    const confirmDelete = confirm("Ти точно хочеш видалити кейс?");
+
+    if (!confirmDelete) return;
+
+    try {
+      setIsLoading(true);
+      setLoadingText("Видалення кейсу...");
+
+      await axios.delete(`/api/adminCases/delete/${caseItem.id}`);
+
+      router.push("/admin-boza/cases");
+    } catch (err) {
+      if (axios.isAxiosError(err)) {
+        setError(err.response?.data?.message || "Помилка при видаленні");
+      } else {
+        setError("Помилка при видаленні");
+      }
+    } finally {
+      setIsLoading(false);
+      setLoadingText("");
+    }
+  };
+
   async function uploadImage(file: File) {
     const formData = new FormData();
     formData.append("file", file);
@@ -254,6 +278,14 @@ export function EditCaseForm({ caseItem }: { caseItem: Case }) {
                 disabled={isLoading}
               >
                 {isLoading ? "Обробка..." : "Оновити кейс"}
+              </button>
+              <button
+                type="button"
+                className="add-case-delete"
+                onClick={handleDelete}
+                disabled={isLoading}
+              >
+                Видалити кейс
               </button>
             </div>
           </form>

@@ -166,19 +166,19 @@
 }
 
 .tag-designers {
-  background: #2db87a;
+  background: rgba(45, 157, 144, 1);
 }
 .tag-strategists {
-  background: #3d2d8e;
+  background: rgba(24, 3, 140, 1);
 }
 .tag-copywriters {
-  background: #2db87a;
+  background: rgba(45, 157, 144, 1);
 }
 .tag-photographers {
-  background: #3d2d8e;
+  background: rgba(24, 3, 140, 1);
 }
 .tag-illustrators {
-  background: #3d2d8e;
+  background: rgba(24, 3, 140, 1);
 }
 
 @media (max-width: 500px) {
@@ -187,7 +187,7 @@
     padding: 5px 11px;
   }
   .tag-designers {
-    top: 75%;
+    top: 90%;
     left: 30%;
   }
   .tag-strategists {

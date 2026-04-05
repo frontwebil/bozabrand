@@ -1,5 +1,6 @@
 "use client";
 
+import { Case } from "@/generated/prisma/browser";
 import "./Cases.css";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
@@ -28,7 +29,7 @@ const mockCases = [
   },
 ];
 
-export function Cases() {
+export function Cases({ cases }: { cases: Case[] }) {
   return (
     <section className="cases-admin">
       <div className="cases-admin-container">
@@ -38,7 +39,10 @@ export function Cases() {
           </div>
 
           <div className="cases-admin-actions">
-            <Link href="/admin/cases/create" className="cases-admin-create">
+            <Link
+              href="/admin-boza/cases/create"
+              className="cases-admin-create"
+            >
               + Додати кейс
             </Link>
 
@@ -57,7 +61,7 @@ export function Cases() {
         </div>
 
         <div className="cases-admin-grid">
-          {mockCases.map((item) => (
+          {cases.map((item) => (
             <div className="cases-admin-card" key={item.id}>
               <div
                 className="cases-admin-card-image"
@@ -68,6 +72,15 @@ export function Cases() {
                 <div className="cases-admin-card-head">
                   <h3>{item.title}</h3>
                   <p>{item.subTitle}</p>
+                  <span
+                    className="cases-admin-card-head-status"
+                    style={{
+                      color: item.isPublished ? "#047857" : "#b91c1c",
+                      background: item.isPublished ? "#ecfdf5" : "#fef2f2",
+                    }}
+                  >
+                    {item.isPublished ? "Опубліковано" : "Сховано"}
+                  </span>
                 </div>
 
                 <div className="cases-admin-card-tags">
@@ -77,11 +90,12 @@ export function Cases() {
                 </div>
 
                 <div className="cases-admin-card-bottom">
-                  <span className="cases-admin-slug">/{item.slug}</span>
+                  <span className="cases-admin-slug">slug - /{item.slug}</span>
+                  <span className="cases-admin-slug">index : {item.order}</span>
 
                   <div className="cases-admin-card-buttons">
                     <Link
-                      href={`/admin/cases/${item.slug}`}
+                      href={`/admin-boza/cases/edit/${item.id}`}
                       className="cases-admin-card-btn edit"
                     >
                       Редагувати

@@ -1,6 +1,5 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { Cases } from "@/Components/AdminComponents/Cases/Cases";
-import { prisma } from "@/lib/prisma";
+import { AddCaseForm } from "@/Components/AdminComponents/AddCaseForm/AddCaseForm";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
@@ -15,16 +14,9 @@ export default async function page() {
   ) {
     redirect("/admin-boza");
   }
-
-  const cases = await prisma.case.findMany({
-    orderBy: {
-      order: "asc",
-    },
-  });
-
   return (
     <div>
-      <Cases cases={cases} />
+      <AddCaseForm />
     </div>
   );
 }

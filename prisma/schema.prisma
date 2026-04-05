@@ -8,22 +8,23 @@ datasource db {
 }
 
 model Case {
-  id         Int         @id @default(autoincrement())
-  title      String
-  subTitle   String
-  slug       String      @unique
-  categories String[]
-  imgUrl     String
-  isPublished Boolean    @default(false)
+  id          Int          @id @default(autoincrement())
+  title       String
+  subTitle    String
+  slug        String       @unique
+  categories  String[]
+  imgUrl      String
+  order       Int          @default(0)
+  isPublished Boolean      @default(false)
 
-  blocks     CaseBlock[]
+  blocks      CaseBlock[]
 
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
 }
 
 model CaseBlock {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   caseId    Int
   type      String
   order     Int
@@ -31,8 +32,8 @@ model CaseBlock {
 
   case      Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 
   @@index([caseId])
   @@index([caseId, order])

@@ -1,10 +1,11 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { Cases } from "@/Components/AdminComponents/Cases/Cases";
+import { EditCaseForm } from "@/Components/AdminComponents/EditCaseForm/EditCaseForm";
 import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
-export default async function page() {
+export default async function EditCase({ params }: { params: { id: number } }) {
+  const { id } = await params;
   const session = await getServerSession(authOptions);
   const envLogin = process.env.AUTH_LOGIN?.toLowerCase().trim();
 
@@ -16,15 +17,15 @@ export default async function page() {
     redirect("/admin-boza");
   }
 
-  const cases = await prisma.case.findMany({
-    orderBy: {
-      order: "asc",
+  const caseItem = await prisma.case.findUnique({
+    where: {
+      id: Number(id),
     },
   });
 
-  return (
-    <div>
-      <Cases cases={cases} />
-    </div>
-  );
+  if (!caseItem) {
+    redirect("/admin-boza/cases");
+  }
+
+  return <EditCaseForm caseItem={caseItem} />;
 }

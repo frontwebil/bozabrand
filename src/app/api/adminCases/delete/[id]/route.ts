@@ -1,6 +1,7 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function DELETE(
@@ -31,6 +32,8 @@ export async function DELETE(
         id: caseId,
       },
     });
+
+    revalidatePath("/cases");
 
     return NextResponse.json({ message: "Кейс видалено" }, { status: 200 });
   } catch (error) {

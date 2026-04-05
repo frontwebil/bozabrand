@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions);
@@ -53,6 +54,8 @@ export async function POST(req: Request) {
         order: Number(order) || 0,
       },
     });
+
+    revalidatePath("/cases");
 
     return NextResponse.json(
       {

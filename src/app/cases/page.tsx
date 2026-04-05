@@ -4,6 +4,8 @@ import { OurDrivers } from "@/Components/ProjectsPage/OurDrivers/OurDrivers";
 import { Projects } from "@/Components/ProjectsPage/Projects/Projects";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export default async function Cases() {
   const cases = await prisma.case.findMany({
     where: {
@@ -16,7 +18,7 @@ export default async function Cases() {
   return (
     <>
       <Header />
-      <Projects cases={cases}/>
+      <Projects cases={cases} />
       <div className="sandwich-cases"></div>
       <OurDrivers />
       <Footer />

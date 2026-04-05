@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { revalidatePath } from "next/cache";
 
 export async function PATCH(
   req: NextRequest,
@@ -72,6 +73,8 @@ export async function PATCH(
         order: Number(order) || 0,
       },
     });
+
+    revalidatePath("/cases");
 
     return NextResponse.json(
       {

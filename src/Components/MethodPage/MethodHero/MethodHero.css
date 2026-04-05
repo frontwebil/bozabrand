@@ -130,3 +130,80 @@
     margin-top: -5px;
   }
 }
+
+.MethodHero-tags-overlay {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .MethodHero-tags-overlay {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+}
+
+.MethodHero-tag {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 100px;
+
+  font-family:
+    Nunito Sans,
+    sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+  will-change: transform;
+}
+
+.tag-designers {
+  background: #2db87a;
+}
+.tag-strategists {
+  background: #3d2d8e;
+}
+.tag-copywriters {
+  background: #2db87a;
+}
+.tag-photographers {
+  background: #3d2d8e;
+}
+.tag-illustrators {
+  background: #3d2d8e;
+}
+
+@media (max-width: 500px) {
+  .MethodHero-tag {
+    font-size: 11px;
+    padding: 5px 11px;
+  }
+  .tag-designers {
+    top: 75%;
+    left: 30%;
+  }
+  .tag-strategists {
+    top: 60%;
+    left: 58%;
+  }
+  .tag-copywriters {
+    top: 56%;
+    left: 5%;
+  }
+  .tag-photographers {
+    top: 68%;
+    left: 35%;
+  }
+  .tag-illustrators {
+    top: 90%;
+    left: 70%;
+  }
+}

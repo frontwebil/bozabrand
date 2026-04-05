@@ -1,11 +1,11 @@
 import { getServerSession } from "next-auth";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export async function PATCH(
-  req: Request,
-  { params }: { params: { id: string } },
+  req: NextRequest,
+  context: { params: Promise<{ id: string }> },
 ) {
   const session = await getServerSession(authOptions);
   const envLogin = process.env.AUTH_LOGIN?.toLowerCase().trim();
@@ -18,12 +18,12 @@ export async function PATCH(
     return NextResponse.json({ message: "Не авторизований" }, { status: 401 });
   }
 
-  const { id } = await params;
+  const { id } = await context.params;
   const caseId = Number(id);
 
   console.log(caseId);
 
-  if (Number.isNaN(id)) {
+  if (Number.isNaN(caseId)) {
     return NextResponse.json({ message: "Некоректний id" }, { status: 400 });
   }
 
@@ -64,7 +64,7 @@ export async function PATCH(
         title: title.trim(),
         subTitle: subTitle.trim(),
         slug: slug.trim(),
-        imgUrl: imgUrl,
+        imgUrl,
         categories: Array.isArray(categories)
           ? categories.map((item: string) => item.trim()).filter(Boolean)
           : [],

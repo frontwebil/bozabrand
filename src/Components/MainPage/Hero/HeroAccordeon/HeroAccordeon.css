@@ -250,4 +250,11 @@
     padding: 32px 22px;
     border-radius: 15px 15px 0 0;
   }
+  .hero-accordeon-card-text-gray-premitka {
+    font-size: 7px;
+    line-height: 7px;
+    margin-top: 20px;
+    color: rgb(93, 93, 93);
+    font-weight: 300;
+  }
 }

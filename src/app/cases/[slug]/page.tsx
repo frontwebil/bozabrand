@@ -7,6 +7,7 @@ import {
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import "./style.css";
+import { TopProjects } from "@/Components/CasesTemplates/TopProjects/TopProjects";
 
 export const dynamic = "force-dynamic";
 
@@ -30,6 +31,14 @@ export default async function CasePage({ params }: Props) {
     return notFound();
   }
 
+  const allCases = await prisma.case.findMany({
+    orderBy: {
+      order: "asc",
+    },
+  });
+
+  const topCases = allCases.slice(0, 2);
+
   return (
     <div className="case-site-inner">
       <Header />
@@ -42,6 +51,7 @@ export default async function CasePage({ params }: Props) {
         const BlockComponent = registryItem.component;
         return <BlockComponent key={block.id} data={block.data as never} />;
       })}
+      <TopProjects topCases={topCases} />
       <Footer />
     </div>
   );

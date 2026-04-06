@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Mulish, Nunito_Sans, Wix_Madefor_Text } from "next/font/google";
+import { Inter, Mulish, Nunito_Sans, Playfair, Wix_Madefor_Text } from "next/font/google";
 import "./globals.css";
 import "./reset.css";
 import { ScrollToTop } from "@/Components/Layout/ScrollToTop";
@@ -9,6 +9,7 @@ const nunito = Nunito_Sans({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 const madefor = Wix_Madefor_Text({ subsets: ["latin"] });
 const mulish = Mulish({ subsets: ["latin"] });
+const playfair = Playfair({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "BOZABRAND",
@@ -24,7 +25,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${nunito.className} ${inter.className} ${madefor.className} ${mulish.className} h-full antialiased`}
+      className={`${nunito.className} ${inter.className} ${madefor.className} ${mulish.className} ${playfair.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SessionAuthProvider>

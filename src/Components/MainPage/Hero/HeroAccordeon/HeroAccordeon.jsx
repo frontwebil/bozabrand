@@ -87,7 +87,11 @@ export function HeroAccordeon() {
     ${index === accordionItems.length - 1 && openIndex !== 0 ? " rounded-last" : ""}
   `}
           >
-            {index === 0 && <h3 className="hero-accordeon-card-section-title">пакетні послуги</h3>}
+            {index === 0 && (
+              <h3 className="hero-accordeon-card-section-title">
+                пакетні послуги
+              </h3>
+            )}
             <div
               className="hero-accordeon-card-top"
               onClick={() => handleOpen(index)}
@@ -141,6 +145,12 @@ export function HeroAccordeon() {
                     <p className="hero-accordeon-card-text">{item.text}</p>
                   )}
                 </div>
+                  <p className="hero-accordeon-card-text-gray-premitka">
+                    Ціни на сайті наведені в євро. Розрахунок здійснюється в
+                    гривнях за офіційним курсом Національного банку України на
+                    день здійснення платежу згідно з чинним законодавством
+                    України.
+                  </p>
               </div>
             </div>
           </div>

@@ -1,3 +1,5 @@
+import { CaseInfo } from "./InfoBlock/Component";
+import { TemplateCaseInfo } from "./InfoBlock/Template";
 import { ComponentImage } from "./MainImg/Component";
 import { TemplateImage } from "./MainImg/Template";
 import { ComponentText } from "./TextContent/Component";
@@ -36,6 +38,22 @@ export const caseBlocksRegistry = {
       src: "",
       poster: "",
       title: "",
+    },
+  },
+  caseInfo: {
+    label: "Case Info",
+    component: CaseInfo,
+    template: TemplateCaseInfo,
+    defaultData: {
+      category: "E-commerce",
+      title: "VSESVIT",
+      description: "Опис кейсу",
+      client: "NEDL",
+      time: "2022-2023",
+      expertise: ["Brand Positioning", "Slogan", "Identity"],
+      extrasensors: ["Ira Bozadzhyieva — Strategist"],
+      sensoryIntegration: [],
+      driverTeam: ["Alina Malenko — Brand Designer"],
     },
   },
 } as const;

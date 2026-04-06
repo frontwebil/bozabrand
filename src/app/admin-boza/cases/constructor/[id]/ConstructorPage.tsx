@@ -3,10 +3,12 @@
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import "./ConstructorPage.css";
-import { caseBlocksRegistry, CaseBlockType } from "@/Components/CasesTemplates/registry";
-
+import {
+  caseBlocksRegistry,
+  CaseBlockType,
+} from "@/Components/CasesTemplates/registry";
 
 type BlockItem = {
   id: number;
@@ -42,6 +44,18 @@ type VideoBlockData = {
   title?: string;
 };
 
+type CaseInfoData = {
+  category?: string;
+  title?: string;
+  description?: string;
+  client?: string;
+  time?: string;
+  expertise?: string[];
+  extrasensors?: string[];
+  sensoryIntegration?: string[];
+  driverTeam?: string[];
+};
+
 const ICON_OPTIONS = [
   "/Projects/icons/1.svg",
   "/Projects/icons/2.svg",
@@ -53,77 +67,143 @@ const ICON_OPTIONS = [
 
 export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
   const router = useRouter();
+
   const [editingBlockId, setEditingBlockId] = useState<number | null>(null);
   const [editingType, setEditingType] = useState<string>("");
+
   const [textForm, setTextForm] = useState<TextBlockData>({});
   const [mainImageForm, setMainImageForm] = useState<MainImageData>({});
   const [mainImageFile, setMainImageFile] = useState<File | null>(null);
   const [mainImagePreview, setMainImagePreview] = useState<string>("");
+
   const [videoForm, setVideoForm] = useState<VideoBlockData>({});
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [videoPreview, setVideoPreview] = useState<string>("");
+
+  const [caseInfoForm, setCaseInfoForm] = useState<CaseInfoData>({});
+
+  const [expertiseText, setExpertiseText] = useState("");
+  const [extrasensorsText, setExtrasensorsText] = useState("");
+  const [sensoryIntegrationText, setSensoryIntegrationText] = useState("");
+  const [driverTeamText, setDriverTeamText] = useState("");
+
   const [error, setError] = useState<string>("");
-  const [notice, setNotice] = useState<{ type: "success" | "error"; text: string } | null>(
-    null,
-  );
+  const [notice, setNotice] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
+
+  const [isBusy, setIsBusy] = useState(false);
+  const [busyText, setBusyText] = useState("");
+
+  useEffect(() => {
+    if (!notice) return;
+
+    const timeoutId = window.setTimeout(() => setNotice(null), 2800);
+    return () => window.clearTimeout(timeoutId);
+  }, [notice]);
+
+  const normalizeDash = (value: string) =>
+    value
+      .replace(/\s*[-—]\s*/g, " — ")
+      .replace(/[ \t]+/g, " ")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
+
+  const toList = (value: string) =>
+    value
+      .split("\n")
+      .map((item) => normalizeDash(item))
+      .filter(Boolean);
+
+  const runAction = async (
+    loadingTitle: string,
+    successText: string,
+    errorText: string,
+    action: () => Promise<void>,
+  ) => {
+    try {
+      setError("");
+      setBusyText(loadingTitle);
+      setIsBusy(true);
+      await action();
+      setNotice({ type: "success", text: successText });
+    } catch (err) {
+      setNotice({ type: "error", text: errorText });
+      console.error(err);
+    } finally {
+      setIsBusy(false);
+      setBusyText("");
+    }
+  };
 
   const handleAddBlock = async (type: CaseBlockType) => {
-    try {
-      const config = caseBlocksRegistry[type];
+    await runAction(
+      "Додаємо блок...",
+      "Блок успішно додано",
+      "Не вдалося додати блок",
+      async () => {
+        const config = caseBlocksRegistry[type];
 
-      await axios.post("/api/admin-boza/cases/blocks/create", {
-        caseId: caseItem.id,
-        type,
-        data: config.defaultData,
-      });
+        await axios.post("/api/admin-boza/cases/blocks/create", {
+          caseId: caseItem.id,
+          type,
+          data: config.defaultData,
+        });
 
-      setNotice({ type: "success", text: "Блок успішно додано" });
-      router.refresh();
-    } catch (error) {
-      setNotice({ type: "error", text: "Не вдалося додати блок" });
-      console.error(error);
-    }
+        router.refresh();
+      },
+    );
   };
 
   const handleDeleteBlock = async (blockId: number) => {
-    try {
-      await axios.delete(`/api/admin-boza/cases/blocks/delete/${blockId}`);
-      setNotice({ type: "success", text: "Блок видалено" });
-      router.refresh();
-    } catch (error) {
-      setNotice({ type: "error", text: "Не вдалося видалити блок" });
-      console.error(error);
-    }
+    await runAction(
+      "Видаляємо блок...",
+      "Блок видалено",
+      "Не вдалося видалити блок",
+      async () => {
+        await axios.delete(`/api/admin-boza/cases/blocks/delete/${blockId}`);
+        router.refresh();
+      },
+    );
   };
 
   const handleMove = async (blockId: number, direction: "up" | "down") => {
-    const currentIndex = caseItem.blocks.findIndex((block) => block.id === blockId);
+    const currentIndex = caseItem.blocks.findIndex(
+      (block) => block.id === blockId,
+    );
+
     if (currentIndex === -1) {
       return;
     }
 
-    const targetIndex = direction === "up" ? currentIndex - 1 : currentIndex + 1;
+    const targetIndex =
+      direction === "up" ? currentIndex - 1 : currentIndex + 1;
+
     if (targetIndex < 0 || targetIndex >= caseItem.blocks.length) {
       return;
     }
 
     const reordered = [...caseItem.blocks];
+
     [reordered[currentIndex], reordered[targetIndex]] = [
       reordered[targetIndex],
       reordered[currentIndex],
     ];
 
-    try {
-      await axios.patch("/api/admin-boza/cases/blocks/reorder", {
-        caseId: caseItem.id,
-        orderedBlockIds: reordered.map((block) => block.id),
-      });
-      setNotice({ type: "success", text: "Порядок блоків оновлено" });
-      router.refresh();
-    } catch (error) {
-      setNotice({ type: "error", text: "Не вдалося змінити порядок блоків" });
-      console.error(error);
-    }
+    await runAction(
+      "Оновлюємо порядок блоків...",
+      "Порядок блоків оновлено",
+      "Не вдалося змінити порядок блоків",
+      async () => {
+        await axios.patch("/api/admin-boza/cases/blocks/reorder", {
+          caseId: caseItem.id,
+          orderedBlockIds: reordered.map((block) => block.id),
+        });
+
+        router.refresh();
+      },
+    );
   };
 
   const startEdit = (block: BlockItem) => {
@@ -134,6 +214,7 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
 
     if (block.type === "textBlock") {
       const blockData = (block.data ?? {}) as TextBlockData;
+
       setTextForm({
         label: String(blockData.label ?? ""),
         title: String(blockData.title ?? ""),
@@ -145,36 +226,72 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
 
     if (block.type === "mainImage") {
       const blockData = (block.data ?? {}) as MainImageData;
+
       setMainImageForm({
         src: String(blockData.src ?? ""),
         alt: String(blockData.alt ?? ""),
       });
+
       setMainImageFile(null);
       setMainImagePreview(String(blockData.src ?? ""));
     }
 
     if (block.type === "videoBlock") {
       const blockData = (block.data ?? {}) as VideoBlockData;
+
       setVideoForm({
         src: String(blockData.src ?? ""),
         poster: String(blockData.poster ?? ""),
         title: String(blockData.title ?? ""),
       });
+
       setVideoFile(null);
       setVideoPreview(String(blockData.src ?? ""));
+    }
+
+    if (block.type === "caseInfo") {
+      const blockData = (block.data ?? {}) as CaseInfoData;
+
+      setCaseInfoForm({
+        category: String(blockData.category ?? ""),
+        title: String(blockData.title ?? ""),
+        description: String(blockData.description ?? ""),
+        client: String(blockData.client ?? ""),
+        time: String(blockData.time ?? ""),
+        expertise: blockData.expertise ?? [],
+        extrasensors: blockData.extrasensors ?? [],
+        sensoryIntegration: blockData.sensoryIntegration ?? [],
+        driverTeam: blockData.driverTeam ?? [],
+      });
+
+      setExpertiseText((blockData.expertise ?? []).join("\n"));
+      setExtrasensorsText((blockData.extrasensors ?? []).join("\n"));
+      setSensoryIntegrationText(
+        (blockData.sensoryIntegration ?? []).join("\n"),
+      );
+      setDriverTeamText((blockData.driverTeam ?? []).join("\n"));
     }
   };
 
   const cancelEdit = () => {
     setEditingBlockId(null);
     setEditingType("");
+
     setTextForm({});
     setMainImageForm({});
     setMainImageFile(null);
     setMainImagePreview("");
+
     setVideoForm({});
     setVideoFile(null);
     setVideoPreview("");
+
+    setCaseInfoForm({});
+    setExpertiseText("");
+    setExtrasensorsText("");
+    setSensoryIntegrationText("");
+    setDriverTeamText("");
+
     setError("");
   };
 
@@ -216,58 +333,87 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
   }
 
   const saveEdit = async (blockId: number) => {
-    try {
-      let payloadData: unknown = {};
+    await runAction(
+      "Зберігаємо зміни...",
+      "Дані блоку збережено",
+      "Не вдалося зберегти зміни",
+      async () => {
+        let payloadData: unknown = {};
 
-      if (editingType === "textBlock") {
-        payloadData = {
-          label: textForm.label?.trim() ?? "",
-          title: textForm.title?.trim() ?? "",
-          rightTitle: textForm.rightTitle?.trim() ?? "",
-          description: textForm.description?.trim() ?? "",
-          icon: textForm.icon?.trim() ?? "",
-        };
-      } else if (editingType === "mainImage") {
-        let src = mainImageForm.src?.trim() ?? "";
+        if (editingType === "textBlock") {
+          payloadData = {
+            label: textForm.label?.trim() ?? "",
+            title: textForm.title?.trim() ?? "",
+            rightTitle: textForm.rightTitle?.trim() ?? "",
+            description: textForm.description?.trim() ?? "",
+            icon: textForm.icon?.trim() ?? "",
+          };
+        } else if (editingType === "mainImage") {
+          let src = mainImageForm.src?.trim() ?? "";
 
-        if (mainImageFile) {
-          const uploaded = await uploadImage(mainImageFile);
-          src = uploaded.url || "";
+          if (mainImageFile) {
+            const uploaded = await uploadImage(mainImageFile);
+            src = uploaded.url || "";
+          }
+
+          payloadData = {
+            src,
+            alt: mainImageForm.alt?.trim() ?? "",
+          };
+        } else if (editingType === "videoBlock") {
+          let src = videoForm.src?.trim() ?? "";
+
+          if (videoFile) {
+            const uploaded = await uploadImage(videoFile);
+            src = uploaded.url || "";
+          }
+
+          payloadData = {
+            src,
+            poster: videoForm.poster?.trim() ?? "",
+            title: videoForm.title?.trim() ?? "",
+          };
+        } else if (editingType === "caseInfo") {
+          payloadData = {
+            category: caseInfoForm.category?.trim() ?? "",
+            title: caseInfoForm.title?.trim() ?? "",
+            description: caseInfoForm.description?.trim() ?? "",
+            client: caseInfoForm.client?.trim() ?? "",
+            time: caseInfoForm.time?.trim() ?? "",
+            expertise: toList(expertiseText),
+            extrasensors: toList(extrasensorsText),
+            sensoryIntegration: toList(sensoryIntegrationText),
+            driverTeam: toList(driverTeamText),
+          };
         }
 
-        payloadData = {
-          src,
-          alt: mainImageForm.alt?.trim() ?? "",
-        };
-      } else if (editingType === "videoBlock") {
-        let src = videoForm.src?.trim() ?? "";
-        if (videoFile) {
-          const uploaded = await uploadImage(videoFile);
-          src = uploaded.url || "";
-        }
+        await axios.patch(`/api/admin-boza/cases/blocks/update/${blockId}`, {
+          data: payloadData,
+        });
 
-        payloadData = {
-          src,
-          poster: videoForm.poster?.trim() ?? "",
-          title: videoForm.title?.trim() ?? "",
-        };
-      }
-
-      await axios.patch(`/api/admin-boza/cases/blocks/update/${blockId}`, {
-        data: payloadData,
-      });
-      setNotice({ type: "success", text: "Дані блоку збережено" });
-      cancelEdit();
-      router.refresh();
-    } catch (error) {
-      setError("Помилка збереження блоку");
-      setNotice({ type: "error", text: "Не вдалося зберегти зміни" });
-      console.error(error);
-    }
+        cancelEdit();
+        router.refresh();
+      },
+    );
   };
 
   return (
     <section className="constructor-page">
+      {notice && (
+        <div className={`constructor-toast ${notice.type}`}>
+          <span>{notice.text}</span>
+        </div>
+      )}
+
+      {isBusy && (
+        <div className="constructor-loader-overlay">
+          <div className="constructor-loader-box">
+            <div className="constructor-loader-spinner" />
+            <p>{busyText || "Зачекай, виконуємо дію..."}</p>
+          </div>
+        </div>
+      )}
+
       <div className="constructor-page-container">
         <div className="constructor-page-top">
           <div>
@@ -309,9 +455,6 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
 
           <div className="constructor-content">
             <h2>Поточні блоки</h2>
-            {notice && (
-              <div className={`constructor-notice ${notice.type}`}>{notice.text}</div>
-            )}
 
             {caseItem.blocks.length === 0 && (
               <div className="constructor-empty">
@@ -349,6 +492,7 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
                       >
                         Вгору
                       </button>
+
                       <button
                         className="constructor-action-btn"
                         onClick={() => handleMove(block.id, "down")}
@@ -356,12 +500,14 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
                       >
                         Вниз
                       </button>
+
                       <button
                         className="constructor-action-btn"
                         onClick={() => startEdit(block)}
                       >
                         Редагувати
                       </button>
+
                       <button
                         className="constructor-action-btn danger"
                         onClick={() => handleDeleteBlock(block.id)}
@@ -381,19 +527,27 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
                                 type="text"
                                 value={textForm.label || ""}
                                 onChange={(e) =>
-                                  setTextForm((prev) => ({ ...prev, label: e.target.value }))
+                                  setTextForm((prev) => ({
+                                    ...prev,
+                                    label: e.target.value,
+                                  }))
                                 }
                               />
                             </div>
 
                             <div className="constructor-form-field">
-                              <label htmlFor={`title-${block.id}`}>Заголовок</label>
+                              <label htmlFor={`title-${block.id}`}>
+                                Заголовок
+                              </label>
                               <input
                                 id={`title-${block.id}`}
                                 type="text"
                                 value={textForm.title || ""}
                                 onChange={(e) =>
-                                  setTextForm((prev) => ({ ...prev, title: e.target.value }))
+                                  setTextForm((prev) => ({
+                                    ...prev,
+                                    title: e.target.value,
+                                  }))
                                 }
                               />
                             </div>
@@ -416,7 +570,9 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
                             </div>
 
                             <div className="constructor-form-field full">
-                              <label htmlFor={`description-${block.id}`}>Опис</label>
+                              <label htmlFor={`description-${block.id}`}>
+                                Опис
+                              </label>
                               <textarea
                                 id={`description-${block.id}`}
                                 value={textForm.description || ""}
@@ -431,6 +587,7 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
 
                             <div className="constructor-form-field full">
                               <label>Іконка (можна залишити пусто)</label>
+
                               <div className="constructor-icons-grid">
                                 <button
                                   type="button"
@@ -438,11 +595,15 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
                                     !textForm.icon ? "active" : ""
                                   }`}
                                   onClick={() =>
-                                    setTextForm((prev) => ({ ...prev, icon: "" }))
+                                    setTextForm((prev) => ({
+                                      ...prev,
+                                      icon: "",
+                                    }))
                                   }
                                 >
                                   Без іконки
                                 </button>
+
                                 {ICON_OPTIONS.map((iconPath) => (
                                   <button
                                     type="button"
@@ -451,7 +612,10 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
                                       textForm.icon === iconPath ? "active" : ""
                                     }`}
                                     onClick={() =>
-                                      setTextForm((prev) => ({ ...prev, icon: iconPath }))
+                                      setTextForm((prev) => ({
+                                        ...prev,
+                                        icon: iconPath,
+                                      }))
                                     }
                                   >
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -481,7 +645,9 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
                             </div>
 
                             <div className="constructor-form-field">
-                              <label htmlFor={`alt-${block.id}`}>Alt текст</label>
+                              <label htmlFor={`alt-${block.id}`}>
+                                Alt текст
+                              </label>
                               <input
                                 id={`alt-${block.id}`}
                                 type="text"
@@ -497,10 +663,13 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
 
                             {mainImagePreview && (
                               <div className="constructor-form-field full">
-                                <label>Прев'ю</label>
+                                <label>Прев`ю</label>
                                 <div className="constructor-upload-preview">
                                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                                  <img src={mainImagePreview} alt="main preview" />
+                                  <img
+                                    src={mainImagePreview}
+                                    alt="main preview"
+                                  />
                                 </div>
                               </div>
                             )}
@@ -520,13 +689,15 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
                                 onChange={handleVideoFileChange}
                               />
                               <span className="constructor-form-hint">
-                                Підтримка: mp4, webm, mov. Якщо не вибирати файл -
-                                залишиться поточне відео.
+                                Підтримка: mp4, webm, mov. Якщо не вибирати файл
+                                - залишиться поточне відео.
                               </span>
                             </div>
 
                             <div className="constructor-form-field">
-                              <label htmlFor={`videoTitle-${block.id}`}>Заголовок</label>
+                              <label htmlFor={`videoTitle-${block.id}`}>
+                                Заголовок
+                              </label>
                               <input
                                 id={`videoTitle-${block.id}`}
                                 type="text"
@@ -559,22 +730,175 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
 
                             {videoPreview && (
                               <div className="constructor-form-field full">
-                                <label>Прев'ю відео</label>
+                                <label>Прев`ю відео</label>
                                 <div className="constructor-upload-preview">
-                                  <video src={videoPreview} controls playsInline />
+                                  <video
+                                    src={videoPreview}
+                                    controls
+                                    playsInline
+                                  />
                                 </div>
                               </div>
                             )}
                           </div>
                         )}
 
-                        {block.type !== "textBlock" &&
-                          block.type !== "mainImage" &&
-                          block.type !== "videoBlock" && (
-                          <p>Для цього блоку поки немає окремої форми редагування.</p>
+                        {block.type === "caseInfo" && (
+                          <div className="constructor-form-grid">
+                            <div className="constructor-form-field">
+                              <label htmlFor={`ci-category-${block.id}`}>
+                                Категорія
+                              </label>
+                              <input
+                                id={`ci-category-${block.id}`}
+                                type="text"
+                                value={caseInfoForm.category || ""}
+                                onChange={(e) =>
+                                  setCaseInfoForm((prev) => ({
+                                    ...prev,
+                                    category: e.target.value,
+                                  }))
+                                }
+                              />
+                            </div>
+
+                            <div className="constructor-form-field">
+                              <label htmlFor={`ci-title-${block.id}`}>
+                                Назва бренду
+                              </label>
+                              <input
+                                id={`ci-title-${block.id}`}
+                                type="text"
+                                value={caseInfoForm.title || ""}
+                                onChange={(e) =>
+                                  setCaseInfoForm((prev) => ({
+                                    ...prev,
+                                    title: e.target.value,
+                                  }))
+                                }
+                              />
+                            </div>
+
+                            <div className="constructor-form-field full">
+                              <label htmlFor={`ci-desc-${block.id}`}>
+                                Опис
+                              </label>
+                              <textarea
+                                id={`ci-desc-${block.id}`}
+                                value={caseInfoForm.description || ""}
+                                onChange={(e) =>
+                                  setCaseInfoForm((prev) => ({
+                                    ...prev,
+                                    description: e.target.value,
+                                  }))
+                                }
+                              />
+                            </div>
+
+                            <div className="constructor-form-field">
+                              <label htmlFor={`ci-client-${block.id}`}>
+                                Client
+                              </label>
+                              <input
+                                id={`ci-client-${block.id}`}
+                                type="text"
+                                value={caseInfoForm.client || ""}
+                                onChange={(e) =>
+                                  setCaseInfoForm((prev) => ({
+                                    ...prev,
+                                    client: e.target.value,
+                                  }))
+                                }
+                              />
+                            </div>
+
+                            <div className="constructor-form-field">
+                              <label htmlFor={`ci-time-${block.id}`}>
+                                Time
+                              </label>
+                              <input
+                                id={`ci-time-${block.id}`}
+                                type="text"
+                                value={caseInfoForm.time || ""}
+                                onChange={(e) =>
+                                  setCaseInfoForm((prev) => ({
+                                    ...prev,
+                                    time: e.target.value,
+                                  }))
+                                }
+                              />
+                            </div>
+
+                            <div className="constructor-form-field full">
+                              <label htmlFor={`ci-expertise-${block.id}`}>
+                                Expertise (1 рядок = 1 пункт)
+                              </label>
+                              <textarea
+                                id={`ci-expertise-${block.id}`}
+                                value={expertiseText}
+                                onChange={(e) =>
+                                  setExpertiseText(e.target.value)
+                                }
+                              />
+                            </div>
+
+                            <div className="constructor-form-field full">
+                              <label htmlFor={`ci-extra-${block.id}`}>
+                                Bozabrand Extrasensors (формат: Name — Role)
+                              </label>
+                              <textarea
+                                id={`ci-extra-${block.id}`}
+                                value={extrasensorsText}
+                                onChange={(e) =>
+                                  setExtrasensorsText(e.target.value)
+                                }
+                              />
+                            </div>
+
+                            <div className="constructor-form-field full">
+                              <label htmlFor={`ci-sensory-${block.id}`}>
+                                Sensory Integration (формат: Name — Role)
+                              </label>
+                              <textarea
+                                id={`ci-sensory-${block.id}`}
+                                value={sensoryIntegrationText}
+                                onChange={(e) =>
+                                  setSensoryIntegrationText(e.target.value)
+                                }
+                              />
+                              <span className="constructor-form-hint">
+                                Якщо залишити пусто, блок Sensory Integration не
+                                відображається.
+                              </span>
+                            </div>
+
+                            <div className="constructor-form-field full">
+                              <label htmlFor={`ci-driver-${block.id}`}>
+                                Driver Team (формат: Name — Role)
+                              </label>
+                              <textarea
+                                id={`ci-driver-${block.id}`}
+                                value={driverTeamText}
+                                onChange={(e) =>
+                                  setDriverTeamText(e.target.value)
+                                }
+                              />
+                            </div>
+                          </div>
                         )}
 
+                        {block.type !== "textBlock" &&
+                          block.type !== "mainImage" &&
+                          block.type !== "videoBlock" &&
+                          block.type !== "caseInfo" && (
+                            <p>
+                              Для цього блоку поки немає окремої форми
+                              редагування.
+                            </p>
+                          )}
+
                         {error && <p className="constructor-error">{error}</p>}
+
                         <div className="constructor-edit-actions">
                           <button
                             className="constructor-action-btn"
@@ -582,7 +906,11 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
                           >
                             Зберегти
                           </button>
-                          <button className="constructor-action-btn" onClick={cancelEdit}>
+
+                          <button
+                            className="constructor-action-btn"
+                            onClick={cancelEdit}
+                          >
                             Скасувати
                           </button>
                         </div>

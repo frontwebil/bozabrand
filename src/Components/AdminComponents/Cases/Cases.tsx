@@ -90,7 +90,12 @@ export function Cases({ cases }: { cases: Case[] }) {
                 </div>
 
                 <div className="cases-admin-card-bottom">
-                  <span className="cases-admin-slug">slug - /{item.slug}</span>
+                  <Link
+                    href={`/cases/${item.slug}`}
+                    className="cases-admin-slug"
+                  >
+                    Link - /{item.slug}
+                  </Link>
                   <span className="cases-admin-slug">index : {item.order}</span>
 
                   <div className="cases-admin-card-buttons">

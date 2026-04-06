@@ -1,8 +1,12 @@
 import { Footer } from "@/Components/Layout/Footer/Footer";
 import { Header } from "@/Components/Layout/Header/Header";
-import { caseBlocksRegistry, CaseBlockType } from "@/Components/CasesTemplates/registry";
+import {
+  caseBlocksRegistry,
+  CaseBlockType,
+} from "@/Components/CasesTemplates/registry";
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
+import "./style.css";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +31,7 @@ export default async function CasePage({ params }: Props) {
   }
 
   return (
-    <div style={{ marginTop: "80px", background: "rgba(255, 255, 255, 1)" }}>
+    <div className="case-site-inner">
       <Header />
       {caseItem.blocks.map((block) => {
         const registryItem = caseBlocksRegistry[block.type as CaseBlockType];

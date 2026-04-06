@@ -1,0 +1,10 @@
+.case-site-inner {
+  margin-top: 80px;
+  background: rgba(255, 255, 255, 1);
+}
+
+@media (max-width: 760px) {
+.case-site-inner {
+  margin-top: 72px;
+}
+}

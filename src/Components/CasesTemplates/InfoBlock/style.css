@@ -1,0 +1,310 @@
+@font-face {
+  font-family: "PP Neue World";
+  src:
+    url("/Team/fonts/PPNeueWorld-CondensedRegular.woff2") format("woff2"),
+    url("/Team/fonts/PPNeueWorld-CondensedRegular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.case-info {
+  padding: 80px 0 180px;
+  border-bottom: 1px solid rgba(220, 220, 220, 1);
+}
+
+.case-info__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 100px;
+}
+
+.case-info__brand {
+  max-width: 100%;
+  width: 100%;
+}
+
+.case-info__category {
+  display: block;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  padding-bottom: 20px;
+}
+
+.case-info__title {
+  font-family: "PP Neue World";
+  font-weight: 400;
+  font-size: 98px;
+  line-height: 100%;
+  letter-spacing: -2px;
+}
+
+.case-info__description {
+  max-width: 100%;
+  width: 100%;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 38.4px;
+}
+
+.case-info__block-title {
+  width: 100%;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 38px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(220, 220, 220, 1);
+}
+
+.case-info__table {
+  display: flex;
+  gap: 20px;
+  padding: 40px 0 40px;
+}
+
+.case-info__columns {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  gap: 100px;
+}
+
+.case-info__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-info__label {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+.case-info__value {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28.8px;
+  color: rgba(110, 110, 110, 1);
+}
+
+.case-info__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgba(110, 110, 110, 1);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28.8px;
+}
+
+.case-info__name {
+  color: #000;
+  font-weight: 500;
+}
+
+.case-info__role {
+  color: #8e8e8e;
+  margin-left: 4px;
+}
+
+.case-info__column-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+@media (max-width: 1200px) {
+  .case-info {
+    padding: 70px 0 150px;
+  }
+
+  .case-info__top {
+    padding-bottom: 80px;
+    gap: 30px;
+  }
+
+  .case-info__title {
+    font-size: 76px;
+    letter-spacing: -1.5px;
+  }
+
+  .case-info__description,
+  .case-info__label,
+  .case-info__value,
+  .case-info__list,
+  .case-info__category {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  .case-info__block-title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .case-info__columns {
+    gap: 60px;
+  }
+
+  .case-info__column-inner {
+    gap: 36px;
+  }
+}
+
+@media (max-width: 900px) {
+  .case-info {
+    padding: 60px 0 120px;
+  }
+
+  .case-info__top {
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 60px;
+  }
+
+  .case-info__title {
+    font-size: 58px;
+    line-height: 95%;
+    letter-spacing: -1.2px;
+  }
+
+  .case-info__category {
+    font-size: 20px;
+    line-height: 24px;
+    padding-bottom: 16px;
+  }
+
+  .case-info__description {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .case-info__block-title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .case-info__table {
+    padding: 32px 0;
+  }
+
+  .case-info__columns {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .case-info__label {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+  .case-info__value,
+  .case-info__list {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .case-info__column-inner {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .case-info {
+    padding: 40px 0 90px;
+  }
+
+  .case-info__top {
+    gap: 24px;
+    padding-bottom: 44px;
+  }
+
+  .case-info__title {
+    font-size: 42px;
+    line-height: 95%;
+    letter-spacing: -1px;
+  }
+
+  .case-info__category {
+    font-size: 16px;
+    line-height: 20px;
+    padding-bottom: 12px;
+  }
+
+  .case-info__description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .case-info__block-title {
+    font-size: 20px;
+    line-height: 24px;
+    padding-bottom: 10px;
+  }
+
+  .case-info__table {
+    padding: 24px 0;
+  }
+
+  .case-info__columns {
+    gap: 28px;
+  }
+
+  .case-info__label {
+    font-size: 15px;
+    line-height: 18px;
+    margin-bottom: 14px;
+  }
+
+  .case-info__value,
+  .case-info__list {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .case-info__list {
+    gap: 8px;
+  }
+
+  .case-info__role {
+    margin-left: 2px;
+  }
+
+  .case-info__column-inner {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 430px) {
+  .case-info__title {
+    font-size: 36px;
+    letter-spacing: -0.8px;
+  }
+
+  .case-info__description {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .case-info__block-title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .case-info__value,
+  .case-info__list {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .case-info__label {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

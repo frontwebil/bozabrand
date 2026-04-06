@@ -1,0 +1,92 @@
+diff --git a/node_modules/next/dist/esm/next-devtools/userspace/app/segment-explorer-node.js b/node_modules/next/dist/esm/next-devtools/userspace/app/segment-explorer-node.js
+index 74469b6..76b2a5e 100644
+--- a/node_modules/next/dist/esm/next-devtools/userspace/app/segment-explorer-node.js
++++ b/node_modules/next/dist/esm/next-devtools/userspace/app/segment-explorer-node.js
+@@ -24,9 +24,18 @@ function SegmentTrieNode({ type, pagePath }) {
+     // Use `useLayoutEffect` to ensure the state is updated during suspense.
+     // `useEffect` won't work as the state is preserved during suspense.
+     useLayoutEffect(()=>{
+-        dispatcher.segmentExplorerNodeAdd(nodeState);
++        try {
++            dispatcher.segmentExplorerNodeAdd(nodeState);
++        } catch (err) {
++            if (process.env.NODE_ENV === 'development') {
++                console.warn('[next-devtools] segmentExplorerNodeAdd failed:', err);
++            }
++        }
+         return ()=>{
+-            dispatcher.segmentExplorerNodeRemove(nodeState);
++            try {
++                dispatcher.segmentExplorerNodeRemove(nodeState);
++            } catch  {
++            }
+         };
+     }, [
+         nodeState
+@@ -51,9 +60,18 @@ function LoadingSegmentNode() {
+ export function SegmentViewStateNode({ page }) {
+     const { tree } = useContext(GlobalLayoutRouterContext);
+     useLayoutEffect(()=>{
+-        dispatcher.segmentExplorerUpdateRouteState(page, tree);
++        try {
++            dispatcher.segmentExplorerUpdateRouteState(page, tree);
++        } catch (err) {
++            if (process.env.NODE_ENV === 'development') {
++                console.warn('[next-devtools] segmentExplorerUpdateRouteState failed:', err);
++            }
++        }
+         return ()=>{
+-            dispatcher.segmentExplorerUpdateRouteState('', null);
++            try {
++                dispatcher.segmentExplorerUpdateRouteState('', null);
++            } catch  {
++            }
+         };
+     }, [
+         page,
+diff --git a/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js b/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js
+index 530ef2f..46c5d50 100644
+--- a/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js
++++ b/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js
+@@ -61,9 +61,18 @@ function SegmentTrieNode({ type, pagePath }) {
+     // Use `useLayoutEffect` to ensure the state is updated during suspense.
+     // `useEffect` won't work as the state is preserved during suspense.
+     (0, _react.useLayoutEffect)(()=>{
+-        _nextdevtools.dispatcher.segmentExplorerNodeAdd(nodeState);
++        try {
++            _nextdevtools.dispatcher.segmentExplorerNodeAdd(nodeState);
++        } catch (err) {
++            if (process.env.NODE_ENV === 'development') {
++                console.warn('[next-devtools] segmentExplorerNodeAdd failed:', err);
++            }
++        }
+         return ()=>{
+-            _nextdevtools.dispatcher.segmentExplorerNodeRemove(nodeState);
++            try {
++                _nextdevtools.dispatcher.segmentExplorerNodeRemove(nodeState);
++            } catch  {
++            }
+         };
+     }, [
+         nodeState
+@@ -88,9 +97,18 @@ function LoadingSegmentNode() {
+ function SegmentViewStateNode({ page }) {
+     const { tree } = (0, _react.useContext)(_approutercontextsharedruntime.GlobalLayoutRouterContext);
+     (0, _react.useLayoutEffect)(()=>{
+-        _nextdevtools.dispatcher.segmentExplorerUpdateRouteState(page, tree);
++        try {
++            _nextdevtools.dispatcher.segmentExplorerUpdateRouteState(page, tree);
++        } catch (err) {
++            if (process.env.NODE_ENV === 'development') {
++                console.warn('[next-devtools] segmentExplorerUpdateRouteState failed:', err);
++            }
++        }
+         return ()=>{
+-            _nextdevtools.dispatcher.segmentExplorerUpdateRouteState('', null);
++            try {
++                _nextdevtools.dispatcher.segmentExplorerUpdateRouteState('', null);
++            } catch  {
++            }
+         };
+     }, [
+         page,

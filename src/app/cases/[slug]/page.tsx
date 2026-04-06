@@ -1,12 +1,43 @@
-import { ComponentImage } from "@/Components/CasesTemplates/MainImg/Component";
 import { Footer } from "@/Components/Layout/Footer/Footer";
 import { Header } from "@/Components/Layout/Header/Header";
+import { caseBlocksRegistry, CaseBlockType } from "@/Components/CasesTemplates/registry";
+import { prisma } from "@/lib/prisma";
+import { notFound } from "next/navigation";
 
-export default function page() {
+export const dynamic = "force-dynamic";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function CasePage({ params }: Props) {
+  const { slug } = await params;
+
+  const caseItem = await prisma.case.findUnique({
+    where: { slug },
+    include: {
+      blocks: {
+        orderBy: { order: "asc" },
+      },
+    },
+  });
+
+  if (!caseItem || !caseItem.isPublished) {
+    return notFound();
+  }
+
   return (
     <div style={{ marginTop: "80px", background: "rgba(255, 255, 255, 1)" }}>
       <Header />
-      <ComponentImage />
+      {caseItem.blocks.map((block) => {
+        const registryItem = caseBlocksRegistry[block.type as CaseBlockType];
+        if (!registryItem) {
+          return null;
+        }
+
+        const BlockComponent = registryItem.component;
+        return <BlockComponent key={block.id} data={block.data as never} />;
+      })}
       <Footer />
     </div>
   );

@@ -1,17 +1,13 @@
 import { getServerSession } from "next-auth";
 import { LoginForm } from "../../Components/AdminComponents/LoginForm/LoginForm";
 import { authOptions } from "../api/auth/[...nextauth]/route";
+import { isAdminUser } from "@/lib/adminAuth";
 import { redirect } from "next/navigation";
 
 export default async function AdminLoginPage() {
   const session = await getServerSession(authOptions);
-  const envLogin = process.env.AUTH_LOGIN?.toLowerCase().trim();
 
-  if (
-    session?.user?.login &&
-    session.user.login === envLogin &&
-    session.user.role === "admin"
-  ) {
+  if (isAdminUser(session?.user)) {
     redirect("/admin-boza/cases");
   }
 

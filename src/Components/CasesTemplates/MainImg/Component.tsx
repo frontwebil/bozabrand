@@ -1,11 +1,15 @@
 import "./style.css";
 
-import Image from "next/image";
+type MainImageData = {
+  src?: string;
+  alt?: string;
+};
 
-export function ComponentImage() {
+export function ComponentImage({ data }: { data?: MainImageData }) {
   return (
     <section className="img-section">
-      <Image src={"/Projects/1.png"} width={99999} height={9999} alt="main-img"/>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={data?.src || "/Projects/1.png"} alt={data?.alt || "main-img"} />
     </section>
   );
 }

@@ -13,7 +13,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const allowedTypes = [
+    const allowedImageTypes = [
       "image/jpeg",
       "image/jpg",
       "image/png",
@@ -21,7 +21,12 @@ export async function POST(req: Request) {
       "image/avif",
     ];
 
-    if (!allowedTypes.includes(file.type)) {
+    const allowedVideoTypes = ["video/mp4", "video/webm", "video/quicktime"];
+
+    const isImage = allowedImageTypes.includes(file.type);
+    const isVideo = allowedVideoTypes.includes(file.type);
+
+    if (!isImage && !isVideo) {
       return NextResponse.json(
         { message: "Недозволений тип файлу" },
         { status: 400 },
@@ -38,8 +43,8 @@ export async function POST(req: Request) {
       cloudinary.uploader
         .upload_stream(
           {
-            folder: "cases",
-            resource_type: "image",
+            folder: isVideo ? "cases/videos" : "cases/images",
+            resource_type: isVideo ? "video" : "image",
           },
           (error, result) => {
             if (error || !result) {

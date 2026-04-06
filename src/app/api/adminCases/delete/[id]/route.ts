@@ -1,7 +1,8 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { isAdminUser } from "@/lib/adminAuth";
+import { revalidateCasePages } from "@/lib/casesRevalidate";
 import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
-import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function DELETE(
@@ -9,13 +10,8 @@ export async function DELETE(
   context: { params: Promise<{ id: string }> },
 ) {
   const session = await getServerSession(authOptions);
-  const envLogin = process.env.AUTH_LOGIN?.toLowerCase().trim();
 
-  if (
-    !session?.user?.login ||
-    session.user.login.toLowerCase().trim() !== envLogin ||
-    session.user.role !== "admin"
-  ) {
+  if (!isAdminUser(session?.user)) {
     return NextResponse.json({ message: "Не авторизований" }, { status: 401 });
   }
 
@@ -27,13 +23,14 @@ export async function DELETE(
   }
 
   try {
-    await prisma.case.delete({
+    const deletedCase = await prisma.case.delete({
       where: {
         id: caseId,
       },
+      select: { slug: true },
     });
 
-    revalidatePath("/cases");
+    revalidateCasePages({ slug: deletedCase.slug });
 
     return NextResponse.json({ message: "Кейс видалено" }, { status: 200 });
   } catch (error) {

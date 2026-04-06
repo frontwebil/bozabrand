@@ -1,17 +1,14 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
+import { isAdminUser } from "@/lib/adminAuth";
 import { prisma } from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
+import { revalidateCasePages } from "@/lib/casesRevalidate";
 
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions);
 
-  if (
-    !session?.user?.login ||
-    session.user.login !== process.env.AUTH_LOGIN ||
-    session.user.role !== "admin"
-  ) {
+  if (!isAdminUser(session?.user)) {
     return NextResponse.json({ message: "Не авторизований" }, { status: 401 });
   }
 
@@ -55,7 +52,7 @@ export async function POST(req: Request) {
       },
     });
 
-    revalidatePath("/cases");
+    revalidateCasePages({});
 
     return NextResponse.json(
       {

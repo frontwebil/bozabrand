@@ -50,7 +50,7 @@
   font-size: 8px;
   line-height: 8px;
   margin-top: 20px;
-  color: rgb(93, 93, 93);
+  color: #9d9d9d;
   font-weight: 300;
 }
 
@@ -254,7 +254,7 @@
     font-size: 7px;
     line-height: 7px;
     margin-top: 20px;
-    color: rgb(93, 93, 93);
+    color: #9d9d9d;
     font-weight: 300;
   }
 }

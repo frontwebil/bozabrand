@@ -63,7 +63,6 @@ const strategyCards = [
 ];
 
 export function Strategy() {
-  
   return (
     <section className="strategy">
       <div className="container">
@@ -112,6 +111,11 @@ export function Strategy() {
                   звʼязатися
                 </Link>
               </div>
+              <p className="hero-accordeon-card-text-gray-premitka">
+                Ціни на сайті наведені в євро. Розрахунок здійснюється в гривнях
+                за офіційним курсом Національного банку України на день
+                здійснення платежу згідно з чинним законодавством України.
+              </p>
             </div>
           ))}
         </div>

@@ -15,8 +15,15 @@ export function ComponentVideo({ data }: { data?: VideoBlockData }) {
     <section className="video-block">
       <div className="video-block-container">
         {data.title && <h3 className="video-block-title">{data.title}</h3>}
-        <video autoPlay muted loop playsInline className="video-block-player">
-          <source src={data.src}/>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="video-block-player"
+          preload="none"
+        >
+          <source src={data.src} />
         </video>
       </div>
     </section>

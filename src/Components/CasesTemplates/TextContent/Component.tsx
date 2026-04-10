@@ -25,6 +25,7 @@ export function ComponentText({ data }: { data: TextBlockData }) {
 
           <div className="component-text-right-side-text">
             {data.rightTitle && <h3>{data.rightTitle}</h3>}
+            {/* {data.description && <p>{data.description}</p>} */}
             {data.description &&
               data.description
                 .split("\n")

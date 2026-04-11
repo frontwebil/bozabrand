@@ -105,7 +105,6 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
 
   const normalizeDash = (value: string) =>
     value
-      .replace(/\s*[-—]\s*/g, " — ")
       .replace(/[ \t]+/g, " ")
       .replace(/\n{3,}/g, "\n\n")
       .trim();

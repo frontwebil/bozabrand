@@ -42,6 +42,13 @@ type VideoBlockData = {
   src?: string;
   poster?: string;
   title?: string;
+  playback?: "loop" | "click";
+};
+
+type TitlePhotoData = {
+  title?: string;
+  src?: string;
+  alt?: string;
 };
 
 type CaseInfoData = {
@@ -79,6 +86,10 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
   const [videoForm, setVideoForm] = useState<VideoBlockData>({});
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [videoPreview, setVideoPreview] = useState<string>("");
+
+  const [titlePhotoForm, setTitlePhotoForm] = useState<TitlePhotoData>({});
+  const [titlePhotoFile, setTitlePhotoFile] = useState<File | null>(null);
+  const [titlePhotoPreview, setTitlePhotoPreview] = useState<string>("");
 
   const [caseInfoForm, setCaseInfoForm] = useState<CaseInfoData>({});
 
@@ -242,10 +253,24 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
         src: String(blockData.src ?? ""),
         poster: String(blockData.poster ?? ""),
         title: String(blockData.title ?? ""),
+        playback: blockData.playback === "click" ? "click" : "loop",
       });
 
       setVideoFile(null);
       setVideoPreview(String(blockData.src ?? ""));
+    }
+
+    if (block.type === "titlePhoto") {
+      const blockData = (block.data ?? {}) as TitlePhotoData;
+
+      setTitlePhotoForm({
+        title: String(blockData.title ?? ""),
+        src: String(blockData.src ?? ""),
+        alt: String(blockData.alt ?? ""),
+      });
+
+      setTitlePhotoFile(null);
+      setTitlePhotoPreview(String(blockData.src ?? ""));
     }
 
     if (block.type === "caseInfo") {
@@ -285,6 +310,10 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
     setVideoFile(null);
     setVideoPreview("");
 
+    setTitlePhotoForm({});
+    setTitlePhotoFile(null);
+    setTitlePhotoPreview("");
+
     setCaseInfoForm({});
     setExpertiseText("");
     setExtrasensorsText("");
@@ -315,6 +344,18 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
       setVideoPreview(preview);
     } else {
       setVideoPreview(videoForm.src || "");
+    }
+  };
+
+  const handleTitlePhotoFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setTitlePhotoFile(file);
+
+    if (file) {
+      const preview = URL.createObjectURL(file);
+      setTitlePhotoPreview(preview);
+    } else {
+      setTitlePhotoPreview(titlePhotoForm.src || "");
     }
   };
 
@@ -371,6 +412,20 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
             src,
             poster: videoForm.poster?.trim() ?? "",
             title: videoForm.title?.trim() ?? "",
+            playback: videoForm.playback === "click" ? "click" : "loop",
+          };
+        } else if (editingType === "titlePhoto") {
+          let src = titlePhotoForm.src?.trim() ?? "";
+
+          if (titlePhotoFile) {
+            const uploaded = await uploadImage(titlePhotoFile);
+            src = uploaded.url || "";
+          }
+
+          payloadData = {
+            title: titlePhotoForm.title?.trim() ?? "",
+            src,
+            alt: titlePhotoForm.alt?.trim() ?? "",
           };
         } else if (editingType === "caseInfo") {
           payloadData = {
@@ -710,6 +765,37 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
                               />
                             </div>
 
+                            <div className="constructor-form-field full">
+                              <label htmlFor={`videoPlayback-${block.id}`}>
+                                Режим відтворення
+                              </label>
+                              <select
+                                id={`videoPlayback-${block.id}`}
+                                value={videoForm.playback === "click" ? "click" : "loop"}
+                                onChange={(e) =>
+                                  setVideoForm((prev) => ({
+                                    ...prev,
+                                    playback:
+                                      e.target.value === "click"
+                                        ? "click"
+                                        : "loop",
+                                  }))
+                                }
+                              >
+                                <option value="loop">
+                                  Зациклене, без звуку (як раніше)
+                                </option>
+                                <option value="click">
+                                  Плей по кліку (кнопка по центру, увімк./вимк.)
+                                </option>
+                              </select>
+                              <span className="constructor-form-hint">
+                                У режимі «плей по кліку» відео не стартує само;
+                                відвідувач натискає кнопку посеред екрана, повторний
+                                клік ставить на паузу.
+                              </span>
+                            </div>
+
                             <div className="constructor-form-field">
                               <label htmlFor={`videoPoster-${block.id}`}>
                                 Poster URL (опціонально)
@@ -735,6 +821,73 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
                                     src={videoPreview}
                                     controls
                                     playsInline
+                                  />
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        )}
+
+                        {block.type === "titlePhoto" && (
+                          <div className="constructor-form-grid">
+                            <div className="constructor-form-field full">
+                              <label htmlFor={`titlePhotoTitle-${block.id}`}>
+                                Заголовок секції
+                              </label>
+                              <input
+                                id={`titlePhotoTitle-${block.id}`}
+                                type="text"
+                                value={titlePhotoForm.title || ""}
+                                onChange={(e) =>
+                                  setTitlePhotoForm((prev) => ({
+                                    ...prev,
+                                    title: e.target.value,
+                                  }))
+                                }
+                              />
+                            </div>
+
+                            <div className="constructor-form-field full">
+                              <label htmlFor={`titlePhotoFile-${block.id}`}>
+                                Фото (Cloudinary)
+                              </label>
+                              <input
+                                id={`titlePhotoFile-${block.id}`}
+                                type="file"
+                                accept="image/*"
+                                onChange={handleTitlePhotoFileChange}
+                              />
+                              <span className="constructor-form-hint">
+                                Якщо не вибирати файл, залишиться поточне
+                                зображення.
+                              </span>
+                            </div>
+
+                            <div className="constructor-form-field">
+                              <label htmlFor={`titlePhotoAlt-${block.id}`}>
+                                Alt текст
+                              </label>
+                              <input
+                                id={`titlePhotoAlt-${block.id}`}
+                                type="text"
+                                value={titlePhotoForm.alt || ""}
+                                onChange={(e) =>
+                                  setTitlePhotoForm((prev) => ({
+                                    ...prev,
+                                    alt: e.target.value,
+                                  }))
+                                }
+                              />
+                            </div>
+
+                            {titlePhotoPreview && (
+                              <div className="constructor-form-field full">
+                                <label>Прев`ю</label>
+                                <div className="constructor-upload-preview">
+                                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                                  <img
+                                    src={titlePhotoPreview}
+                                    alt="title photo preview"
                                   />
                                 </div>
                               </div>
@@ -889,6 +1042,7 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
                         {block.type !== "textBlock" &&
                           block.type !== "mainImage" &&
                           block.type !== "videoBlock" &&
+                          block.type !== "titlePhoto" &&
                           block.type !== "caseInfo" && (
                             <p>
                               Для цього блоку поки немає окремої форми

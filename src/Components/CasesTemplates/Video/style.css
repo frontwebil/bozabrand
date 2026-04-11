@@ -14,8 +14,77 @@
   color: #111827;
 }
 
+.video-block-player-outer {
+  width: 100%;
+}
+
+.video-block-player-wrap {
+  position: relative;
+  width: 100%;
+}
+
 .video-block-player {
   width: 100%;
   display: block;
   background: #000;
+}
+
+.video-block-tap-zone {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+.video-block-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.video-block-controls-slot {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.video-block-play-toggle {
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.video-block-play-toggle:hover {
+  background: rgba(0, 0, 0, 0.72);
+  transform: scale(1.04);
+}
+
+.video-block-play-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }

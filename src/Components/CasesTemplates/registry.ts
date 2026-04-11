@@ -4,6 +4,8 @@ import { ComponentImage } from "./MainImg/Component";
 import { TemplateImage } from "./MainImg/Template";
 import { ComponentText } from "./TextContent/Component";
 import { TemplateText } from "./TextContent/Template";
+import { ComponentTitlePhoto } from "./TitlePhoto/Component";
+import { TemplateTitlePhoto } from "./TitlePhoto/Template";
 import { ComponentVideo } from "./Video/Component";
 import { TemplateVideo } from "./Video/Template";
 
@@ -38,6 +40,17 @@ export const caseBlocksRegistry = {
       src: "",
       poster: "",
       title: "",
+      playback: "loop",
+    },
+  },
+  titlePhoto: {
+    label: "Заголовок + фото",
+    component: ComponentTitlePhoto,
+    template: TemplateTitlePhoto,
+    defaultData: {
+      title: "РЕЗУЛЬТАТИ",
+      src: "/Templates/TitlePhoto.png",
+      alt: "",
     },
   },
   caseInfo: {

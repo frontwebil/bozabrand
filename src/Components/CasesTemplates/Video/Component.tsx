@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Hls from "hls.js";
 import "./style.css";
 
@@ -19,34 +19,52 @@ export function ComponentVideo({ data }: { data?: VideoBlockData }) {
   const [showControls, setShowControls] = useState(false);
 
   const src = data?.src?.trim() ?? "";
-  const hlsUrl = src
-    ? src.replace("/upload/", "/upload/sp_auto/").replace(".mp4", ".m3u8")
-    : "";
+
+  const extension = useMemo(() => {
+    return src.split("?")[0].split(".").pop()?.toLowerCase() ?? "";
+  }, [src]);
+
+  const isMp4 = extension === "mp4";
+  const isWebm = extension === "webm";
+
+  const hlsUrl = useMemo(() => {
+    if (!src || !isMp4) return "";
+    return src
+      .replace("/upload/", "/upload/sp_auto/")
+      .replace(/\.mp4(\?.*)?$/i, ".m3u8");
+  }, [src, isMp4]);
 
   const mode: VideoPlaybackMode = data?.playback === "click" ? "click" : "loop";
   const isLoop = mode === "loop";
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !hlsUrl) return;
+    if (!video || !src) return;
 
     let hls: Hls | null = null;
 
-    if (Hls.isSupported()) {
-      hls = new Hls();
-      hls.loadSource(hlsUrl);
-      hls.attachMedia(video);
+    if (isMp4 && hlsUrl) {
+      if (Hls.isSupported()) {
+        hls = new Hls();
+        hls.loadSource(hlsUrl);
+        hls.attachMedia(video);
+      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = hlsUrl;
+      } else {
+        video.src = src;
+      }
     } else {
-      video.src = hlsUrl;
+      video.src = src;
     }
 
     return () => {
       hls?.destroy();
     };
-  }, [hlsUrl]);
+  }, [src, hlsUrl, isMp4]);
 
   useEffect(() => {
     if (isLoop) return;
+
     const video = videoRef.current;
     if (!video) return;
 
@@ -54,6 +72,7 @@ export function ComponentVideo({ data }: { data?: VideoBlockData }) {
       setIsPlaying(true);
       setShowControls(false);
     };
+
     const onPause = () => {
       setIsPlaying(false);
       setShowControls(false);
@@ -66,11 +85,12 @@ export function ComponentVideo({ data }: { data?: VideoBlockData }) {
       video.removeEventListener("play", onPlay);
       video.removeEventListener("pause", onPause);
     };
-  }, [isLoop, hlsUrl]);
+  }, [isLoop]);
 
   const togglePlay = useCallback(() => {
     const video = videoRef.current;
     if (!video) return;
+
     if (video.paused) {
       void video.play();
     } else {
@@ -102,7 +122,8 @@ export function ComponentVideo({ data }: { data?: VideoBlockData }) {
             preload={isLoop ? "none" : "metadata"}
             poster={data?.poster}
           >
-            <source src={src} type="video/mp4" />
+            {isMp4 && <source src={src} type="video/mp4" />}
+            {isWebm && <source src={src} type="video/webm" />}
           </video>
 
           {!isLoop && (

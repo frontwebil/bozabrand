@@ -53,7 +53,7 @@ export function CaseInfo({ data }: { data?: CaseInfoData }) {
         </div>
 
         <div className="case-info__block">
-          <h3 className="case-info__block-title">Інформація</h3>
+          <h3 className="case-info__block-title">ІНФОРМАЦІЯ</h3>
 
           <div className="case-info__table case-info__table--info">
             <div className="case-info__columns">

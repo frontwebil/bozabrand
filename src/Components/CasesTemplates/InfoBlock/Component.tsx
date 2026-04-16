@@ -26,7 +26,7 @@ function renderTeamRow(item: string, key: string) {
 }
 
 export function CaseInfo({ data }: { data?: CaseInfoData }) {
-  const category = data?.category || "E-commerce";
+  const category = data?.category || "";
   const title = data?.title || "";
   const description =
     data?.description ||
@@ -53,23 +53,23 @@ export function CaseInfo({ data }: { data?: CaseInfoData }) {
         </div>
 
         <div className="case-info__block">
-          <h3 className="case-info__block-title">Information</h3>
+          {/* <h3 className="case-info__block-title">Information</h3> */}
 
           <div className="case-info__table case-info__table--info">
             <div className="case-info__columns">
               <div className="case-info__column">
-                <span className="case-info__label">CLIENT</span>
+                <span className="case-info__label">Дайвер</span>
                 <p className="case-info__value">{client}</p>
               </div>
 
               <div className="case-info__column">
-                <span className="case-info__label">TIME</span>
+                <span className="case-info__label">Рік</span>
                 <p className="case-info__value">{time}</p>
               </div>
             </div>
             <div className="case-info__columns">
               <div className="case-info__column">
-                <span className="case-info__label">EXPERTISE</span>
+                <span className="case-info__label">Неповерхневі роботи</span>
                 <div className="case-info__list">
                   {expertise.map((item, index) => (
                     <p key={`expertise-${index}`}>{item}</p>

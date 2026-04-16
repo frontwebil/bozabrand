@@ -3,11 +3,11 @@ import "./AboutContent.css";
 
 export function AboutContent() {
   const importants = [
-    "завжди граємо по-чесному. Чесне ставлення до клієнтів і один до одного ",
+    "завжди граємо по-чесному.",
     "Дисципліна",
     "Безперервне навчання",
     "Високі стандарти роботи і життя",
-    "Людина - найбільша цінність. Кожен член команди - це Талант. Високоосвічені, культурні люди з якісним досвідом.",
+    "Людина - найбільша цінність.",
     "Взаємоповага і субординація",
   ];
   return (
@@ -58,7 +58,9 @@ export function AboutContent() {
               {importants.map((el, i) => (
                 <div className="about-content-right-important-card" key={i}>
                   <div className="about-content-right-important-card-circle"></div>
-                  <div className="about-content-right-important-card-text">{el}</div>
+                  <div className="about-content-right-important-card-text">
+                    {el}
+                  </div>
                 </div>
               ))}
             </div>

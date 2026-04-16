@@ -98,7 +98,7 @@ export function CaseInfo({ data }: { data?: CaseInfoData }) {
               <div className="case-info__column-inner">
                 {sensoryIntegration.length > 0 && (
                   <div className="case-info__column">
-                    <span className="case-info__label">Sensory Integration</span>
+                    <span className="case-info__label">СЕНСОРНА ІНТЕГРАЦІЯ</span>
                     <div className="case-info__list">
                       {sensoryIntegration.map((item, index) =>
                         renderTeamRow(item, `sensory-${index}`),
@@ -107,7 +107,7 @@ export function CaseInfo({ data }: { data?: CaseInfoData }) {
                   </div>
                 )}
                 <div className="case-info__column">
-                  <span className="case-info__label">Driver Team</span>
+                  <span className="case-info__label">КОМАНДА ДАЙВЕРА</span>
                   <div className="case-info__list">
                     {driverTeam.map((item, index) =>
                       renderTeamRow(item, `driver-${index}`),

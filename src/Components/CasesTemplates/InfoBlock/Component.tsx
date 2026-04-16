@@ -53,7 +53,7 @@ export function CaseInfo({ data }: { data?: CaseInfoData }) {
         </div>
 
         <div className="case-info__block">
-          {/* <h3 className="case-info__block-title">Information</h3> */}
+          <h3 className="case-info__block-title">Інформація</h3>
 
           <div className="case-info__table case-info__table--info">
             <div className="case-info__columns">
@@ -86,7 +86,7 @@ export function CaseInfo({ data }: { data?: CaseInfoData }) {
           <div className="case-info__table case-info__table--info">
             <div className="case-info__columns">
               <div className="case-info__column">
-                <span className="case-info__label">Bozabrand Extrasensors</span>
+                <span className="case-info__label">Bozabrand Екстросенсори</span>
                 <div className="case-info__list">
                   {extrasensors.map((item, index) =>
                     renderTeamRow(item, `extrasensors-${index}`),

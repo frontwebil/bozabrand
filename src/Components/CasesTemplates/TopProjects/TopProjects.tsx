@@ -33,7 +33,7 @@ export function TopProjects({ topCases }: { topCases: Case[] }) {
           </Link>
           <Link
             href={`/cases/${topCases[1].slug}`}
-            className="top-projects-case-large"
+            className="top-projects-case-large second"
             style={{ backgroundImage: `url(${topCases[1].imgUrl})` }}
           >
             <div className="top-projects-case-text">

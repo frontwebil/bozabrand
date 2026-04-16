@@ -7,8 +7,10 @@ export function TopProjects({ topCases }: { topCases: Case[] }) {
     <section className="top-projects">
       <div className="container">
         <div className="top-projects-nav">
-          <h2>Top Projects</h2>
-          <Link href={"/cases"}>DIVE TO ALL</Link>
+          <h2>ТОП ПРОЄКТИ</h2>
+          <Link href={"/cases"} style={{ textDecoration: "underline" }}>
+            ПЕРЕГЛЯНУТИ УСІ
+          </Link>
         </div>
         <div className="top-projects-cases">
           <Link

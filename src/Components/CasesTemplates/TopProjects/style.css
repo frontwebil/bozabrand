@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "PP Neue World";
+  src:
+    url("/Team/fonts/PPNeueWorld-CondensedRegular.woff2") format("woff2"),
+    url("/Team/fonts/PPNeueWorld-CondensedRegular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 .top-projects {
   padding: 80px 0 60px;
 }
@@ -5,13 +15,13 @@
 .top-projects-nav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   gap: 20px;
   margin-bottom: 50px;
 }
 
 .top-projects-nav h2 {
-  font-family: "Playfair Display", serif;
+  font-family: PP Neue World;
   font-weight: 400;
   font-size: 80px;
   line-height: 90px;
@@ -20,9 +30,10 @@
 
 .top-projects-nav a {
   font-weight: 400;
-  font-size: 36.4px;
+  font-size: 20px;
   line-height: 43.71px;
   flex-shrink: 0;
+  padding-bottom: 10px;
 }
 
 .top-projects-cases {
@@ -107,7 +118,7 @@
   }
 
   .top-projects-nav a {
-    font-size: 28px;
+    font-size: 18px;
     line-height: 34px;
   }
 
@@ -130,8 +141,6 @@
 
   .top-projects-nav {
     margin-bottom: 50px;
-    align-items: flex-start;
-    flex-direction: column;
   }
 
   .top-projects-nav h2 {
@@ -141,8 +150,9 @@
   }
 
   .top-projects-nav a {
-    font-size: 22px;
+    font-size: 16px;
     line-height: 28px;
+    padding-bottom: 7px;
   }
 
   .top-projects-cases {
@@ -195,7 +205,7 @@
   }
 
   .top-projects-nav a {
-    font-size: 18px;
+    font-size: 14px;
     line-height: 24px;
   }
 

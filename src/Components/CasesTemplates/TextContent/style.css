@@ -28,12 +28,13 @@
 .component-text-left-side {
   max-width: 40%;
   width: 100%;
+  padding-right: 15px;
 }
 
 .component-text-left-side h3 {
   font-family: "PP Neue World";
   font-weight: 400;
-  font-size: 99px;
+  font-size: 85px;
   line-height: 100%;
   letter-spacing: -2px;
   vertical-align: middle;

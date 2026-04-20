@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Mulish, Nunito_Sans, Playfair, Wix_Madefor_Text } from "next/font/google";
+import {
+  Inter,
+  Mulish,
+  Nunito_Sans,
+  Playfair,
+  Wix_Madefor_Text,
+} from "next/font/google";
 import "./globals.css";
 import "./reset.css";
 import { ScrollToTop } from "@/Components/Layout/ScrollToTop";
@@ -15,6 +21,9 @@ export const metadata: Metadata = {
   title: "BOZABRAND",
   description:
     "Ми занурюємось на глибину 11 тисяч метрів, щоб віднайти серце твого бренду. Стратегія, дизайн і сайти, що відчуваються.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

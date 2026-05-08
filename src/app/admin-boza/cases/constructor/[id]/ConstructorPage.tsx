@@ -70,6 +70,7 @@ const ICON_OPTIONS = [
   "/Projects/icons/4.svg",
   "/Projects/icons/5.svg",
   "/Projects/icons/6.svg",
+  "/Projects/icons/7.svg",
 ];
 
 export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {

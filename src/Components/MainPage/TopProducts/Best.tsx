@@ -15,6 +15,7 @@ export function BestProducts() {
         "Виставкові комунакації",
         "Фотозйомка",
       ],
+      link: "/cases/hylen",
     },
     {
       category: "Інжиніринг",
@@ -26,12 +27,21 @@ export function BestProducts() {
         "Фірмовий стиль",
         "Виставкові комунакації",
       ],
+      link: "/cases/techinn",
     },
+
     {
       category: "Інжиніринг",
       title: "Strong & Young",
       image: "/Best/3.png",
-      tags: ["Ідея бренду", "Стратегія комунікації", "Айдентика"],
+      tags: [
+        "Бренд",
+        "Платформа стратегія",
+        "Комунікаціі",
+        "Айдентика",
+        "Фірмовий Стиль",
+      ],
+      link: "/cases/strong-and-young",
     },
   ];
   return (
@@ -48,7 +58,8 @@ export function BestProducts() {
         </div>
         <div className="best-products-cards">
           {projects.map((project, i) => (
-            <div
+            <Link
+              href={project.link}
               className="best-products-card"
               key={i}
               style={{
@@ -66,7 +77,7 @@ export function BestProducts() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <Link href={"/cases"} className="best-products-button">
@@ -92,7 +103,8 @@ export function BestProducts() {
           </div>
           <h2>
             яка створює проникливі{" "}
-            <span className="mobile-right-placement">бренди</span> блакитної&nbsp;&nbsp;{" "}
+            <span className="mobile-right-placement">бренди</span>{" "}
+            блакитної&nbsp;&nbsp;{" "}
             <span className="mobile-right-placement">планети</span>{" "}
           </h2>
         </div>

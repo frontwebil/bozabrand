@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Hls from "hls.js";
 import "./style.css";
 
 export type VideoPlaybackMode = "loop" | "click";
@@ -15,6 +14,7 @@ export type VideoBlockData = {
 
 export function ComponentVideo({ data }: { data?: VideoBlockData }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [showControls, setShowControls] = useState(false);
 
@@ -27,45 +27,23 @@ export function ComponentVideo({ data }: { data?: VideoBlockData }) {
   const isMp4 = extension === "mp4";
   const isWebm = extension === "webm";
 
-  const hlsUrl = useMemo(() => {
-    if (!src || !isMp4) return "";
-    return src
-      .replace("/upload/", "/upload/sp_auto/")
-      .replace(/\.mp4(\?.*)?$/i, ".m3u8");
-  }, [src, isMp4]);
-
   const mode: VideoPlaybackMode = data?.playback === "click" ? "click" : "loop";
+
   const isLoop = mode === "loop";
 
   useEffect(() => {
     const video = videoRef.current;
+
     if (!video || !src) return;
 
-    let hls: Hls | null = null;
-
-    if (isMp4 && hlsUrl) {
-      if (Hls.isSupported()) {
-        hls = new Hls();
-        hls.loadSource(hlsUrl);
-        hls.attachMedia(video);
-      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-        video.src = hlsUrl;
-      } else {
-        video.src = src;
-      }
-    } else {
-      video.src = src;
-    }
-
-    return () => {
-      hls?.destroy();
-    };
-  }, [src, hlsUrl, isMp4]);
+    video.src = src;
+  }, [src]);
 
   useEffect(() => {
     if (isLoop) return;
 
     const video = videoRef.current;
+
     if (!video) return;
 
     const onPlay = () => {
@@ -89,6 +67,7 @@ export function ComponentVideo({ data }: { data?: VideoBlockData }) {
 
   const togglePlay = useCallback(() => {
     const video = videoRef.current;
+
     if (!video) return;
 
     if (video.paused) {
@@ -118,9 +97,9 @@ export function ComponentVideo({ data }: { data?: VideoBlockData }) {
             muted={isLoop}
             loop={isLoop}
             playsInline
-            className="video-block-player"
-            preload={isLoop ? "none" : "metadata"}
+            preload="auto"
             poster={data?.poster}
+            className="video-block-player"
           >
             {isMp4 && <source src={src} type="video/mp4" />}
             {isWebm && <source src={src} type="video/webm" />}

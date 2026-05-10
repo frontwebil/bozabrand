@@ -6,6 +6,7 @@ import Link from "next/link";
 import "./Header.css";
 import { useWindowWidth } from "../../../../hooks/useWindowWidth";
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/lib/useLanguague";
 
 export function Header() {
   const pathname = usePathname();
@@ -14,6 +15,9 @@ export function Header() {
   const ref = useRef<HTMLDivElement | null>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage } = useLanguage();
+
+  console.log(language);
 
   useEffect(() => {
     if (ref.current) {
@@ -89,6 +93,21 @@ export function Header() {
               </div>
             </button>
           )}
+          <div className="header-right-languague">
+            <p
+              style={{ color: language == "uk" ? "#5919c1" : "#00000" }}
+              onClick={() => setLanguage("uk")}
+            >
+              UA
+            </p>
+            <div className="header-right-languague-line"></div>
+            <p
+              style={{ color: language == "en" ? "#5919c1" : "#00000" }}
+              onClick={() => setLanguage("en")}
+            >
+              EN
+            </p>
+          </div>
         </div>
       </div>
       <div

@@ -95,14 +95,14 @@ export function Header() {
           )}
           <div className="header-right-languague">
             <p
-              style={{ color: language == "uk" ? "#5919c1" : "#00000" }}
+              style={{ color: language == "uk" ? "#5919c1" : "#000000" }}
               onClick={() => setLanguage("uk")}
             >
               UA
             </p>
             <div className="header-right-languague-line"></div>
             <p
-              style={{ color: language == "en" ? "#5919c1" : "#00000" }}
+              style={{ color: language == "en" ? "#5919c1" : "#000000" }}
               onClick={() => setLanguage("en")}
             >
               EN

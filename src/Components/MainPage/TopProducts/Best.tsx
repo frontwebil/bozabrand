@@ -1,49 +1,118 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/lib/useLanguague";
 import "./Best.css";
 
+const content = {
+  uk: {
+    topProjects: "ТОП ПРОЄКТИ",
+    viewAll: "ПЕРЕГЛЯНУТИ УСІ",
+
+    team: {
+      titleTop: "команда неповерхневих",
+      titleBottom: "яка створює проникливі бренди блакитної планети",
+      roles:
+        "ДИЗАЙНЕРІВ, КОПІРАЙТЕРІВ, МЕНЕДЖЕРІВ СТРАТЕГІВ, ХУДОЖНИКІВ, ІЛЮСТРАТОРІВ",
+    },
+  },
+
+  en: {
+    topProjects: "TOP PROJECTS",
+    viewAll: "VIEW ALL",
+
+    team: {
+      titleTop: "a team of non-superficials",
+      titleBottom: "creating profound brands of the blue planet",
+      roles:
+        "DESIGNERS, COPYWRITERS, MANAGERS, STRATEGISTS, ARTISTS, ILLUSTRATORS",
+    },
+  },
+};
+
 export function BestProducts() {
+  const { language } = useLanguage();
+
   const projects = [
     {
-      category: "Машинобудування",
+      category: {
+        uk: "Машинобудування",
+        en: "Industrial Machinery Manufacturing",
+      },
       title: "Hylen",
       image: "/Best/1.png",
-      tags: [
-        "Стратегія бренду",
-        "Айдентика",
-        "Фірмовий стиль",
-        "Сайт",
-        "Виставкові комунакації",
-        "Фотозйомка",
-      ],
+      tags: {
+        uk: [
+          "Стратегія бренду",
+          "Айдентика",
+          "Фірмовий стиль",
+          "Сайт",
+          "Виставкові комунікації",
+          "Фотозйомка",
+        ],
+        en: [
+          "Brand Strategy",
+          "Brand Identity",
+          "Corporate Identity",
+          "Website",
+          "Trade Show Communications",
+          "Photography",
+        ],
+      },
       link: "/cases/hylen",
     },
     {
-      category: "Інжиніринг",
+      category: {
+        uk: "Інжиніринг",
+        en: "Engineering",
+      },
       title: "Techinn",
       image: "/Best/2.png",
-      tags: [
-        "Стратегія бренду",
-        "Айдентика",
-        "Фірмовий стиль",
-        "Виставкові комунакації",
-      ],
+      tags: {
+        uk: [
+          "Стратегія бренду",
+          "Айдентика",
+          "Фірмовий стиль",
+          "Виставкові комунікації",
+        ],
+        en: [
+          "Brand Strategy",
+          "Brand Identity",
+          "Corporate Identity",
+          "Trade Show Communications",
+        ],
+      },
       link: "/cases/techinn",
     },
-
     {
-      category: "Інжиніринг",
+      category: {
+        uk: "Інжиніринг",
+        en: "Engineering",
+      },
       title: "Strong & Young",
       image: "/Best/3.png",
-      tags: [
-        "Бренд",
-        "Платформа стратегія",
-        "Комунікаціі",
-        "Айдентика",
-        "Фірмовий Стиль",
-      ],
+      tags: {
+        uk: [
+          "Бренд",
+          "Платформа стратегія",
+          "Комунікації",
+          "Айдентика",
+          "Фірмовий стиль",
+        ],
+        en: [
+          "Brand",
+          "Platform Strategy",
+          "Communication Strategy",
+          "Brand Identity",
+          "Corporate style",
+        ],
+      },
       link: "/cases/strong-and-young",
     },
   ];
+
+  const t = content[language];
+
   return (
     <section
       className="best-products"
@@ -53,9 +122,10 @@ export function BestProducts() {
     >
       <div className="container">
         <div className="best-products-top">
-          <h2>ТОП ПРОЄКТИ</h2>
-          <Link href={"/cases"}>ПЕРЕГЛЯНУТИ УСІ</Link>
+          <h2>{t.topProjects}</h2>
+          <Link href={"/cases"}>{t.viewAll}</Link>
         </div>
+
         <div className="best-products-cards">
           {projects.map((project, i) => (
             <Link
@@ -67,11 +137,12 @@ export function BestProducts() {
               }}
             >
               <div className="best-products-card-top">
-                <p>{project.category}</p>
+                <p>{project.category[language]}</p>
                 <h3>{project.title}</h3>
               </div>
+
               <div className="best-products-card-bottom">
-                {project.tags.map((tag, i) => (
+                {project.tags[language].map((tag, i) => (
                   <div className="best-products-card-bottom-item" key={i}>
                     {tag}
                   </div>
@@ -80,33 +151,33 @@ export function BestProducts() {
             </Link>
           ))}
         </div>
+
         <Link href={"/cases"} className="best-products-button">
-          ПЕРЕГЛЯНУТИ УСІ
+          {t.viewAll}
         </Link>
+
         <div className="best-products-team-text">
           <div className="best-products-team-text-top">
-            <h2>команда&nbsp;&nbsp; неповерхневих </h2>
+            <h2>{t.team.titleTop}</h2>
+
             <div className="best-products-team-text-top-box">
               <div className="best-products-team-line-blocks">
                 <div className="best-products-team-line-block border-t border-l border-white"></div>
                 <div className="best-products-team-line-block border-t border-r border-white"></div>
               </div>
+
               <div className="best-products-team-text-top-comands">
-                ДИЗАЙНЕРІВ, КОПІРАЙТЕРІВ, МЕНЕДЖЕРІВ СТРАТЕГІВ, ХУДОЖНИКІВ,
-                ІЛЮСТРАТОРІВ
+                {t.team.roles}
               </div>
+
               <div className="best-products-team-line-blocks">
                 <div className="best-products-team-line-block border-b border-l border-white"></div>
                 <div className="best-products-team-line-block border-b border-r border-white"></div>
               </div>
             </div>
           </div>
-          <h2>
-            яка створює проникливі{" "}
-            <span className="mobile-right-placement">бренди</span>{" "}
-            блакитної&nbsp;&nbsp;{" "}
-            <span className="mobile-right-placement">планети</span>{" "}
-          </h2>
+
+          <h2>{t.team.titleBottom}</h2>
         </div>
       </div>
     </section>

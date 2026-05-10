@@ -1,9 +1,10 @@
 "use client";
 
+import { useLanguage } from "@/lib/useLanguague";
 import "./RunningLine.css";
 
-export function RunningLine() {
-  const items = [
+const content = {
+  uk: [
     "Стратегія бренду",
     "Айдентика",
     "Фірмовий стиль",
@@ -23,7 +24,34 @@ export function RunningLine() {
     "Іміджеве фото",
     "Рекламне фото",
     "Сайт",
-  ];
+  ],
+  en: [
+    "Brand Strategy",
+    "Identity",
+    "Corporate Identity",
+    "Logo",
+    "Tagline",
+    "Guideline",
+    "Brand Book",
+    "Company Presentation",
+    "Product Presentation",
+    "Motion Design",
+    "Instagram Strategy",
+    "Packaging Design",
+    "2D/3D Animation",
+    "Commercial Space Design",
+    "Corporate Character",
+    "Illustration",
+    "Image Photography",
+    "Advertising Photography",
+    "Website",
+  ],
+};
+
+export function RunningLine() {
+  const { language } = useLanguage();
+
+  const items = content[language];
 
   return (
     <section className="running-line-section">
@@ -32,6 +60,7 @@ export function RunningLine() {
           <div className="running-line-block border-t border-l border-zinc-700"></div>
           <div className="running-line-block border-t border-r border-zinc-700"></div>
         </div>
+
         <div className="running-line">
           <div className="running-line-inner">
             {items.map((item, index) => (
@@ -41,6 +70,7 @@ export function RunningLine() {
             ))}
           </div>
         </div>
+
         <div className="running-line-blocks">
           <div className="running-line-block border-b border-l border-zinc-700"></div>
           <div className="running-line-block border-b border-r border-zinc-700"></div>

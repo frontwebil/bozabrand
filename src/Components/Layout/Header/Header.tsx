@@ -1,6 +1,6 @@
 "use client";
-import { usePathname } from "next/navigation";
 
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import "./Header.css";
@@ -8,16 +8,46 @@ import { useWindowWidth } from "../../../../hooks/useWindowWidth";
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/lib/useLanguague";
 
+const content = {
+  uk: {
+    nav: {
+      cases: "ПРОЄКТИ",
+      method: "ПРАЙС&METОД",
+      team: "НЕПОВЕРХНЕВІ",
+      about: "ПРО БРЕНД",
+    },
+    cta: {
+      call: "ПОДЗВОНИТИ",
+      brief: "ЗАПОВНИТИ БРИФ",
+    },
+  },
+  en: {
+    nav: {
+      cases: "PROJECTS",
+      method: "PRICE & METHOD",
+      team: "NON-SUPERFICIALS",
+      about: "ABOUT BRAND",
+    },
+    cta: {
+      call: "CALL US",
+      brief: "FILL IN THE BRIEF",
+    },
+  },
+};
+
 export function Header() {
   const pathname = usePathname();
   const isActive = (path: string) => pathname === path;
+
   const width = useWindowWidth();
   const ref = useRef<HTMLDivElement | null>(null);
+
   const [headerHeight, setHeaderHeight] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+
   const { language, setLanguage } = useLanguage();
 
-  console.log(language);
+  const t = content[language];
 
   useEffect(() => {
     if (ref.current) {
@@ -32,7 +62,7 @@ export function Header() {
   return (
     <header className="header" ref={ref}>
       <div className="container">
-        <Link href={"/"} className="header-logo" onClick={() => scrollToTop()}>
+        <Link href={"/"} className="header-logo" onClick={scrollToTop}>
           <Image
             src={"/logo.svg"}
             width={260}
@@ -41,49 +71,53 @@ export function Header() {
             loading="eager"
           />
         </Link>
+
         <div className="header-right">
           <nav className="header-nav">
             <Link
               href={"/cases"}
               className={`header-nav-link ${isActive("/cases") ? "active" : ""}`}
             >
-              ПРОЄКТИ
+              {t.nav.cases}
             </Link>
 
             <Link
               href={"/method"}
               className={`header-nav-link ${isActive("/method") ? "active" : ""}`}
             >
-              ПРАЙС&METОД
+              {t.nav.method}
             </Link>
 
             <Link
               href={"/team"}
               className={`header-nav-link ${isActive("/team") ? "active" : ""}`}
             >
-              НЕПОВЕРХНЕВІ
+              {t.nav.team}
             </Link>
 
             <Link
               href={"/about"}
               className={`header-nav-link ${isActive("/about") ? "active" : ""}`}
             >
-              ПРО БРЕНД
+              {t.nav.about}
             </Link>
           </nav>
+
           <div className="header-right-buttons">
             <Link href={"tel:+380666899857"} className="header-cta-button">
-              ПОДЗВОНИТИ
+              {t.cta.call}
             </Link>
+
             <Link
               target="_blank"
               href={"https://forms.gle/CeaeWGDsjqcDKhTr6"}
               className="header-cta-button"
             >
-              ЗАПОВНИТИ БРИФ
+              {t.cta.brief}
             </Link>
           </div>
-          {width && width <= 1240 && (
+
+          {width && width <= 1300 && (
             <button onClick={() => setIsOpen(!isOpen)}>
               <div id="nav-icon3" className={`${isOpen && "open"}`}>
                 <span></span>
@@ -93,16 +127,19 @@ export function Header() {
               </div>
             </button>
           )}
+
           <div className="header-right-languague">
             <p
-              style={{ color: language == "uk" ? "#5919c1" : "#000000" }}
+              style={{ color: language === "uk" ? "#5919c1" : "#000000" }}
               onClick={() => setLanguage("uk")}
             >
               UA
             </p>
+
             <div className="header-right-languague-line"></div>
+
             <p
-              style={{ color: language == "en" ? "#5919c1" : "#000000" }}
+              style={{ color: language === "en" ? "#5919c1" : "#000000" }}
               onClick={() => setLanguage("en")}
             >
               EN
@@ -110,8 +147,9 @@ export function Header() {
           </div>
         </div>
       </div>
+
       <div
-        className={`header-menu ${isOpen && "active"}`}
+        className={`header-menu ${isOpen ? "active" : ""}`}
         style={{
           top: `${headerHeight}px`,
           height: `calc(100vh - ${headerHeight}px)`,
@@ -124,7 +162,7 @@ export function Header() {
               href={"/cases"}
               className={`header-nav-link ${isActive("/cases") ? "active" : ""}`}
             >
-              ПРОЄКТИ
+              {t.nav.cases}
             </Link>
 
             <Link
@@ -132,7 +170,7 @@ export function Header() {
               href={"/method"}
               className={`header-nav-link ${isActive("/method") ? "active" : ""}`}
             >
-              ПРАЙС&METОД
+              {t.nav.method}
             </Link>
 
             <Link
@@ -140,7 +178,7 @@ export function Header() {
               href={"/team"}
               className={`header-nav-link ${isActive("/team") ? "active" : ""}`}
             >
-              НЕПОВЕРХНЕВІ
+              {t.nav.team}
             </Link>
 
             <Link
@@ -148,28 +186,26 @@ export function Header() {
               href={"/about"}
               className={`header-nav-link ${isActive("/about") ? "active" : ""}`}
             >
-              ПРО БРЕНД
+              {t.nav.about}
             </Link>
           </nav>
+
           <div className="header-right-buttons-mobile">
             <Link
-              onClick={() => {
-                setIsOpen(false);
-              }}
+              onClick={() => setIsOpen(false)}
               href={"tel:+380666899857"}
               className="header-cta-button"
             >
-              ПОДЗВОНИТИ
+              {t.cta.call}
             </Link>
+
             <Link
-              onClick={() => {
-                setIsOpen(false);
-              }}
+              onClick={() => setIsOpen(false)}
               target="_blank"
               href={"https://forms.gle/CeaeWGDsjqcDKhTr6"}
               className="header-cta-button"
             >
-              ЗАПОВНИТИ БРИФ
+              {t.cta.brief}
             </Link>
           </div>
         </div>

@@ -81,7 +81,7 @@ const content = {
     sectionTitle: "package services",
     budgetTitle: "Budget",
     offersTitle: "What we offer",
-    note: "Detailed price after filling the brief only",
+    note: "Prices on the website are given in euros. Payment is made in hryvnias at the official exchange rate of the National Bank of Ukraine on the day of payment in accordance with the current legislation of Ukraine.",
     items: [
       {
         title: "Idea Stage",

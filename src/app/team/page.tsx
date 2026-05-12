@@ -11,8 +11,8 @@ export default function page() {
     <>
       <Header />
       <SwapSections />
-      {/* <Welcome /> */}
-      {/* <TeamSection /> */}
+      <Welcome />
+      <TeamSection />
       <Footer />
     </>
   );

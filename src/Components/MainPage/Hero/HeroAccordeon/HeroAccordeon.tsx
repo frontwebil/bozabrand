@@ -16,7 +16,7 @@ const content = {
       {
         title: "На хвилі ідеї",
         text:
-          "Ти ще не в дорозі, але вже дихаєш океаном мрій. Інтуїція — твій компас, а перші задуми — течія, що кличе. Ти шукаєш свою зграю, складаєш карту курсу й готуєшся вивести бізнес на поверхню.",
+          "Ти ще не в дорозі, але вже дихаєш океаном мрій. Інтуїція - твій компас, а перші задуми - течія, що кличе. Ти шукаєш свою зграю, складаєш карту курсу й готуєшся вивести бізнес на поверхню.",
         budget: "€500+",
         budgetText:
           "Детальний розрахунок вартості формується після заповнення брифу",
@@ -29,7 +29,7 @@ const content = {
       {
         title: "Зграя зростає",
         text:
-          "З'являються однодумці. Ви ще не одне ціле, але вже рухаєтесь в одному напрямку. Вчитесь плисти разом, зв'язки зміцнюються, але ще легко збитися з курсу. Настав момент закріпити маршрут і не розсипатися в хаосі.",
+          "З'являються однодумці. Ви ще не одне ціле, але вже рухаєтесь в одному напрямку. Вчитесь плисти разом, зв'язки зміцнюються, але ще легко збитися з курсу. Настає момент закріпити маршрут і не розсипатись в хаосі.",
         budget: "€7 000+",
         budgetText:
           "Детальний розрахунок вартості формується після заповнення брифу",
@@ -45,7 +45,7 @@ const content = {
       {
         title: "Гра на випередження",
         text:
-          "Бізнес масштабується. Команда — єдиний організм. Штурвал у процесів розготується в різні напрями, але керуються єдиним мозком. Гнучкість, координація, багатозадачність — ви не просто пливете, ви маневруєте.",
+          "Бізнес масштабується. Команда - єдиний організм. Штурвал у процесів розготується в різні напрями, але керуються єдиним мозком. Гнучкість, координація, багатозадачність - ви не просто пливете, ви маневруєте.",
         budget: "€10 000+",
         budgetText:
           "Детальний розрахунок вартості формується після заповнення брифу",
@@ -61,7 +61,7 @@ const content = {
       {
         title: "Океанічний масштаб",
         text:
-          "Присутність компанії відчутна в глибинах і на поверхні. Бізнес — впливовий гравець, що не боїться глибоких вод. Компетентність — твоя течія, мудрість — твій ритм. Ти не частина потоку — ти його творець.",
+          "Присутність компанії відчутна в глибинах і на поверхні. Бізнес - впливовий гравець, що не боїться глибоких вод. Компетентність - твоя течія, мудрість - твій ритм. Ти не частина потоку - ти його творець.",
         budget: "€12 000+",
         budgetText:
           "Ціни на сайті наведені в євро. Розрахунок здійснюється в гривнях за офіційним курсом Національного банку України на день здійснення платежу згідно з чинним законодавством України.",
@@ -111,7 +111,7 @@ const content = {
       {
         title: "Business stage",
         text:
-          "The business scales. The team becomes a single organism. The tentacles of processes stretch in different directions, yet are guided by one mind. Flexibility, coordination, multitasking — you are not just swimming, you are maneuvering.",
+          "The business scales. The team becomes a single organism. The tentacles of processes stretch in different directions, yet are guided by one mind. Flexibility, coordination, multitasking - you are not just swimming, you are maneuvering.",
         budget: "€10 000+",
         budgetText:
           "A detailed cost estimate is provided after the brief is completed",
@@ -127,7 +127,7 @@ const content = {
       {
         title: "Corporate-Level Stage",
         text:
-          "The company’s presence is felt in the depths and on the surface. The business is an influential player, unafraid of deep waters. Expertise is your strongest advantage. Wisdom is your rhythm. You are not part of the flow — you create it.",
+          "The company’s presence is felt in the depths and on the surface. The business is an influential player, unafraid of deep waters. Expertise is your strongest advantage. Wisdom is your rhythm. You are not part of the flow - you create it.",
         budget: "€12 000+",
         budgetText: "Detailed price after filling the brief only",
         offers: [
@@ -142,6 +142,9 @@ const content = {
     ],
   },
 };
+
+/** Пакети «стратегічні рішення» - спільне джерело для Method / Strategy */
+export const heroAccordeonPackagesContent = content;
 
 export function HeroAccordeon() {
   const { language } = useLanguage();

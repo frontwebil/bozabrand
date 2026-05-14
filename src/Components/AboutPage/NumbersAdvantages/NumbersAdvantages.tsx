@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import "./NumbersAdvantages.css";
+import { useLanguage } from "@/lib/useLanguague";
 
 export function NumbersAdvantages() {
+  const { language } = useLanguage();
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export function NumbersAdvantages() {
         },
         {
           threshold: 0,
-          rootMargin: "0px 0px -50px 0px", 
+          rootMargin: "0px 0px -50px 0px",
         },
       );
 
@@ -37,10 +39,17 @@ export function NumbersAdvantages() {
     <section className="numbers-advantages">
       <div className="container">
         <div className="numbers-advantges-top">
-          <h2>
-            Цифри, <br />
-            якими ми пишаємося
-          </h2>
+          {language == "uk" ? (
+            <h2>
+              Цифри, <br />
+              якими ми пишаємося
+            </h2>
+          ) : (
+            <h2>
+              The numbers <br />
+              we’re proud of
+            </h2>
+          )}
         </div>
 
         <div
@@ -58,12 +67,21 @@ export function NumbersAdvantages() {
               height={50}
               alt="13 років експертизи у маркетингу"
             />
-            <p className="numbers-advantages-number-circles-text">
-              років{" "}
-              <span style={{ color: "#412AB9" }}>
-                експертизи <br /> у маркетингу
-              </span>
-            </p>
+            {language == "uk" ? (
+              <p className="numbers-advantages-number-circles-text">
+                років{" "}
+                <span style={{ color: "#412AB9" }}>
+                  експертизи <br /> у маркетингу
+                </span>
+              </p>
+            ) : (
+              <p className="numbers-advantages-number-circles-text">
+                years{" "}
+                <span style={{ color: "#412AB9" }}>
+                  of marketing <br /> expertise
+                </span>
+              </p>
+            )}
           </div>
         </div>
 
@@ -82,12 +100,21 @@ export function NumbersAdvantages() {
               height={50}
               alt="3 роки злагодженої командної роботи"
             />
-            <p className="numbers-advantages-number-circles-text">
-              Роки{" "}
-              <span style={{ color: "#412AB9" }}>
-                злагодженої <br /> командної роботи
-              </span>
-            </p>
+            {language == "en" ? (
+              <p className="numbers-advantages-number-circles-text">
+                Years{" "}
+                <span style={{ color: "#412AB9" }}>
+                  of team <br /> synchronized swimming
+                </span>
+              </p>
+            ) : (
+              <p className="numbers-advantages-number-circles-text">
+                Роки{" "}
+                <span style={{ color: "#412AB9" }}>
+                  злагодженої <br /> командної роботи
+                </span>
+              </p>
+            )}
           </div>
         </div>
 
@@ -106,10 +133,17 @@ export function NumbersAdvantages() {
               height={50}
               alt="14 років створених нових брендів"
             />
-            <p className="numbers-advantages-number-circles-text">
-              <span style={{ color: "#412AB9" }}>створених нових</span> <br />
-              брендів
-            </p>
+            {language == "uk" ? (
+              <p className="numbers-advantages-number-circles-text">
+                <span style={{ color: "#412AB9" }}>створених нових</span> <br />
+                брендів
+              </p>
+            ) : (
+              <p className="numbers-advantages-number-circles-text">
+                brands have been <br />
+                <span style={{ color: "#412AB9" }}>created</span>
+              </p>
+            )}
           </div>
         </div>
       </div>

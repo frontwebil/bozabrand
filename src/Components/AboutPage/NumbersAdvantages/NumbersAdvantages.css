@@ -124,6 +124,10 @@
 }
 
 @media (max-width: 650px) {
+
+  .numbers-advantages-number-circles{
+    max-width: 155px;
+  }
   .numbers-advantages-number.s,
   .numbers-advantages-number.f,
   .numbers-advantages-number.t {

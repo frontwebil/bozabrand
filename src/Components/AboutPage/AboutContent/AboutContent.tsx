@@ -54,7 +54,7 @@ export function AboutContent() {
         </p>
       ),
       aboutContentRightTextCircle:
-        "WE ARE A TEAM OF NON-SUPERFICIAL CREATORS OF PROFOUND BRANDS OF THE BLUE PLANET",
+        "We are a team of non-superficial creators of profound brands of the blue planet",
     },
   };
 

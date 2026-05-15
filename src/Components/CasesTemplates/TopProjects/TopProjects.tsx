@@ -1,15 +1,32 @@
-import { Case } from "@/generated/prisma/client";
+"use client";
+
 import Link from "next/link";
 import "./style.css";
+import { PublicCase } from "@/lib/casesLocale";
+import { useLanguage } from "@/lib/useLanguague";
 
-export function TopProjects({ topCases }: { topCases: Case[] }) {
+const labels = {
+  uk: {
+    title: "ТОП ПРОЄКТИ",
+    viewAll: "ПЕРЕГЛЯНУТИ УСІ",
+  },
+  en: {
+    title: "TOP PROJECTS",
+    viewAll: "VIEW ALL",
+  },
+};
+
+export function TopProjects({ topCases }: { topCases: PublicCase[] }) {
+  const { language } = useLanguage();
+  const t = labels[language];
+
   return (
     <section className="top-projects">
       <div className="container">
         <div className="top-projects-nav">
-          <h2>ТОП ПРОЄКТИ</h2>
+          <h2>{t.title}</h2>
           <Link href={"/cases"} style={{ textDecoration: "underline" }}>
-            ПЕРЕГЛЯНУТИ УСІ
+            {t.viewAll}
           </Link>
         </div>
         <div className="top-projects-cases">

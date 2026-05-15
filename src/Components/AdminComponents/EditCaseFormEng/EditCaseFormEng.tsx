@@ -229,14 +229,6 @@ export function EditCaseFormEng({ caseItem, ukrCaseId }: EditCaseFormEngProps) {
               >
                 Взяти з укр версії
               </button>
-              <button
-                type="button"
-                className="add-case-copy-btn secondary"
-                onClick={handleReloadFromEng}
-                disabled={isLoading}
-              >
-                Взяти з англ версії
-              </button>
               <Link
                 href={`/admin-boza/cases/eng/constructor/${caseItem.id}?ukrId=${ukrCaseId}`}
                 className="add-case-back"

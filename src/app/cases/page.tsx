@@ -6,19 +6,34 @@ import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
 
+const caseListSelect = {
+  id: true,
+  title: true,
+  subTitle: true,
+  slug: true,
+  categories: true,
+  imgUrl: true,
+  order: true,
+} as const;
+
 export default async function Cases() {
-  const cases = await prisma.case.findMany({
-    where: {
-      isPublished: true,
-    },
-    orderBy: {
-      order: "asc",
-    },
-  });
+  const [ukCases, enCases] = await Promise.all([
+    prisma.case.findMany({
+      where: { isPublished: true },
+      orderBy: { order: "asc" },
+      select: caseListSelect,
+    }),
+    prisma.caseEng.findMany({
+      where: { isPublished: true },
+      orderBy: { order: "asc" },
+      select: caseListSelect,
+    }),
+  ]);
+
   return (
     <>
       <Header />
-      <Projects cases={cases} />
+      <Projects ukCases={ukCases} enCases={enCases} />
       <div className="sandwich-cases"></div>
       <OurDrivers />
       <Footer />

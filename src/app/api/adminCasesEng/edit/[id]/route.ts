@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { isAdminUser } from "@/lib/adminAuth";
 import { prisma } from "@/lib/prisma";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { revalidateCasePages } from "@/lib/casesRevalidate";
 
 export async function PATCH(
   req: NextRequest,
@@ -66,6 +67,8 @@ export async function PATCH(
         order: Number(order) || 0,
       },
     });
+
+    revalidateCasePages({ slug: updatedCase.slug });
 
     return NextResponse.json(
       {

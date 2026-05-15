@@ -1,10 +1,25 @@
 "use client";
 
-import { Case } from "@/generated/prisma/browser";
 import "./Projects.css";
 import Link from "next/link";
+import { PublicCase, pickCasesList } from "@/lib/casesLocale";
+import { useLanguage } from "@/lib/useLanguague";
+import { useMemo } from "react";
 
-export function Projects({ cases }: { cases: Case[] }) {
+export function Projects({
+  ukCases,
+  enCases,
+}: {
+  ukCases: PublicCase[];
+  enCases: PublicCase[];
+}) {
+  const { language } = useLanguage();
+
+  const cases = useMemo(
+    () => pickCasesList(language, ukCases, enCases),
+    [language, ukCases, enCases],
+  );
+
   return (
     <section className="projects">
       <div className="container">
@@ -13,7 +28,7 @@ export function Projects({ cases }: { cases: Case[] }) {
             <Link
               href={`/cases/${project.slug}`}
               className="project-card"
-              key={i}
+              key={project.slug}
               style={{
                 backgroundImage: `url(${project.imgUrl})`,
                 backgroundPosition: `${i == 0 && "left center"}`,

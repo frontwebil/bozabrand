@@ -552,14 +552,6 @@ export function ConstructorPage({
                 >
                   Взяти з укр версії
                 </button>
-                <button
-                  type="button"
-                  className="constructor-copy-btn secondary"
-                  onClick={handleReloadFromEng}
-                  disabled={isBusy}
-                >
-                  Взяти з англ версії
-                </button>
               </>
             )}
             <Link href="/admin-boza/cases" className="constructor-page-back">

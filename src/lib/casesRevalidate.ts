@@ -9,5 +9,6 @@ export function revalidateCasePages(params: { slug?: string; caseId?: number }) 
 
   if (typeof params.caseId === "number") {
     revalidatePath(`/admin-boza/cases/constructor/${params.caseId}`);
+    revalidatePath(`/admin-boza/cases/eng/constructor/${params.caseId}`);
   }
 }

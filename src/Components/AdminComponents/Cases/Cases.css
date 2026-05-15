@@ -203,6 +203,26 @@
   background: #0f43a5;
 }
 
+.cases-admin-card-btn.eng {
+  background: #0f766e;
+  color: #fff;
+  border: none;
+}
+
+.cases-admin-card-btn.eng:hover:not(:disabled) {
+  background: #0d655e;
+}
+
+.cases-admin-card-btn.eng:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.cases-admin-eng-status {
+  font-size: 13px;
+  font-weight: 600;
+}
+
 .cases-admin-card-btn.preview {
   background: #f3f4f6;
   color: #111827;

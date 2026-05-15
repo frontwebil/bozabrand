@@ -17,6 +17,38 @@
   margin-bottom: 32px;
 }
 
+.constructor-page-top-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.constructor-copy-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  background: #1554ca;
+  color: #fff;
+  transition: 0.2s ease;
+}
+
+.constructor-copy-btn.secondary {
+  background: #fff;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+}
+
+.constructor-copy-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .constructor-page-label {
   font-size: 14px;
   color: #6b7280;

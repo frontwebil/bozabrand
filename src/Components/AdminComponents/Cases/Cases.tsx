@@ -4,6 +4,15 @@ import { Case } from "@/generated/prisma/browser";
 import "./Cases.css";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+type EngCaseSummary = {
+  id: number;
+  slug: string;
+  isPublished: boolean;
+};
 
 const mockCases = [
   {
@@ -29,7 +38,44 @@ const mockCases = [
   },
 ];
 
-export function Cases({ cases }: { cases: Case[] }) {
+export function Cases({
+  cases,
+  engBySlug,
+}: {
+  cases: Case[];
+  engBySlug: Record<string, EngCaseSummary>;
+}) {
+  const router = useRouter();
+  const [busySlug, setBusySlug] = useState<string | null>(null);
+
+  const handleCreateEng = async (ukrCaseId: number, slug: string) => {
+    const confirmed = confirm(
+      "Створити англ. версію з укр кейсу? Можна буде відредагувати тексти окремо.",
+    );
+    if (!confirmed) return;
+
+    try {
+      setBusySlug(slug);
+      const { data } = await axios.post("/api/adminCasesEng/copy", {
+        direction: "create-eng-from-ukr",
+        ukrCaseId,
+      });
+
+      router.push(
+        `/admin-boza/cases/eng/edit/${data.case.id}?ukrId=${ukrCaseId}`,
+      );
+      router.refresh();
+    } catch (err) {
+      if (axios.isAxiosError(err)) {
+        alert(err.response?.data?.message || "Не вдалося створити EN версію");
+      } else {
+        alert("Не вдалося створити EN версію");
+      }
+    } finally {
+      setBusySlug(null);
+    }
+  };
+
   return (
     <section className="cases-admin">
       <div className="cases-admin-container">
@@ -103,14 +149,55 @@ export function Cases({ cases }: { cases: Case[] }) {
                       href={`/admin-boza/cases/edit/${item.id}`}
                       className="cases-admin-card-btn edit"
                     >
-                      Редагувати
+                      Редагувати (UKR)
                     </Link>
                     <Link
                       href={`/admin-boza/cases/constructor/${item.id}`}
                       className="cases-admin-card-btn edit"
                     >
-                      Конструктор сторінки
+                      Конструктор (UKR)
                     </Link>
+
+                    {engBySlug[item.slug] ? (
+                      <>
+                        <Link
+                          href={`/admin-boza/cases/eng/edit/${engBySlug[item.slug].id}?ukrId=${item.id}`}
+                          className="cases-admin-card-btn eng"
+                        >
+                          Редагувати (EN)
+                        </Link>
+                        <Link
+                          href={`/admin-boza/cases/eng/constructor/${engBySlug[item.slug].id}?ukrId=${item.id}`}
+                          className="cases-admin-card-btn eng"
+                        >
+                          Конструктор (EN)
+                        </Link>
+                        <span
+                          className="cases-admin-eng-status"
+                          style={{
+                            color: engBySlug[item.slug].isPublished
+                              ? "#047857"
+                              : "#b91c1c",
+                          }}
+                        >
+                          EN:{" "}
+                          {engBySlug[item.slug].isPublished
+                            ? "опубліковано"
+                            : "сховано"}
+                        </span>
+                      </>
+                    ) : (
+                      <button
+                        type="button"
+                        className="cases-admin-card-btn eng"
+                        disabled={busySlug === item.slug}
+                        onClick={() => handleCreateEng(item.id, item.slug)}
+                      >
+                        {busySlug === item.slug
+                          ? "Створюємо EN..."
+                          : "Створити EN версію"}
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

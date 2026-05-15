@@ -73,8 +73,35 @@ const ICON_OPTIONS = [
   "/Projects/icons/7.svg",
 ];
 
-export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
+type ConstructorLocale = "uk" | "eng";
+
+const blockApiByLocale = {
+  uk: {
+    create: "/api/admin-boza/cases/blocks/create",
+    delete: (id: number) => `/api/admin-boza/cases/blocks/delete/${id}`,
+    update: (id: number) => `/api/admin-boza/cases/blocks/update/${id}`,
+    reorder: "/api/admin-boza/cases/blocks/reorder",
+  },
+  eng: {
+    create: "/api/admin-boza/cases/eng/blocks/create",
+    delete: (id: number) => `/api/admin-boza/cases/eng/blocks/delete/${id}`,
+    update: (id: number) => `/api/admin-boza/cases/eng/blocks/update/${id}`,
+    reorder: "/api/admin-boza/cases/eng/blocks/reorder",
+  },
+} as const;
+
+export function ConstructorPage({
+  caseItem,
+  locale = "uk",
+  ukrCaseId,
+}: {
+  caseItem: CaseItem;
+  locale?: ConstructorLocale;
+  ukrCaseId?: number;
+}) {
   const router = useRouter();
+  const blockApi = blockApiByLocale[locale];
+  const isEng = locale === "eng";
 
   const [editingBlockId, setEditingBlockId] = useState<number | null>(null);
   const [editingType, setEditingType] = useState<string>("");
@@ -156,7 +183,7 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
       async () => {
         const config = caseBlocksRegistry[type];
 
-        await axios.post("/api/admin-boza/cases/blocks/create", {
+        await axios.post(blockApi.create, {
           caseId: caseItem.id,
           type,
           data: config.defaultData,
@@ -173,7 +200,7 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
       "Блок видалено",
       "Не вдалося видалити блок",
       async () => {
-        await axios.delete(`/api/admin-boza/cases/blocks/delete/${blockId}`);
+        await axios.delete(blockApi.delete(blockId));
         router.refresh();
       },
     );
@@ -207,7 +234,7 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
       "Порядок блоків оновлено",
       "Не вдалося змінити порядок блоків",
       async () => {
-        await axios.patch("/api/admin-boza/cases/blocks/reorder", {
+        await axios.patch(blockApi.reorder, {
           caseId: caseItem.id,
           orderedBlockIds: reordered.map((block) => block.id),
         });
@@ -373,6 +400,41 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
     return data;
   }
 
+  const handleCopyFromUkr = async () => {
+    if (!isEng || !ukrCaseId) return;
+
+    const confirmed = confirm(
+      "Скопіювати блоки та метадані з укр версії? Поточні англ. блоки будуть замінені.",
+    );
+    if (!confirmed) return;
+
+    await runAction(
+      "Копіюємо з укр версії...",
+      "Дані скопійовано з укр версії",
+      "Не вдалося скопіювати з укр версії",
+      async () => {
+        await axios.post("/api/adminCasesEng/copy", {
+          direction: "ukr-to-eng",
+          ukrCaseId,
+          engCaseId: caseItem.id,
+        });
+        router.refresh();
+      },
+    );
+  };
+
+  const handleReloadFromEng = async () => {
+    if (!isEng) return;
+
+    const confirmed = confirm(
+      "Завантажити збережену англ. версію? Незбережені зміни на сторінці зникнуть.",
+    );
+    if (!confirmed) return;
+
+    router.refresh();
+    setNotice({ type: "success", text: "Завантажено збережену англ. версію" });
+  };
+
   const saveEdit = async (blockId: number) => {
     await runAction(
       "Зберігаємо зміни...",
@@ -442,7 +504,7 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
           };
         }
 
-        await axios.patch(`/api/admin-boza/cases/blocks/update/${blockId}`, {
+        await axios.patch(blockApi.update(blockId), {
           data: payloadData,
         });
 
@@ -472,14 +534,38 @@ export function ConstructorPage({ caseItem }: { caseItem: CaseItem }) {
       <div className="constructor-page-container">
         <div className="constructor-page-top">
           <div>
-            <p className="constructor-page-label">Конструктор кейсу</p>
+            <p className="constructor-page-label">
+              {isEng ? "Конструктор кейсу (EN)" : "Конструктор кейсу"}
+            </p>
             <h1 className="constructor-page-title">{caseItem.title}</h1>
             <span className="constructor-page-slug">/{caseItem.slug}</span>
           </div>
 
-          <Link href="/admin-boza/cases" className="constructor-page-back">
-            ← Назад до кейсів
-          </Link>
+          <div className="constructor-page-top-actions">
+            {isEng && ukrCaseId && (
+              <>
+                <button
+                  type="button"
+                  className="constructor-copy-btn"
+                  onClick={handleCopyFromUkr}
+                  disabled={isBusy}
+                >
+                  Взяти з укр версії
+                </button>
+                <button
+                  type="button"
+                  className="constructor-copy-btn secondary"
+                  onClick={handleReloadFromEng}
+                  disabled={isBusy}
+                >
+                  Взяти з англ версії
+                </button>
+              </>
+            )}
+            <Link href="/admin-boza/cases" className="constructor-page-back">
+              ← Назад до кейсів
+            </Link>
+          </div>
         </div>
 
         <div className="constructor-layout">

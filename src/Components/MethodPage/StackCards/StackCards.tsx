@@ -3,6 +3,12 @@
 import Image from "next/image";
 import "./StackCards.css";
 import { useWindowWidth } from "../../../../hooks/useWindowWidth";
+import { useLanguage } from "@/lib/useLanguague";
+import {
+  stackCardsEnglishDesktop,
+  stackCardsEnglishMobile,
+  stackCardsEnglishTitle,
+} from "./stackCardsEnglish";
 
 const ImgCards = [
   {
@@ -389,18 +395,26 @@ const generateScale = (index: number) => {
   return FULL_SCALE.slice(start, end);
 };
 
+const stackCardsUkTitle = "проводимо інструктажі СЕО і команд";
+
 export function StackCards() {
   const width = useWindowWidth();
+  const { language } = useLanguage();
+  const sectionTitle =
+    language === "en" ? stackCardsEnglishTitle : stackCardsUkTitle;
+  const desktopCards =
+    language === "en" ? stackCardsEnglishDesktop : textCards;
+  const mobileCards =
+    language === "en" ? stackCardsEnglishMobile : textCardsMobile;
+
   return (
     <section className="stack-cards-section">
       <div className="container">
-        <h2 className="stack-cards-title">
-          проводимо інструктажі СЕО і команд
-        </h2>
+        <h2 className="stack-cards-title">{sectionTitle}</h2>
 
         <div className="stack-cards">
           {width && width >= 700 ? (
-            textCards.map((card, i) => (
+            desktopCards.map((card, i) => (
               <div className="stack-card" key={i}>
                 <div className="stack-cards-text-block">
                   <h2>{card.title}</h2>
@@ -449,7 +463,7 @@ export function StackCards() {
           ) : (
             <div className="stack-mobile">
               <div className="stack-mobile-text-blocks">
-                {textCardsMobile.map((card, i) => (
+                {mobileCards.map((card, i) => (
                   <div className="stack-cards-text-block" key={i}>
                     <h2>{card.title}</h2>
 

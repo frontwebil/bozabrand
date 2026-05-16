@@ -169,65 +169,72 @@ const content = {
       {
         id: 1,
         image: "/Team/1.png",
-        name: "Iryna",
-        position: "Brand Leader, Strategist",
+        name: "IRYNA",
+        position: "Brand leader, Strategist",
         departmentImage: "/Team/department/sensor4.gif",
         departmentAlt: "Balance",
-        departmentTitle: "DEPARTMENT OF BALANCE",
         description: (
           <>
-            She sees 10 steps ahead — and two sideways if a competitor tries
-            something clever. She knows where the business is going before it
-            knows itself.
+            <span>DEPARTMENT OF BALANCE</span>
+            <br />
+            She sees people’s thoughts, their needs and pains, and can provide
+            proper support and enthusiasm.
           </>
         ),
       },
+
       {
         id: 2,
         image: "/Team/2.png",
-        name: "Yana",
+        name: "YANA",
         position: "Project Manager",
         departmentImage: "/Team/department/sensor6.gif",
         departmentAlt: "Touch",
-        departmentTitle: "DEPARTMENT OF TOUCH",
         description: (
           <>
-            She keeps structure, systems, and even Google Drive files in order.
+            <span>DEPARTMENT OF TOUCH</span>
+            <br />
+            She keeps structure, systems — and Google Drive files — in order.
             Chaos is afraid of Yana. Clients love her. The team adores her.
           </>
         ),
       },
+
       {
         id: 3,
         image: "/Team/3.1.png",
-        name: "Aksyon",
+        name: "AKS'ON",
         position: "Art Director, Brand Designer",
         departmentImage: "/Team/department/sensor3.gif",
         departmentAlt: "Sight",
-        departmentTitle: "DEPARTMENT OF SIGHT",
         description: (
           <>
-            He creates and brings ideas to life — products, logos, visuals. When
-            he opens Figma or After Effects, fireworks happen somewhere in the
-            universe.
+            <span>DEPARTMENT OF SIGHT</span>
+            <br />
+            He creates and brings to life. New products, logos, graphics — your
+            marketing dreams.
           </>
         ),
       },
+
       {
         id: 4,
         image: "/Team/4.1.png",
-        name: "Alina",
+        name: "ALINA",
         position: "Brand Designer, Illustrator",
         departmentImage: "/Team/department/sensor3.gif",
         departmentAlt: "Sight",
-        departmentTitle: "DEPARTMENT OF SIGHT",
         description: (
           <>
-            She turns identity, brand, moodboards, strategy, and scattered
-            nerves into one beautiful system.
+            <span>DEPARTMENT OF SIGHT</span>
+            <br />
+            There are two constants in this world: gravity and Alina, who can
+            assemble identity, brand, moodboard, tactical plan, and your
+            scattered nerves into one beautiful system.
           </>
         ),
       },
+
       {
         id: 5,
         image: "/Team/5.1.png",
@@ -235,14 +242,16 @@ const content = {
         position: "Brand Designer",
         departmentImage: "/Team/department/sensor3.gif",
         departmentAlt: "Sight",
-        departmentTitle: "DEPARTMENT OF SIGHT",
         description: (
           <>
-            Meticulous to the micro-pixel. He sits on details until they
-            compromise. Constantly learning, testing, improving everything.
+            <span>DEPARTMENT OF SIGHT</span>
+            <br />
+            Meticulous to the micro-pixel. He explores everything, tests
+            everything, improves everything.
           </>
         ),
       },
+
       {
         id: 6,
         image: "/Team/6.1.png",
@@ -250,15 +259,16 @@ const content = {
         position: "Web Developer / Brand Designer",
         departmentImage: "/Team/department/sensor3.gif",
         departmentAlt: "Sight",
-        departmentTitle: "DEPARTMENT OF SIGHT",
         description: (
           <>
-            She extracts the core essence from complex business data and turns
-            it into a clear symbol. Also builds fast, structured, UX-driven
-            websites.
+            <span>DEPARTMENT OF SIGHT</span>
+            <br />
+            Tanya’s superpower is extracting the core essence from a massive
+            volume of client business information and market analytics.
           </>
         ),
       },
+
       {
         id: 7,
         image: "/Team/7.1.png",
@@ -266,41 +276,44 @@ const content = {
         position: "Photographer",
         departmentImage: "/Team/department/sensor3.gif",
         departmentAlt: "Sight",
-        departmentTitle: "DEPARTMENT OF SIGHT",
         description: (
           <>
-            She doesn’t just capture photos — she captures people, emotion,
-            depth, and story.
+            <span>DEPARTMENT OF SIGHT</span>
+            <br />
+            Maryna doesn’t just capture a shot — she captures a person.
           </>
         ),
       },
+
       {
         id: 8,
         image: "/Team/8.1.png",
-        name: "Olha",
-        position: "Copywriter",
+        name: "OLGA",
+        position: "Creative Copywriter",
         departmentImage: "/Team/department/sensor2.gif",
         departmentAlt: "Sound",
-        departmentTitle: "DEPARTMENT OF SOUND",
         description: (
           <>
-            She generates ideas faster than we can write them down. Inside her
-            is either a small universe or a large portal.
+            <span>DEPARTMENT OF SOUND</span>
+            <br />
+            She generates ideas faster than we can write them down.
           </>
         ),
       },
+
       {
         id: 9,
         image: "/Team/9.1.png",
-        name: "Angelina",
+        name: "Anhelina",
         position: "Illustrator",
         departmentImage: "/Team/department/sensor3.gif",
         departmentAlt: "Sight",
-        departmentTitle: "DEPARTMENT OF SIGHT",
         description: (
           <>
-            She creates hand-drawn worlds, styles, and characters you want to
-            hug — even dragons with bad moods.
+            <span>DEPARTMENT OF SIGHT</span>
+            <br />
+            She creates styles and real hand-drawn artworks, as well as
+            characters and worlds you want to hug.
           </>
         ),
       },

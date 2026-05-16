@@ -1,106 +1,77 @@
+"use client";
+
 import Image from "next/image";
 import "./Strategy.css";
 import Link from "next/link";
+import { useLanguage } from "@/lib/useLanguague";
+import { heroAccordeonPackagesContent } from "@/Components/MainPage/Hero/HeroAccordeon/HeroAccordeon";
 
-const strategyCards = [
-  {
-    title: "На хвилі ідеї",
-    description:
-      "Ти ще не в дорозі, але вже дихаєш океаном мрій. Інтуїція - твій компас, а перші задуми - течія, що кличе. Ти шукаєш свою зграю, складаєш карту курсу й готуєшся вивести бізнес на поверхню.",
-    list: [
-      "ГЛИБИННИЙ ІНСТРУКТАЖ",
-      "КОМАНДНИЙ ІНСТРУКТАЖ",
-      "ДРАЙВОВИЙ ІНСТРУКТАЖ",
-    ],
-    price: "€ 500+",
-    image: "/Strategy/1.png",
-  },
-  {
-    title: "Зграя зростає",
-    description:
-      "З'являються однодумці. Ви ще не одне ціле, але вже рухаєтесь в одному напрямку. Вчитесь плисти разом, зв'язки зміцнюються, але ще легко збитися з курсу. Настає момент закріпити маршрут і не розсипатись в хаосі.",
-    list: [
-      "ІДЕЯ БРЕНДУ",
-      "НАЗВА",
-      "МОВА БРЕНДУ",
-      "ЛОГОТИП",
-      "АЙДЕНТИКА",
-      "ЗАПУСК",
-    ],
-    price: "€ 7 000+",
-    image: "/Strategy/2.png",
-  },
-  {
-    title: "Гра на випередження",
-    description:
-      "Бізнес масштабується. Команда - єдиний організм. Шліфуєш процеси, розтягуєшся в різні напрямки, але керуєш єдиним мозком. Працюєш, водночас, багатозадачність - це не просто пливете, ви маневруєте.",
-    list: [
-      "ДОСЛІДЖЕННЯ",
-      "БРЕНД-ПЛАТФОРМА",
-      "ФІРМОВИЙ СТИЛЬ",
-      "РЕКЛАМНА КАМПАНІЯ",
-      "МЕДІА ПРОСУВАННЯ",
-      "КРЕАТИВНИЙ ПЛАН",
-    ],
-    price: "€ 10 000+",
-    image: "/Strategy/3.png",
-  },
-  {
-    title: "Океанічний масштаб",
-    description:
-      "Присутність компанії відчутна в глибинах і на поверхні. Бізнес - впливовий гравець, цін не боїться глибоких вод. Компетентність — твоя течія, мудрість — твій ритм. Ти не частина потоку - ти його творець.",
-    list: [
-      "БРЕНД ПРОДУКТІВ",
-      "ДОСЛІДЖЕННЯ CRM",
-      "HR БРЕНД",
-      "ПРЕЗЕНТАЦІЯ ПАРТНЕРАМ",
-      "ПАРТНЕРСТВО",
-      "РЕКЛАМНА КАМПАНІЯ",
-    ],
-    price: "€ 12 000+",
-    image: "/Strategy/4.png",
-  },
+const strategyImages = [
+  "/Strategy/1.png",
+  "/Strategy/2.png",
+  "/Strategy/3.png",
+  "/Strategy/4.png",
 ];
 
+const sectionTitle = {
+  uk: "Стратегічні рішення",
+  en: "Strategic solutions",
+};
+
+const contactLabel = {
+  uk: "звʼязатися",
+  en: "Get in touch",
+};
+
+function formatStrategyPrice(budget: string) {
+  if (budget.startsWith("€ ") || budget.startsWith("€\u00a0")) return budget;
+  if (budget.startsWith("€")) return `€ ${budget.slice(1)}`;
+  return budget;
+}
+
 export function Strategy() {
+  const { language } = useLanguage();
+  const pack = heroAccordeonPackagesContent[language];
+  const tTitle = sectionTitle[language];
+  const tContact = contactLabel[language];
+
   return (
     <section className="strategy">
       <div className="container">
-        <h2 className="strategy-title">Стратегічні рішення</h2>
+        <h2 className="strategy-title">{tTitle}</h2>
 
         <div className="strategy-cards">
-          {strategyCards.map((card, i) => (
-            <div className="strategy-card" key={i}>
-              <h2 className="strategy-card-title">{card.title}</h2>
+          {pack.items.map((item, i) => (
+            <div className="strategy-card" key={item.title}>
+              <h2 className="strategy-card-title">{item.title}</h2>
 
-              <p className="strategy-card-description">{card.description}</p>
+              <p className="strategy-card-description">{item.text}</p>
 
               <div className="strategy-card-row">
                 <div className="strategy-card-left-text">
-                  <h3>Що ми пропонуємо</h3>
+                  <h3>{pack.offersTitle}</h3>
 
                   <ul className="strategy-card-left-text-list">
-                    {card.list.map((item, index) => (
-                      <li key={index}>{item}</li>
+                    {item.offers.map((offer) => (
+                      <li key={offer}>{offer}</li>
                     ))}
                   </ul>
                 </div>
 
                 <Image
-                  src={card.image}
+                  src={strategyImages[i]}
                   width={200}
                   height={200}
-                  alt={card.title}
+                  alt={item.title}
                 />
               </div>
 
               <div className="strategy-card-price">
                 <div className="strategy-card-column">
-                  <h3>Бюджет : {card.price}</h3>
-                  <p>
-                    Детальний розрахунок вартості формується після заповнення
-                    брифу
-                  </p>
+                  <h3>
+                    {pack.budgetTitle} : {formatStrategyPrice(item.budget)}
+                  </h3>
+                  <p>{item.budgetText}</p>
                 </div>
 
                 <Link
@@ -108,13 +79,11 @@ export function Strategy() {
                   target="_blank"
                   className="strategy-card-price-button"
                 >
-                  звʼязатися
+                  {tContact}
                 </Link>
               </div>
               <p className="hero-accordeon-card-text-gray-premitka">
-                Ціни на сайті наведені в євро. Розрахунок здійснюється в гривнях
-                за офіційним курсом Національного банку України на день
-                здійснення платежу згідно з чинним законодавством України.
+                {pack.note}
               </p>
             </div>
           ))}

@@ -8,6 +8,7 @@ import { useLanguage } from "@/lib/useLanguague";
 
 const content = {
   uk: {
+    logo: "/Footer/footer-logo.svg",
     intro:
       "І щоб ми могли краще підготуватися до розмови, допоможіть нам відчути ваш запит, заповнивши цю вступну форму",
     brief: "БРИФ",
@@ -22,6 +23,7 @@ const content = {
   },
 
   en: {
+    logo: "/Footer/footer-logo-eng.svg",
     intro:
       "To better prepare for our conversation, help us understand your request by filling out this introduction form",
     brief: "BRIEF",
@@ -47,7 +49,7 @@ export function Footer() {
       <footer className="footer">
         <div className="footer-top">
           <Image
-            src={"/Footer/footer-logo.svg"}
+            src={t.logo}
             alt="BOZABRAND"
             width={1000}
             height={65}

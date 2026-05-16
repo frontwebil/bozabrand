@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
 import "./SwapSections.css";
+import { useLanguage } from "@/lib/useLanguague";
 
 gsap.registerPlugin(Draggable);
 
@@ -17,8 +18,6 @@ const photos = [
     rotate: -8,
     width: "16vw",
   },
-  // left: 30%;
-  // top: 65%;
   {
     id: 2,
     type: "button",
@@ -111,25 +110,51 @@ const photos = [
   },
 ] as const;
 
-const directions = [
-  "Графічні дизайнери",
-  "Ілюстратори",
-  "Дизайнери шрифтів",
-  "Архітектори",
-  "Дизайнери інтер’єру",
-  "Продакшн",
-  "Моушн-дизайнери",
-  "CGI-художники",
-  "Діджитал-агенції",
-  "Фотографи",
-  "Стратеги",
-  "SMM-агенції",
-  "Проєктні менеджери",
-  "Копірайтери",
-];
+const content = {
+  uk: {
+    directions: [
+      "Графічні дизайнери",
+      "Ілюстратори",
+      "Дизайнери шрифтів",
+      "Архітектори",
+      "Дизайнери інтер’єру",
+      "Продакшн",
+      "Моушн-дизайнери",
+      "CGI-художники",
+      "Діджитал-агенції",
+      "Фотографи",
+      "Стратеги",
+      "SMM-агенції",
+      "Проєктні менеджери",
+      "Копірайтери",
+    ],
+  },
+
+  en: {
+    directions: [
+      "Graphic Designers",
+      "Illustrators",
+      "Type Designers",
+      "Architects",
+      "Interior Designers",
+      "Production",
+      "Motion Designers",
+      "CGI Artists",
+      "Digital Agencies",
+      "Photographers",
+      "Strategists",
+      "SMM Agencies",
+      "Project Managers",
+      "Copywriters",
+    ],
+  },
+};
 
 export function SwapSections() {
   const stageRef = useRef<HTMLDivElement | null>(null);
+  const { language } = useLanguage();
+
+  const t = content[language];
 
   useEffect(() => {
     if (!stageRef.current) return;
@@ -188,8 +213,9 @@ export function SwapSections() {
 
       <div className="container">
         <div className="people-photos-people-text">(ЛЮДИ)</div>
+
         <div className="people-photos-people-row">
-          {directions.map((direct, i) => (
+          {t.directions.map((direct, i) => (
             <p
               key={i}
               className="people-photos-people-row-item"

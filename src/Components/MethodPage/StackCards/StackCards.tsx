@@ -12,6 +12,10 @@ import {
 
 const ImgCards = [
   {
+    bgImage: "/Method/StackCards/bg0.png",
+    image: "/Method/StackCards/img0v2.png",
+  },
+  {
     bgImage: "/Method/StackCards/bg1.png",
     image: "/Method/StackCards/img1v2.png",
   },
@@ -38,6 +42,23 @@ const ImgCards = [
 ];
 
 const textCards = [
+  {
+    title: "ВСТАНОВЛЮЄМО КОНТАКТ",
+    sections: [
+      {
+        title: "проводимо інструктажі СЕО і команд",
+        list: [
+          "Розробляємо центральну ідею",
+          "Масштабуємо ідею на обрані формати комунікації",
+          "Запускаємо таргетовану рекламу",
+          "Працюємо з лідерами думок",
+          "Контролюємо хід проведення рекламної кампанії",
+          "Аналізуємо KPI",
+        ],
+      },
+
+    ],
+  },
   {
     title: "РЕГУЛЮЄМО ЗВУК",
     sections: [

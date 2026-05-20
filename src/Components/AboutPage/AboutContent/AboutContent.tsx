@@ -5,20 +5,20 @@ import "./AboutContent.css";
 import { useLanguage } from "@/lib/useLanguague";
 
 const importants = [
-  "завжди граємо по-чесному.",
+  "завжди граємо по-чесному",
   "Дисципліна",
   "Безперервне навчання",
   "Високі стандарти роботи і життя",
-  "Людина - найбільша цінність.",
+  "Людина - найбільша цінність",
   "Взаємоповага і субординація",
 ];
 
 const importantsEng = [
-  "We always play fair.",
+  "We always play fair",
   "Discipline",
   "Continuous learning",
   "High standards of work and life",
-  "People are the greatest value.",
+  "People are the greatest value",
   "Mutual respect and subordination",
 ];
 
@@ -26,7 +26,7 @@ export function AboutContent() {
   const content = {
     uk: {
       aboutContentRightTitle:
-        "Ми існуємо для того, щоб робити клієнтський досвід унікальним",
+        "Ми існуємо для того, щоб створювати унікальний клієнтський досвід",
       aboutContentRightTextH: (
         <p className="about-content-right-text-h">
           Ми працюємо над зміною фрейму мислення засновників бізнесів так, щоб
@@ -41,7 +41,7 @@ export function AboutContent() {
         "Ми - команда неповерхневих креаторів проникливих брендів блакитної планети",
     },
     en: {
-      aboutContentRightTitle: "We exist to make the customer experience unique",
+      aboutContentRightTitle: "We exist to create a unique customer experience",
       aboutContentRightTextH: (
         <p className="about-content-right-text-h">
           We are working on changing the mindset of business founders so that

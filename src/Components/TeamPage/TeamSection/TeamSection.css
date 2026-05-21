@@ -161,7 +161,7 @@
 
   .team-img img {
     width: 100%;
-    height: 305px;
+    aspect-ratio: 1 / 1;
     display: block;
   }
 }

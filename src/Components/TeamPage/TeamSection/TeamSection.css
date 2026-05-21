@@ -86,7 +86,7 @@
 }
 
 .team-img-page img {
-  max-height: 302px;
+  aspect-ratio: 1 / 1;
 }
 
 .team-card-top-position {

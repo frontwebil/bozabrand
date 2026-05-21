@@ -1,12 +1,38 @@
 export type StackCardSection = { title: string; list: string[] };
 
-export type StackTextCard = { title: string; sections: StackCardSection[] };
+export type StackTextCard = {
+  title: string;
+  sideTitle?: string;
+  sections: StackCardSection[];
+};
 
 export const stackCardsEnglishTitle =
   "We conduct briefings for CEOs and teams.";
 
 /** Desktop ≥700px */
 export const stackCardsEnglishDesktop: StackTextCard[] = [
+  {
+    title: "ESTABLISHING CONTACT",
+    sideTitle: "We conduct briefings for CEOs and teams.",
+    sections: [
+      {
+        title: "IN-DEPTH BRIEFING:",
+        list: ['"Think Like a Brand" training'],
+      },
+      {
+        title: "TEAM BRIEFING:",
+        list: [
+          "facilitation for brand and marketing teams",
+        ],
+      },
+      {
+        title: "DRIVE BRIEFING:",
+        list: [
+          "mind map building, business diagnostics, idea generation, business model restructuring",
+        ],
+      },
+    ],
+  },
   {
     title: "ADJUST THE SOUND",
     sections: [

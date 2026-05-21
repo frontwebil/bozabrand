@@ -131,7 +131,72 @@
   line-height: 100%;
 }
 
+.stack-card--first .stack-cards-text-block {
+  background: #ffffff;
+}
+
+.stack-card--first .stack-cards-text-block-content {
+  flex-direction: row;
+  align-items: stretch;
+  /* flex: 1; */
+  gap: 40px;
+}
+
+.stack-card--first .stack-cards-text-block-content-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.stack-card--first .stack-cards-side-title {
+  flex-shrink: 0;
+  max-width: 155px;
+  width: 100%;
+  margin: 0;
+  padding-top: 35px;
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+
+.stack-card--first .stack-cards-text-block-content-card {
+  padding: 15px 0;
+  gap: 20px;
+  flex-direction: column;
+  border: none;
+}
+
+.stack-card--first .stack-cards-text-block-content-card:first-of-type {
+  border: none;
+  padding-top: 35px;
+}
+
+.stack-card--first .stack-cards-text-block-content-card h3 {
+  max-width: 100%;
+}
+
+.stack-card--first .stack-cards-text-block-content-card-list li {
+  line-height: 120%;
+  margin-left: 20px;
+}
+
+.stack-cards-img-block--first img {
+  width: 45%;
+  margin-left: 0;
+}
+
 @media (max-width: 1100px) {
+  .stack-card--first .stack-cards-text-block-content {
+    gap: 20px;
+  }
+
+  .stack-card--first .stack-cards-side-title {
+    max-width: 120px;
+    font-size: 16px;
+  }
+
   .stack-cards-img-block {
     max-width: 40%;
   }

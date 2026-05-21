@@ -41,22 +41,33 @@ const ImgCards = [
   },
 ];
 
+const SCALE_STEP = 100;
+const SCALE_MAX = 11000;
+const CARD_COUNT = ImgCards.length;
+const FULL_SCALE = Array.from(
+  { length: SCALE_MAX / SCALE_STEP + 1 },
+  (_, i) => i * SCALE_STEP,
+);
+
 const textCards = [
   {
     title: "ВСТАНОВЛЮЄМО КОНТАКТ",
+    sideTitle: "проводимо інструктажі СЕО і команд",
     sections: [
       {
-        title: "проводимо інструктажі СЕО і команд",
+        title: "ГЛИБИННИЙ ІНСТРУКТАЖ:",
+        list: ["навчання «Мисли як бренд»"],
+      },
+      {
+        title: "КОМАНДНИЙ ІНСТРУКТАЖ:",
+        list: ["фасилітація роботи бренд- та маркетинг-команд"],
+      },
+      {
+        title: "ДРАЙВОВИЙ ІНСТРУКТАЖ:",
         list: [
-          "Розробляємо центральну ідею",
-          "Масштабуємо ідею на обрані формати комунікації",
-          "Запускаємо таргетовану рекламу",
-          "Працюємо з лідерами думок",
-          "Контролюємо хід проведення рекламної кампанії",
-          "Аналізуємо KPI",
+          "побудова майнд-мепу, діагностика бізнесу, генерація ідей, перезбірка бізнес-моделі",
         ],
       },
-
     ],
   },
   {
@@ -406,12 +417,10 @@ const textCardsMobile = [
   },
 ];
 
-const FULL_SCALE = Array.from({ length: 101 }, (_, i) => 1000 + i * 100);
-
-const generateScale = (index: number) => {
-  const itemsPerCard = 17;
+const generateScale = (index: number, totalCards: number = CARD_COUNT) => {
+  const itemsPerCard = Math.ceil(FULL_SCALE.length / totalCards);
   const start = index * itemsPerCard;
-  const end = start + itemsPerCard;
+  const end = Math.min(start + itemsPerCard, FULL_SCALE.length);
 
   return FULL_SCALE.slice(start, end);
 };
@@ -435,52 +444,88 @@ export function StackCards() {
 
         <div className="stack-cards">
           {width && width >= 700 ? (
-            desktopCards.map((card, i) => (
-              <div className="stack-card" key={i}>
-                <div className="stack-cards-text-block">
-                  <h2>{card.title}</h2>
+            desktopCards.map((card, i) => {
+              const isFirstCard = i === 0;
+              const sideTitle =
+                "sideTitle" in card
+                  ? (card as { sideTitle?: string }).sideTitle
+                  : undefined;
 
-                  <div className="stack-cards-text-block-content">
-                    {card.sections.map((section, index) => (
-                      <div
-                        className="stack-cards-text-block-content-card"
-                        key={index}
-                      >
-                        <h3>{section.title}</h3>
-
-                        <ul className="stack-cards-text-block-content-card-list">
-                          {section.list.map((item, itemIndex) => (
-                            <li key={itemIndex}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              return (
                 <div
-                  className="stack-cards-img-block"
-                  style={{ backgroundImage: `url(${ImgCards[i].bgImage})` }}
+                  className={`stack-card${isFirstCard ? " stack-card--first" : ""}`}
                   key={i}
                 >
-                  <div className="bottom-scale left">
-                    <div className="bottom-scale-track">
-                      {generateScale(i).map((num, index) => (
-                        <div className="bottom-scale-item" key={index}>
-                          <span className="bottom-scale-dot"></span>
-                          <span className="bottom-scale-number">- {num}</span>
-                        </div>
-                      ))}
+                  <div
+                    className={`stack-cards-text-block${isFirstCard ? " stack-cards-text-block--first" : ""}`}
+                  >
+                    <h2>{card.title}</h2>
+
+                    <div className="stack-cards-text-block-content">
+                      {isFirstCard && sideTitle ? (
+                        <>
+                          <p className="stack-cards-side-title">{sideTitle}</p>
+                          <div className="stack-cards-text-block-content-main">
+                            {card.sections.map((section, index) => (
+                              <div
+                                className="stack-cards-text-block-content-card"
+                                key={index}
+                              >
+                                <h3>{section.title}</h3>
+
+                                <ul className="stack-cards-text-block-content-card-list">
+                                  {section.list.map((item, itemIndex) => (
+                                    <li key={itemIndex}>{item}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
+                        </>
+                      ) : (
+                        card.sections.map((section, index) => (
+                          <div
+                            className="stack-cards-text-block-content-card"
+                            key={index}
+                          >
+                            <h3>{section.title}</h3>
+
+                            <ul className="stack-cards-text-block-content-card-list">
+                              {section.list.map((item, itemIndex) => (
+                                <li key={itemIndex}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))
+                      )}
                     </div>
                   </div>
-                  <Image
-                    src={ImgCards[i].image}
-                    width={500}
-                    height={500}
-                    alt={`card-${i + 1}`}
-                  />
+                  <div
+                    className={`stack-cards-img-block${isFirstCard ? " stack-cards-img-block--first" : ""}`}
+                    style={{ backgroundImage: `url(${ImgCards[i].bgImage})` }}
+                  >
+                    <div className="bottom-scale left">
+                      <div className="bottom-scale-track">
+                        {generateScale(i, desktopCards.length).map((num, index) => (
+                          <div className="bottom-scale-item" key={index}>
+                            <span className="bottom-scale-dot"></span>
+                            <span className="bottom-scale-number">
+                              - {num}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <Image
+                      src={ImgCards[i].image}
+                      width={500}
+                      height={500}
+                      alt={`card-${i + 1}`}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))
+              );
+            })
           ) : (
             <div className="stack-mobile">
               <div className="stack-mobile-text-blocks">
@@ -516,7 +561,7 @@ export function StackCards() {
                   >
                     <div className="bottom-scale left">
                       <div className="bottom-scale-track">
-                        {generateScale(i).map((num, index) => (
+                        {generateScale(i, ImgCards.length).map((num, index) => (
                           <div className="bottom-scale-item" key={index}>
                             <span className="bottom-scale-dot"></span>
                             <span className="bottom-scale-number">- {num}</span>

@@ -66,29 +66,6 @@ export function BestProducts() {
         uk: "Інжиніринг",
         en: "Engineering",
       },
-      title: "Techinn",
-      image: "/Best/2.png",
-      tags: {
-        uk: [
-          "Стратегія бренду",
-          "Айдентика",
-          "Фірмовий стиль",
-          "Виставкові комунікації",
-        ],
-        en: [
-          "Brand Strategy",
-          "Brand Identity",
-          "Corporate Identity",
-          "Trade Show Communications",
-        ],
-      },
-      link: "/cases/techinn",
-    },
-    {
-      category: {
-        uk: "Інжиніринг",
-        en: "Engineering",
-      },
       title: "Strong & Young",
       image: "/Best/3.png",
       tags: {
@@ -106,6 +83,29 @@ export function BestProducts() {
         ],
       },
       link: "/cases/strong-and-young",
+    },
+    {
+      category: {
+        uk: "Інжиніринг",
+        en: "Engineering",
+      },
+      title: "Techinn",
+      image: "/Best/2.png",
+      tags: {
+        uk: [
+          "Стратегія бренду",
+          "Айдентика",
+          "Фірмовий стиль",
+          "Виставкові комунікації",
+        ],
+        en: [
+          "Brand Strategy",
+          "Brand Identity",
+          "Corporate Identity",
+          "Trade Show Communications",
+        ],
+      },
+      link: "/cases/techinn",
     },
   ];
 

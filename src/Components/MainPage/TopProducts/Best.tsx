@@ -93,18 +93,16 @@ export function BestProducts() {
       image: "/Best/3.png",
       tags: {
         uk: [
-          "Бренд-платформа",
-          "Стратегія бренду",
-          "Комунікації",
+          "Бренд платформа",
+          "Стратегія Комунікації",
           "Айдентика",
           "Фірмовий стиль",
         ],
         en: [
           "Brand Platform",
-          "Brand Strategy",
           "Communication Strategy",
           "Brand Identity",
-          "Corporate style",
+          "Corporate Style",
         ],
       },
       link: "/cases/strong-and-young",

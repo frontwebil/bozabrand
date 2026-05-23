@@ -101,7 +101,7 @@ export function BestProducts() {
         ],
         en: [
           "Brand Platform",
-          "Strategy Brand",
+          "Brand Strategy",
           "Communication Strategy",
           "Brand Identity",
           "Corporate style",

@@ -93,15 +93,15 @@ export function BestProducts() {
       image: "/Best/3.png",
       tags: {
         uk: [
-          "Бренд",
-          "Платформа стратегія",
+          "Бренд-платформа",
+          "Стратегія бренду",
           "Комунікації",
           "Айдентика",
           "Фірмовий стиль",
         ],
         en: [
-          "Brand",
-          "Platform Strategy",
+          "Brand Platform",
+          "Strategy Brand",
           "Communication Strategy",
           "Brand Identity",
           "Corporate style",

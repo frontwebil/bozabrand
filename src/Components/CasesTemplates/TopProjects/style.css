@@ -88,7 +88,7 @@
   margin-top: auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 10px 6px;
 }
 
 .top-projects-case-category {
@@ -99,11 +99,13 @@
   text-align: center;
   vertical-align: middle;
 
-  padding: 12px 20px;
+  text-transform: uppercase;
+
+  padding: 5px 10px;
   border-radius: 100px;
 
-  border: 1px solid rgba(220, 220, 220, 1);
-  background: rgba(255, 255, 255, 0.3);
+  background: #8a8a8a4d;
+  border: 1px solid #fff;
 }
 
 @media (max-width: 1200px) {

@@ -1,7 +1,11 @@
 import { CaseDetailContent } from "@/Components/Cases/CaseDetailContent";
 import { Footer } from "@/Components/Layout/Footer/Footer";
 import { Header } from "@/Components/Layout/Header/Header";
-import { PublicCaseDetail } from "@/lib/casesLocale";
+import {
+  pickTopCasesAroundCurrent,
+  PublicCase,
+  PublicCaseDetail,
+} from "@/lib/casesLocale";
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import "./style.css";
@@ -54,7 +58,7 @@ function toPublicCaseDetail(
 export default async function CasePage({ params }: Props) {
   const { slug } = await params;
 
-  const [ukCase, enCase, ukTopCases, enTopCases] = await Promise.all([
+  const [ukCase, enCase, ukTopCasesRaw, enTopCasesRaw] = await Promise.all([
     prisma.case.findUnique({
       where: { slug },
       include: {
@@ -70,16 +74,20 @@ export default async function CasePage({ params }: Props) {
     prisma.case.findMany({
       where: { isPublished: true },
       orderBy: { order: "asc" },
-      take: 2,
       select: caseListSelect,
     }),
     prisma.caseEng.findMany({
       where: { isPublished: true },
       orderBy: { order: "asc" },
-      take: 2,
       select: caseListSelect,
     }),
   ]);
+
+  const ukTopCases = pickTopCasesAroundCurrent(ukTopCasesRaw, slug, 2);
+  const enBySlug = new Map(enTopCasesRaw.map((item) => [item.slug, item]));
+  const enTopCases = ukTopCases.map(
+    (item) => enBySlug.get(item.slug) ?? item,
+  ) as PublicCase[];
 
   const ukPublished = ukCase?.isPublished ? toPublicCaseDetail(ukCase) : null;
   const enPublished = enCase?.isPublished ? toPublicCaseDetail(enCase) : null;

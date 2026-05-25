@@ -33,9 +33,12 @@ export function CaseDetailContent({
   );
 
   const topCases = useMemo(() => {
+    if (!caseItem) {
+      return [];
+    }
     const list = pickCasesList(language, ukTopCases, enTopCases);
-    return list.slice(0, 2);
-  }, [language, ukTopCases, enTopCases]);
+    return list.filter((item) => item.slug !== caseItem.slug).slice(0, 2);
+  }, [language, ukTopCases, enTopCases, caseItem]);
 
   if (!caseItem) {
     return null;

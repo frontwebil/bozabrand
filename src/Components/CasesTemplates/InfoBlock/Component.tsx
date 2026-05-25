@@ -28,9 +28,7 @@ function renderTeamRow(item: string, key: string) {
 export function CaseInfo({ data }: { data?: CaseInfoData }) {
   const category = data?.category || "";
   const title = data?.title || "";
-  const description =
-    data?.description ||
-    "";
+  const description = data?.description || "";
   const client = data?.client || "";
   const time = data?.time || "";
   const expertise = data?.expertise ?? [];
@@ -86,7 +84,9 @@ export function CaseInfo({ data }: { data?: CaseInfoData }) {
           <div className="case-info__table case-info__table--info">
             <div className="case-info__columns">
               <div className="case-info__column">
-                <span className="case-info__label">ЕКСТРАСЕНСОРИ BOZABRAND</span>
+                <span className="case-info__label">
+                  ЕКСТРАСЕНСОРИ BOZABRAND
+                </span>
                 <div className="case-info__list">
                   {extrasensors.map((item, index) =>
                     renderTeamRow(item, `extrasensors-${index}`),
@@ -98,7 +98,9 @@ export function CaseInfo({ data }: { data?: CaseInfoData }) {
               <div className="case-info__column-inner">
                 {sensoryIntegration.length > 0 && (
                   <div className="case-info__column">
-                    <span className="case-info__label">СЕНСОРНА ІНТЕГРАЦІЯ</span>
+                    <span className="case-info__label">
+                      СЕНСОРНА ІНТЕГРАЦІЯ
+                    </span>
                     <div className="case-info__list">
                       {sensoryIntegration.map((item, index) =>
                         renderTeamRow(item, `sensory-${index}`),
@@ -106,14 +108,16 @@ export function CaseInfo({ data }: { data?: CaseInfoData }) {
                     </div>
                   </div>
                 )}
-                <div className="case-info__column">
-                  <span className="case-info__label">КОМАНДА ДАЙВЕРА</span>
-                  <div className="case-info__list">
-                    {driverTeam.map((item, index) =>
-                      renderTeamRow(item, `driver-${index}`),
-                    )}
+                {driverTeam.length > 0 && (
+                  <div className="case-info__column">
+                    <span className="case-info__label">КОМАНДА ДАЙВЕРА</span>
+                    <div className="case-info__list">
+                      {driverTeam.map((item, index) =>
+                        renderTeamRow(item, `driver-${index}`),
+                      )}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>

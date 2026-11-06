@@ -13,7 +13,7 @@
 }
 
 .hero-accordeon-card-section-title {
-  font-family: Wix Madefor Text;
+  font-family: Mulish;
   font-weight: 500;
   font-size: 22px;
   line-height: 26px;
@@ -37,6 +37,7 @@
   font-size: 20px;
   line-height: 23px;
   text-transform: uppercase;
+  font-family: Mulish;
 }
 
 .hero-accordeon-card-text {

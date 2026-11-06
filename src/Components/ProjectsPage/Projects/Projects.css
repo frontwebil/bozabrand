@@ -25,7 +25,8 @@
   text-align: center;
 }
 .project-card-title {
-  font-family: Nunito Sans;
+  font-family: Mulish;
+
   font-weight: 600;
   font-size: 72px;
   line-height: 45px;
@@ -36,7 +37,8 @@
 .project-card-text {
   max-width: 440px;
   padding-top: 10px;
-  font-family: Wix Madefor Text;
+  font-family: Mulish;
+
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;

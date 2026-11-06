@@ -121,6 +121,7 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 25px;
+  font-family: Mulish;
 }
 .footer-content-left {
   max-width: 450px;
@@ -158,6 +159,7 @@
   font-size: 16.2px;
   line-height: 16.24px;
   transition: all 0.3s ease;
+  font-family: Mulish;
 }
 
 .footer-content-nav-link:hover {

@@ -30,7 +30,8 @@
 }
 
 .numbers-advantges-top {
-  font-family: Nunito Sans;
+  font-family: Mulish;
+
   font-weight: 500;
   font-size: 24px;
   line-height: 24px;
@@ -91,6 +92,7 @@
 }
 
 .numbers-advantages-number-circles p {
+  font-family: Mulish;
   font-weight: 400;
   font-size: 26px;
   line-height: 100%;
@@ -124,8 +126,7 @@
 }
 
 @media (max-width: 650px) {
-
-  .numbers-advantages-number-circles{
+  .numbers-advantages-number-circles {
     max-width: 155px;
   }
   .numbers-advantages-number.s,
@@ -144,4 +145,3 @@
     gap: 25px;
   }
 }
-

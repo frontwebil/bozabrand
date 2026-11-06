@@ -38,6 +38,8 @@
   font-size: 24px;
   line-height: 35px;
   text-transform: uppercase;
+  font-family: Mulish;
+
 }
 
 .best-products-top a {
@@ -107,6 +109,8 @@
   color: #ffffff;
   font-size: 64px;
   padding: 170px 0 50px;
+  font-family: Mulish;
+
 }
 .best-products-team-text-top {
   display: flex;
